@@ -145,6 +145,9 @@ minetest.register_node("ethereal:pineleaves", {
 			{	items = {'ethereal:pine_tree_sapling'},
 				rarity = 20,
 			},
+			{	items = {'ethereal:pine_nuts'},
+				rarity = 5,
+			},
 			{
 				items = {'ethereal:pineleaves'},
 			}
@@ -221,7 +224,7 @@ minetest.register_node("ethereal:fern", {
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {'ethereal:fern_tubers'},rarity = 10},
+			{items = {'ethereal:fern_tubers'},rarity = 6},
 			{items = {'ethereal:fern'}},
 		}
 	},
@@ -450,6 +453,13 @@ minetest.register_craft({
 	recipe = "ethereal:banana_dough"
 })
 
+-- Pine Nuts (Heals 1/2 heart when eaten)
+minetest.register_craftitem("ethereal:pine_nuts", {
+	description = "Pine Nuts",
+	inventory_image = "pine_nuts.png",
+	on_use = minetest.item_eat(1),
+})
+
 -- Banana Bread (Heals 3 hearts when eaten)
 minetest.register_craftitem("ethereal:banana_bread", {
 	description = "Banana Bread",
@@ -462,6 +472,11 @@ minetest.register_node("ethereal:strawberry_bush", {
 	drawtype = "plantlike",
 	walkable = false,
 	paramtype = "light",
+	visual_scale = 0.8,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+	},
 	description = "Strawberry Bush",
 	tiles = {"strawberry_bush.png"},
 	is_ground_content = true,

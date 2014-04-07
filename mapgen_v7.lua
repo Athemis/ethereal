@@ -723,13 +723,13 @@ end)
 -- Have papyrus grow on ethereal green dirt
 minetest.register_abm({
 	nodenames = {"default:papyrus"},
-	neighbors = {"default:dirt", "ethereal:green_dirt_top"},
+	neighbors = {"default:dirt", "ethereal:green_dirt_top", "ethereal:jungle_dirt"},
 	interval = 50,
 	chance = 20,
 	action = function(pos, node)
 		pos.y = pos.y-1
 		local name = minetest.get_node(pos).name
-		if name == "default:dirt" or name == "ethereal:green_dirt_top" then
+		if name == "default:dirt" or name == "ethereal:green_dirt_top" or name == "ethereal:jungle_dirt" then
 			if minetest.find_node_near(pos, 3, {"group:water"}) == nil then
 				return
 			end
