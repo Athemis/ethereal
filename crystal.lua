@@ -1,6 +1,6 @@
 --= Register Crystal Items
 
--- Crystal Spike (Hurts if you touch it)
+-- Crystal Spike (Hurts if you touch it - thanks to ZonerDarkRevention for his DokuCraft DeviantArt crystal texture)
 minetest.register_node("ethereal:crystal_spike", {
 	description = "Crystal Spike",
 	drawtype = "plantlike",
@@ -13,6 +13,10 @@ minetest.register_node("ethereal:crystal_spike", {
 	damage_per_second = 1,
 	groups = {cracky=3},
 	sounds = default.node_sound_glass_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 })
 
 -- Crystal Ingot and Recipe
