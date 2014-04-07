@@ -1,3 +1,5 @@
+--= This section deals with framing of Wild Onions
+
 local function place_seed(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
 	-- check if pointing at a node

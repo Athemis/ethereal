@@ -1,4 +1,6 @@
--- ADDED TenPlus1 (Crystal Spike)
+--= Register Crystal Items
+
+-- Crystal Spike (Hurts if you touch it)
 minetest.register_node("ethereal:crystal_spike", {
 	description = "Crystal Spike",
 	drawtype = "plantlike",
@@ -13,7 +15,7 @@ minetest.register_node("ethereal:crystal_spike", {
 	sounds = default.node_sound_glass_defaults(),
 })
 
--- ADDED TenPlus1 (Crystal Ingot)
+-- Crystal Ingot and Recipe
 minetest.register_craftitem("ethereal:crystal_ingot", {
 	description = "Crystal Ingot",
 	inventory_image = "crystal_ingot.png",
@@ -28,7 +30,7 @@ minetest.register_craft({
 	}
 })
 
--- TenPlus1 (Crystal Sword)
+-- Crystal Sword and Recipe (Powerful wee beastie)
 minetest.register_tool("ethereal:sword_crystal", {
 	description = "Crystal Sword",
 	inventory_image = "crystal_sword.png",
@@ -51,7 +53,7 @@ minetest.register_craft({
 	}
 })
 
--- ADDED TenPlus1 (Crystal Pick)
+-- Crystal Pick and Recipe (This will last a while)
 minetest.register_tool("ethereal:pick_crystal", {
 	description = "Crystal Pickaxe",
 	inventory_image = "crystal_pick.png",
@@ -74,19 +76,7 @@ minetest.register_craft({
 	}
 })
 
--- ADDED TenPlus1 (Check if Crystal Gilly Staff in Hand, breathe underwater)
-minetest.register_globalstep(function(dtime)
-	for _, player in ipairs(minetest.get_connected_players()) do
-		if math.random() < 0.1 then
-			if player:get_inventory():get_stack("main", player:get_wield_index()):get_name() == "ethereal:crystal_gilly_staff"
-			and player:get_breath() < 10 then
-				player:set_breath(10)
-			end
-
-		end
-	end
-
-end)
+-- Crystal Gilly Staff and Recipe (When held it allows you to breath underwater)
 
 minetest.register_craftitem("ethereal:crystal_gilly_staff", {
 	description = "Crystal Gilly Staff",
@@ -111,7 +101,43 @@ minetest.register_craft({
 	}
 })
 
--- ADDED TenPlus1 (Ladder recipe, gives 2 instead of 1)
+-- Check if Crystal Gilly Staff is in hand
+minetest.register_globalstep(function(dtime)
+	for _, player in ipairs(minetest.get_connected_players()) do
+		if math.random() < 0.1 then
+			if player:get_inventory():get_stack("main", player:get_wield_index()):get_name() == "ethereal:crystal_gilly_staff"
+			and player:get_breath() < 10 then
+				player:set_breath(10)
+			end
+
+		end
+	end
+
+end)
+
+--= Additional Items
+
+-- Glostone and Recipe (A little bit of light decoration)
+minetest.register_node("ethereal:glostone", {
+	description = "Glo Stone",
+	tiles = {"glostone.png"},
+	is_ground_content = true,
+	groups = {cracky=3, stone=1},
+	light_source = LIGHT_MAX - 1,
+	drop = 'ethereal:glostone',
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = 'ethereal:glostone',
+	recipe = {
+		{'default:torch', 'default:stone', 'dye:yellow'},
+		{'', '', ''},
+		{'', '', ''},
+	}
+})
+
+-- Ladder (Changes default recipe to give 2x ladders instead of only 1)
 minetest.register_craft({
 	output = 'default:ladder 2',
 	recipe = {

@@ -1,3 +1,5 @@
+--= This section deals with farming of mushrooms
+
 local function place_seed(itemstack, placer, pointed_thing, plantname)
 	local pt = pointed_thing
 	-- check if pointing at a node
@@ -43,9 +45,9 @@ end
 
 
 minetest.register_craftitem("ethereal:mushroom_craftingitem", {
-	description = "Mushroom",
+	description = "Mushroom Spores",
 	groups = {not_in_creative_inventory=1},
-	inventory_image = "mushroom.png",
+	inventory_image = "mushroom_spores.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return place_seed(itemstack, placer, pointed_thing, "ethereal:mushroom_garden_1")
 	end,
