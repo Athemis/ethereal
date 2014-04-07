@@ -1,3 +1,21 @@
+Ethereal
+--------
+
+A mod for Minetest that creates a fantasy world.
+
+Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=136409
+
+Following people made this available:
+------------------------------------
+- Chinchow
+- paramat
+- Sokomine
+- TenPlus1
+
+*Tell me if I forgot to mention someone.
+
+Changes:
+--------
 0.0.9c
 
     Code re-worked so mod now uses sections for each function (easier to read and edit)
@@ -98,3 +116,5 @@ disable_fire = true
 
     Added Palm Trees, Trunk, Wood, Sapling, Coconuts, Coconut Slice (to eat)
     - Thanks to VanessaE's for the Palm textures
+
+
