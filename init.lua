@@ -1,10 +1,12 @@
 --[[
 
-	Minetest Ethereal Mod 0.9b
+    Minetest Ethereal Mod 0.9b
 
-	Created by ChinChow
+    Created by ChinChow
 
-	Updated by TenPlus1, Sokomine
+    Updated by TenPlus1, Sokomine
+
+    Changed by 4aiman to fit Magichet game
 
 ]]
 
