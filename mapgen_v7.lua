@@ -1,8 +1,24 @@
+-- ADDED TenPlus1
+healing = {
+	legacy = true,
+	debug = false,
+	smooth_biomes = true,
+	min_height = 85,
+}
+
+-- ADDED TenPlus1
+prairie = {
+	legacy = true,
+	debug = false,
+	smooth_biomes = true,
+	min_height = 1,
+}
+
 jumble = {
-legacy = false,
-debug = false,
-smooth_biomes = true,
-min_height = 5,
+	legacy = false,
+	debug = false,
+	smooth_biomes = true,
+	min_height = 5,
 }
 
 ethereal = {
@@ -76,6 +92,32 @@ snowy = {
 	min_height = 1,
 }
 
+-- ADDED TenPlus1
+minetest.register_biome({
+	name           = "healing",
+	node_top       = "default:dirt_with_snow",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = healing.min_height,
+	height_max     = healing.min_height+35,
+	heat_point     = 2.0,
+	humidity_point = 2.0,
+})
+
+-- ADDED TenPlus1
+minetest.register_biome({
+	name           = "prairie",
+	node_top       = "ethereal:green_dirt_top", --"default:dirt_with_grass",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = prairie.min_height,
+	height_max     = prairie.min_height+25,
+	heat_point     = 40.0,
+	humidity_point = 40.0,
+})
+
 minetest.register_biome({
 	name           = "fiery",
 	node_top       = "ethereal:fiery_dirt_top",
@@ -92,8 +134,8 @@ minetest.register_biome({
         name = "lake",
         node_top = "default:sand",
         depth_top = 1,
-        node_filler = "default:stone",
-        depth_filler = 0,
+        node_filler = "default:gravel", -- CHANGED TenPlus1 (Changed to gravel from stone)
+        depth_filler = 1,
         node_water = "default:water_source",
         node_dust_water= "default:water_source",
         height_min = -31000,
@@ -212,6 +254,18 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
+	name           = "caves",
+	node_top       = "default:desert_stone",
+	depth_top      = 2,
+	node_filler    = "default:air",
+	depth_filler   = 8,
+	height_min     = grayness.min_height,
+	height_max     = grayness.min_height+40,
+	heat_point     = 10.0,
+	humidity_point = 25.0,
+})
+
+minetest.register_biome({
 	name           = "grayness",
 	node_top       = "ethereal:gray_dirt_top",
 	depth_top      = 1,
@@ -220,7 +274,48 @@ minetest.register_biome({
 	height_min     = grayness.min_height,
 	height_max     = grayness.min_height+40,
 	heat_point     = 10.0,
-	humidity_point = 25.0,
+	humidity_point = 30.0, -- CHANGED from 25.0 to 30.0 so greyness biomes spawn more often
+})
+
+-- ADDED TenPlus1 (Healing Tree)
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "default:dirt_with_snow",
+	sidelen = 16,
+	fill_ratio = 0.015,
+	biomes = {"healing"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/yellowtree.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+-- ADDED TenPlus1 (Lake Shrubs)
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "default:sand",
+	sidelen = 16,
+	fill_ratio = 0.006,
+	biomes = {"lake"},
+	decoration = "default:dry_shrub",
+})
+
+-- ADDED TenPlus1 (Prairie Flowers)
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:green_dirt_top",
+	sidelen = 16,
+	fill_ratio = 0.030,
+	biomes = {"prairie"},
+	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola"},
+})
+
+-- ADDED TenPlus1 (Crystal Spikes)
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:crystal_topped_dirt",
+	sidelen = 16,
+	fill_ratio = 0.010,
+	biomes = {"frost"},
+	decoration = "ethereal:crystal_spike",
 })
 
 minetest.register_decoration({
@@ -254,6 +349,15 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
+        deco_type = "simple",
+        place_on = "ethereal:fiery_dirt_top", 
+        sidelen = 16,
+        fill_ratio = 0.20,
+        biomes = {"fiery"},
+        decoration = "ethereal:dry_shrub",
+})
+
+minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
 	sidelen = 16,
@@ -263,7 +367,6 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
-
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:gray_dirt_top",
@@ -271,6 +374,26 @@ minetest.register_decoration({
 	fill_ratio = 0.025,
 	biomes = {"grayness"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/graytrees.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+minetest.register_decoration({
+        deco_type = "simple",
+        place_on = "ethereal:gray_dirt_top", 
+        sidelen = 16,
+        fill_ratio = 0.05,
+        biomes = {"grayness", "snowy"},
+        decoration = "ethereal:snowygrass",
+})
+
+-- ADDED TenPlus1 (Adds Pine Tree to snowy biome)
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:green_dirt_top",
+	sidelen = 16,
+	fill_ratio = 0.025,
+	biomes = {"snowy"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/pinetree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -298,7 +421,7 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:sand",
 	sidelen = 16,
-	fill_ratio = 0.005,
+	fill_ratio = 0.003,
 	biomes = {"sandclay"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/cactus.mts",
 	flags = "place_center_x, place_center_z",
@@ -326,14 +449,15 @@ minetest.register_decoration({
 
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:gray_dirt_top",
+	place_on = "ethereal:green_dirt_top", -- TenPlus1 CHANGED according to above, this should be green dirt, not gray
 	sidelen = 16,
-	fill_ratio = 0.050,
+	fill_ratio = 0.010,
 	biomes = {"grassytwo"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/bigtree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
+-- CHANGED TenPlus1 (Railway parts disabled for map generation)
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:sandstone",
@@ -344,6 +468,7 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
+-- CHANGED TenPlus1 (Railway parts disabled for map generation)
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:sandstone",
@@ -360,7 +485,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.010,
 	biomes = {"desertstone"},
-	decoration = "default:cactus",
+	decoration = {"default:cactus", "default:dry_shrub"}, -- CHANGED TenPlus1 (Added dry shrubs to desert area)
 })
 
 minetest.register_decoration({
@@ -377,7 +502,7 @@ minetest.register_decoration({
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.020,
-	biomes = {"grassy"},
+	biomes = {"grassy", "prairie"}, -- CHANGED TenPlus1 (Added Straweberry bushes to Prairie biome)
 	decoration = "ethereal:strawberry_bush",
 })
 
@@ -385,7 +510,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 0.20,
+	fill_ratio = 0.18, -- CHANGED TenPlus1 (Dropped ratio from 0.20 to give other plants chance to spawn)
 	biomes = {"junglee, jumble"},
 	decoration = "default:junglegrass",
 })
@@ -417,4 +542,128 @@ minetest.register_decoration({
 	decoration = "ethereal:wild_onion_4",
 })
 
+-- ADDED TenPlus1 (Generate Papyrus on Dirt next to Water)
+minetest.register_on_generated(function(minp, maxp, seed)
+	if maxp.y >= 2 and minp.y <= 0 then
+		-- Generate papyrus
+		local perlin1 = minetest.get_perlin(354, 3, 0.7, 100)
+		-- Assume X and Z lengths are equal
+		local divlen = 8
+		local divs = (maxp.x-minp.x)/divlen+1;
+		for divx=0,divs-1 do
+		for divz=0,divs-1 do
+			local x0 = minp.x + math.floor((divx+0)*divlen)
+			local z0 = minp.z + math.floor((divz+0)*divlen)
+			local x1 = minp.x + math.floor((divx+1)*divlen)
+			local z1 = minp.z + math.floor((divz+1)*divlen)
+			-- Determine papyrus amount from perlin noise
+			local papyrus_amount = math.floor(perlin1:get2d({x=x0, y=z0}) * 45 - 20)
+			-- Find random positions for papyrus based on this random
+			local pr = PseudoRandom(seed+1)
+			for i=0,papyrus_amount do
+				local x = pr:next(x0, x1)
+				local z = pr:next(z0, z1)
+				if minetest.get_node({x=x,y=1,z=z}).name == "ethereal:green_dirt_top" and
+						minetest.find_node_near({x=x,y=1,z=z}, 1, "default:water_source") then
+					default.make_papyrus({x=x,y=2,z=z}, pr:next(2, 4))
+				end
+			end
+		end
+	end
+end
+end)
 
+-- ADDED TenPlus1 (Generate Palm Tree on Sand next to Water)
+minetest.register_on_generated(function(minp, maxp, seed)
+	if maxp.y >= 2 and minp.y <= 0 then
+		local perlin1 = minetest.get_perlin(354, 3, 0.7, 100)
+		-- Assume X and Z lengths are equal
+		local divlen = 8
+		local divs = (maxp.x-minp.x)/divlen+1;
+		for divx=0,divs-1 do
+		for divz=0,divs-1 do
+			local x0 = minp.x + math.floor((divx+0)*divlen)
+			local z0 = minp.z + math.floor((divz+0)*divlen)
+			local x1 = minp.x + math.floor((divx+1)*divlen)
+			local z1 = minp.z + math.floor((divz+1)*divlen)
+
+			-- Find random positions for palm based on this random
+			local pr = PseudoRandom(seed+1)
+				local x = pr:next(x0, x1)
+				local z = pr:next(z0, z1)
+				if minetest.get_node({x=x,y=1,z=z}).name == "default:sand" and
+					minetest.find_node_near({x=x,y=1,z=z}, 1, "default:water_source") then
+					schematic = minetest.get_modpath("ethereal").."/schematics/palmtree.mts"
+					minetest.place_schematic({x=x-3,y=2,z=z-4}, schematic, 0, '', 0)
+				end
+			end
+		end
+	end
+end)
+
+-- ADDED TenPlus1 (Have papyrus grow on ethereal green dirt)
+minetest.register_abm({
+	nodenames = {"default:papyrus"},
+	neighbors = {"default:dirt", "ethereal:green_dirt_top"},
+	interval = 50,
+	chance = 20,
+	action = function(pos, node)
+		pos.y = pos.y-1
+		local name = minetest.get_node(pos).name
+		if name == "default:dirt" or name == "ethereal:green_dirt_top" then
+			if minetest.find_node_near(pos, 3, {"group:water"}) == nil then
+				return
+			end
+			pos.y = pos.y+1
+			local height = 0
+			while minetest.get_node(pos).name == "default:papyrus" and height < 4 do
+				height = height+1
+				pos.y = pos.y+1
+			end
+			if height < 4 then
+				if minetest.get_node(pos).name == "air" then
+					minetest.set_node(pos, {name="default:papyrus"})
+				end
+			end
+		end
+	end,
+})
+
+-- ADDED TenPlus1 (Have flowers spread over green dirt)
+minetest.register_abm({
+	nodenames = {"group:flora"},
+	neighbors = {"ethereal:green_dirt_top"},
+	interval = 50,
+	chance = 25,
+	action = function(pos, node)
+		
+		local light = minetest.get_node_light(pos)
+		if not light or light < 13 then
+			return
+		end
+		
+		local pos0 = {x=pos.x-4,y=pos.y-4,z=pos.z-4}
+		local pos1 = {x=pos.x+4,y=pos.y+4,z=pos.z+4}
+		if #minetest.find_nodes_in_area(pos0, pos1, "group:flora_block") > 0 then
+			return
+		end
+		
+		local flowers = minetest.find_nodes_in_area(pos0, pos1, "group:flora")
+		if #flowers > 3 then
+			return
+		end
+		
+		local seedling = minetest.find_nodes_in_area(pos0, pos1, "ethereal:green_dirt_top")
+		if #seedling > 0 then
+			seedling = seedling[math.random(#seedling)]
+			seedling.y = seedling.y + 1
+			light = minetest.get_node_light(seedling)
+			if not light or light < 13 then
+				return
+			end
+			if minetest.get_node(seedling).name == "air" then
+				minetest.set_node(seedling, {name=node.name})
+			end
+		end
+	end,
+})
