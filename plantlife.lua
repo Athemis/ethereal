@@ -57,6 +57,30 @@ minetest.register_node(":default:jungleleaves", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+-- Default Banana Tree Leaves
+minetest.register_node("ethereal:bananaleaves", {
+	description = "Banana Leaves",
+	drawtype = leaftype,
+	visual_scale = 1.1,
+	tiles = {"banana_leaf.png"},
+	paramtype = "light",
+	waving = 1,
+	groups = {snappy=3, leafdecay=3, leaves=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{
+				items = {'ethereal:banana_tree_sapling'},
+				rarity = 20,
+			},
+			{
+				items = {'ethereal:bananaleaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 -- Healing Tree Leaves
 minetest.register_node("ethereal:yellowleaves", {
 	description = "Healing Tree Leaves",
@@ -108,7 +132,7 @@ minetest.register_node("ethereal:palmleaves", {
 
 -- Pine Tree Leaves
 minetest.register_node("ethereal:pineleaves", {
-	description = "Pine Leaves",
+	description = "Pine Needles",
 	drawtype = leaftype,
 	visual_scale = 1.1,
 	tiles = {"pine_leaves.png"},
@@ -155,7 +179,7 @@ minetest.register_node("ethereal:frost_leaves", {
 
 -- Mushroom Tops
 minetest.register_node("ethereal:mushroom", {
-	description = "Mushroom",
+	description = "Mushroom Cap",
 	tiles = {"mushroom_block.png"},
 	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1},
 	drop = {
@@ -172,7 +196,49 @@ minetest.register_node("ethereal:mushroom", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
---= Define Shrubs
+minetest.register_node("ethereal:mushroom_pore", {
+	description = "Mushroom Pore",
+	tiles = {"mushroom_block2.png"},
+	groups = {snappy=3,cracky=3,choppy=3,oddly_breakable_by_hand=3,disable_jump=1, fall_damage_add_percent=-100},
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+--= Define Fern & Shrubs
+
+-- Fern (boston)
+minetest.register_node("ethereal:fern", {
+        description = "Fern",
+        drawtype = "plantlike",
+        visual_scale = 1.2,
+        tiles = {"fern.png"},
+        inventory_image = "fern.png",
+        wield_image = "fern.png",
+        paramtype = "light",
+        waving = 1,
+        walkable = false,
+        is_ground_content = true,
+        buildable_to = true,
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {'ethereal:fern_tubers'},rarity = 10},
+			{items = {'ethereal:fern'}},
+		}
+	},
+        groups = {snappy=3,flora=1,attached_node=1},
+        sounds = default.node_sound_leaves_defaults(),
+        selection_box = {
+                type = "fixed",
+                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+        },
+})
+
+-- Boston Ferns sometimes drop edible Tubers (heals 1/2 heart when eaten)
+minetest.register_craftitem("ethereal:fern_tubers", {
+	description = "Fern Tubers",
+	inventory_image = "fern_tubers.png",
+	on_use = minetest.item_eat(1),
+})
 
 -- Red Shrub (not flammable)
 minetest.register_node("ethereal:dry_shrub", {
@@ -218,8 +284,7 @@ minetest.register_node("ethereal:snowygrass", {
 
 --= Define Moss Types (Has grass textures on all sides)
 
-ethereal.add_moss = function( typ, descr, texture, receipe_item )
-
+function ethereal.add_moss(typ, descr, texture, receipe_item)
 	minetest.register_node('ethereal:'..typ..'_moss', {
 		description = descr..' Moss',
 		tiles = { texture },
@@ -293,6 +358,15 @@ minetest.register_node("ethereal:palm_trunk", {
 	paramtype2 = "facedir",
 })
 
+-- Banana Tree Trunk
+minetest.register_node("ethereal:banana_trunk", {
+	description = "Banana Trunk",
+	tiles = {"banana_trunk_top.png", "banana_trunk_top.png", "banana_trunk.png"},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+})
+
 --= Define Tree Wood
 
 -- Healing Tree Wood
@@ -313,6 +387,15 @@ minetest.register_node("ethereal:palm_wood", {
 	sounds = default.node_sound_wood_defaults(),
 })
 
+-- Banana Tree Wood
+minetest.register_node("ethereal:banana_wood", {
+	description = "Banana Wood",
+	tiles = {"banana_wood.png"},
+	is_ground_content = true,
+	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+})
+
 -- Frost Tree Wood
 minetest.register_node("ethereal:frost_wood", {
 	description = "Frost Wood",
@@ -323,6 +406,56 @@ minetest.register_node("ethereal:frost_wood", {
 })
 
 --= Define Food Items
+
+-- Banana (Heals one heart when eaten)
+minetest.register_node("ethereal:banana", {
+	description = "Banana",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"banana_single.png"},
+	inventory_image = "banana_single.png",
+	paramtype = "light",
+	walkable = false,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+	},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	on_use = minetest.item_eat(2),
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = function(pos, placer, itemstack)
+		if placer:is_player() then
+			minetest.set_node(pos, {name="ethereal:banana", param2=1})
+		end
+	end,
+})
+
+-- Banana Dough
+minetest.register_craftitem("ethereal:banana_dough", {
+	description = "Banana Dough",
+	inventory_image = "banana_dough.png",
+})
+
+minetest.register_craft({
+	type = "shapeless",
+	output = "ethereal:banana_dough",
+	recipe = {"farming:flour", "ethereal:banana"}
+})
+
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 14,
+	output = "ethereal:banana_bread",
+	recipe = "ethereal:banana_dough"
+})
+
+-- Banana Bread (Heals 3 hearts when eaten)
+minetest.register_craftitem("ethereal:banana_bread", {
+	description = "Banana Bread",
+	inventory_image = "banana_bread.png",
+	on_use = minetest.item_eat(6),
+})
 
 -- Strawberry Bush (Gives 3 Strawberries, each heal 1/2 heart)
 minetest.register_node("ethereal:strawberry_bush", {
@@ -482,12 +615,23 @@ minetest.register_craft({
 	}
 })
 
--- Turn Palm Tree Trunk into Wool
+-- Turn Palm Tree Trunk into Wood
 minetest.register_craft({
 	output = 'ethereal:palm_wood 4',
 	type = shapeless,
 	recipe = {
 		{'ethereal:palm_trunk', ''},
+		{'', ''},
+		{'', ''},
+	}
+})
+
+-- Turn Banana Tree Trunk into Wood
+minetest.register_craft({
+	output = 'ethereal:banana_wood 4',
+	type = shapeless,
+	recipe = {
+		{'ethereal:banana_trunk', ''},
 		{'', ''},
 		{'', ''},
 	}
@@ -545,27 +689,27 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "ethereal:candle 6",
 	recipe = {
-	{'','farming:string'},
-	{'','ethereal:palm_wax'},
-	{'','ethereal:palm_wax'},
+		{'','farming:string'},
+		{'','ethereal:palm_wax'},
+		{'','ethereal:palm_wax'},
 	}
 })
 
 minetest.register_node("ethereal:candle", {
-description = "Candle",
-drawtype = "plantlike",
-inventory_image = "candle_static.png",
-tiles = {
-		{name="candle.png", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1.0}},
-	},	
-paramtype = "light",
-light_source = LIGHT_MAX-3,
-sunlight_propagates = true,
-walkable = false,
-groups = {dig_immediate=3, attached_node=1},
-sounds = default.node_sound_defaults(),
-selection_box = {
-		type = "fixed",
-		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+	description = "Candle",
+	drawtype = "plantlike",
+	inventory_image = "candle_static.png",
+	tiles = {
+			{name="candle.png", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1.0}},
+		},	
+	paramtype = "light",
+	light_source = LIGHT_MAX-3,
+	sunlight_propagates = true,
+	walkable = false,
+	groups = {dig_immediate=3, attached_node=1},
+	sounds = default.node_sound_defaults(),
+	selection_box = {
+			type = "fixed",
+			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })

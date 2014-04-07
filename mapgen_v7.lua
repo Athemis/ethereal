@@ -1,116 +1,17 @@
---= Register Biomes
-
-plains = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = false,
-	min_height = 1,
-}
-
-healing = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 85,
-}
-
-prairie = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-jumble = {
-	legacy = false,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 5,
-}
-
-ethereal = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-mushroom = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-junglee = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-desertstone = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = false,
-	min_height = 3,
-}
-
-
-fiery = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 5,
-}
-
-sandclay = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-grassy = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-grassytwo = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-grayness = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
-
-snowy = {
-	legacy = true,
-	debug = false,
-	smooth_biomes = true,
-	min_height = 1,
-}
+ethereal = {""} -- This line stops errors
 
 --= Define Biomes
 
 minetest.register_biome({
-	name           = "plains",
-	node_top       = "ethereal:dry_dirt",
+	name           = "alpine",
+	node_top       = "default:dirt_with_snow", 
 	depth_top      = 1,
 	node_filler    = "default:dirt",
-	depth_filler   = 1,
-	height_min     = plains.min_height,
-	height_max     = plains.min_height+60,
-	heat_point     = 55.0,
-	humidity_point = 25.0,
+	depth_filler   = 2,
+	height_min     = 40,
+	height_max     = 90,
+	heat_point     = 10.0,
+	humidity_point = 40.0,
 })
 
 minetest.register_biome({
@@ -119,33 +20,165 @@ minetest.register_biome({
 	depth_top      = 1,
 	node_filler    = "default:dirt",
 	depth_filler   = 1,
-	height_min     = healing.min_height,
-	height_max     = healing.min_height+35,
-	heat_point     = 2.0,
-	humidity_point = 2.0,
-})
-
-minetest.register_biome({
-	name           = "prairie",
-	node_top       = "ethereal:green_dirt_top",
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 1,
-	height_min     = prairie.min_height,
-	height_max     = prairie.min_height+25,
-	heat_point     = 40.0,
+	height_min     = 75,
+	height_max     = 140,
+	heat_point     = 10.0,
 	humidity_point = 40.0,
 })
 
 minetest.register_biome({
-	name           = "fiery",
-	node_top       = "ethereal:fiery_dirt_top",
+	name           = "snowy",
+	node_top       = "ethereal:cold_dirt", 
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 2,
+	height_min     = 1,
+	height_max     = 40,
+	heat_point     = 10.0,
+	humidity_point = 40.0,
+})
+
+minetest.register_biome({
+	name           = "frost",
+	node_top       = "ethereal:crystal_topped_dirt",
 	depth_top      = 1,
 	node_filler    = "default:dirt",
 	depth_filler   = 7,
-	height_min     = fiery.min_height,
-	height_max     = fiery.min_height+60,
-	heat_point     = 60.0,
+	height_min     = 1,
+	height_max     = 71,
+	heat_point     = 10.0,
+	humidity_point = 40.0,
+})
+
+minetest.register_biome({
+	name           = "grassy",
+	node_top       = "ethereal:green_dirt_top", 
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = 1,
+	height_max     = 91,
+	heat_point     = 13.0,
+	humidity_point = 40.0,
+})
+
+minetest.register_biome({
+	name           = "caves",
+	node_top       = "default:desert_stone",
+	depth_top      = 2,
+	node_filler    = "air",
+	depth_filler   = 8,
+	height_min     = 1,
+	height_max     = 41,
+	heat_point     = 15.0,
+	humidity_point = 25.0,
+})
+
+minetest.register_biome({
+	name           = "grayness",
+	node_top       = "ethereal:gray_dirt_top",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 5,
+	height_min     = 1,
+	height_max     = 41,
+	heat_point     = 15.0,
+	humidity_point = 30.0,
+})
+
+minetest.register_biome({
+	name           = "grassytwo",
+	node_top       = "ethereal:green_dirt_top",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = 1,
+	height_max     = 91,
+	heat_point     = 15.0,
+	humidity_point = 40.0,
+})
+
+minetest.register_biome({
+	name           = "prairie",
+	node_top       = "ethereal:prairie_dirt",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = 3,
+	height_max     = 26,
+	heat_point     = 20.0,
+	humidity_point = 40.0,
+})
+
+minetest.register_biome({
+	name           = "jumble",
+	node_top       = "ethereal:green_dirt_top",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 7,
+	height_min     = 1,
+	height_max     = 71,
+	heat_point     = 25.0,
+	humidity_point = 50.0,
+})
+
+minetest.register_biome({
+	name           = "junglee",
+	node_top       = "ethereal:jungle_dirt",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 7,
+	height_min     = 1,
+	height_max     = 71,
+	heat_point     = 30.0,
+	humidity_point = 60.0,
+})
+
+minetest.register_biome({
+	name           = "desert",
+	node_top       = "default:desert_sand",
+	depth_top      = 5,
+	node_filler    = "default:desert_stone",
+	depth_filler   = 70,
+	height_min     = 3,
+	height_max     = 23,
+	heat_point     = 35.0,
+	humidity_point = 20.0,
+})
+
+minetest.register_biome({
+	name           = "grove",
+	node_top       = "ethereal:grove_dirt",
+	depth_top      = 7,
+	node_filler    = "default:dirt",
+	depth_filler   = 7,
+	height_min     = 3,
+	height_max     = 23,
+	heat_point     = 40.0,
+	humidity_point = 60.0,
+})
+
+minetest.register_biome({
+	name           = "mushroom",
+	node_top       = "ethereal:mushroom_dirt",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 7,
+	height_min     = 1,
+	height_max     = 71,
+	heat_point     = 45.0,
+	humidity_point = 70.0,
+})
+
+minetest.register_biome({
+	name           = "desertstone",
+	node_top       = "default:sandstone",
+	depth_top      = 7,
+	node_filler    = "default:desert_stone",
+	depth_filler   = 70,
+	height_min     = 3,
+	height_max     = 23,
+	heat_point     = 50.0,
 	humidity_point = 20.0,
 })
 
@@ -164,64 +197,27 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name           = "jumble",
-	node_top       = "ethereal:green_dirt_top",
+	name           = "plains",
+	node_top       = "ethereal:dry_dirt",
 	depth_top      = 1,
 	node_filler    = "default:dirt",
-	depth_filler   = 7,
-	height_min     = jumble.min_height,
-	height_max     = jumble.min_height+70,
-	heat_point     = 20.0,
-	humidity_point = 50.0,
+	depth_filler   = 1,
+	height_min     = 1,
+	height_max     = 61,
+	heat_point     = 55.0,
+	humidity_point = 25.0,
 })
 
 minetest.register_biome({
-	name           = "mushroom",
-	node_top       = "ethereal:mushroom_dirt",
+	name           = "fiery",
+	node_top       = "ethereal:fiery_dirt_top",
 	depth_top      = 1,
 	node_filler    = "default:dirt",
 	depth_filler   = 7,
-	height_min     = mushroom.min_height,
-	height_max     = mushroom.min_height+70,
-	heat_point     = 40.0,
-	humidity_point = 10.0,
-})
-
-
-minetest.register_biome({
-	name           = "junglee",
-	node_top       = "ethereal:green_dirt_top",
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 7,
-	height_min     = junglee.min_height,
-	height_max     = junglee.min_height+70,
-	heat_point     = 10.0,
+	height_min     = 5,
+	height_max     = 65,
+	heat_point     = 60.0,
 	humidity_point = 20.0,
-})
-
-minetest.register_biome({
-	name           = "grassy",
-	node_top       = "ethereal:green_dirt_top", 
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 1,
-	height_min     = grassy.min_height,
-	height_max     = grassy.min_height+90,
-	heat_point     = 40.0,
-	humidity_point = 40.0,
-})
-
-minetest.register_biome({
-	name           = "grassytwo",
-	node_top       = "ethereal:green_dirt_top",
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 1,
-	height_min     = grassy.min_height,
-	height_max     = grassy.min_height+90,
-	heat_point     = 100.0,
-	humidity_point = 100.0,
 })
 
 minetest.register_biome({
@@ -230,73 +226,24 @@ minetest.register_biome({
 	depth_top      = 3,
 	node_filler    = "default:clay",
 	depth_filler   = 1,
-	height_min     = sandclay.min_height,
-	height_max     = sandclay.min_height+10,
+	height_min     = 1,
+	height_max     = 11,
 	heat_point     = 65.0,
 	humidity_point = 2.0,
 })
 
-minetest.register_biome({
-	name           = "desertstone",
-	node_top       = "default:sandstone",
-	depth_top      = 7,
-	node_filler    = "default:desert_stone",
-	depth_filler   = 70,
-	height_min     = desertstone.min_height,
-	height_max     = desertstone.min_height+20,
-	heat_point     = 100.0,
-	humidity_point = 1.0,
-})
-
-minetest.register_biome({
-	name           = "snowy",
-	node_top       = "ethereal:green_dirt_top", 
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 2,
-	height_min     = snowy.min_height,
-	height_max     = snowy.min_height+100,
-	heat_point     = 2.0,
-	humidity_point = 2.0,
-})
-
-minetest.register_biome({
-	name           = "frost",
-	node_top       = "ethereal:crystal_topped_dirt",
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 7,
-	height_min     = ethereal.min_height,
-	height_max     = ethereal.min_height+70,
-	heat_point     = 10.0,
-	humidity_point = 50.0,
-})
-
-minetest.register_biome({
-	name           = "caves",
-	node_top       = "default:desert_stone",
-	depth_top      = 2,
-	node_filler    = "air",
-	depth_filler   = 8,
-	height_min     = grayness.min_height,
-	height_max     = grayness.min_height+40,
-	heat_point     = 10.0,
-	humidity_point = 25.0,
-})
-
-minetest.register_biome({
-	name           = "grayness",
-	node_top       = "ethereal:gray_dirt_top",
-	depth_top      = 1,
-	node_filler    = "default:dirt",
-	depth_filler   = 5,
-	height_min     = grayness.min_height,
-	height_max     = grayness.min_height+40,
-	heat_point     = 10.0,
-	humidity_point = 30.0,
-})
-
 --= Register Biome Decoration (Schematics)
+
+-- Banana Tree
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:grove_dirt",
+	sidelen = 16,
+	fill_ratio = 0.015,
+	biomes = {"grove"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/bananatree.mts",
+	flags = "place_center_x, place_center_z",
+})
 
 -- Dead Tree
 minetest.register_decoration({
@@ -314,7 +261,7 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_snow",
 	sidelen = 16,
-	fill_ratio = 0.015,
+	fill_ratio = 0.03,
 	biomes = {"healing"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/yellowtree.mts",
 	flags = "place_center_x, place_center_z",
@@ -331,14 +278,25 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
--- Giant Shroom
+-- Giant Shrooms
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:mushroom_dirt",
 	sidelen = 16,
-	fill_ratio = 0.070,
+	fill_ratio = 0.035, -- was 0.070, trying 2 different sized shrooms in same biome (below)
 	biomes = {"mushroom"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomone.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+-- Not so Giant Shrooms
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:mushroom_dirt",
+	sidelen = 16,
+	fill_ratio = 0.035,
+	biomes = {"mushroom"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomtwo.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -367,9 +325,9 @@ minetest.register_decoration({
 -- Jungle Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
+	place_on = "ethereal:jungle_dirt",
 	sidelen = 16,
-	fill_ratio = 0.250,
+	fill_ratio = 0.3, -- was 0.250
 	biomes = {"junglee, jumble"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/jungletree.mts",
 	flags = "place_center_x, place_center_z",
@@ -389,7 +347,7 @@ minetest.register_decoration({
 -- Pine Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:green_dirt_top",
+	place_on = "ethereal:cold_dirt",
 	sidelen = 16,
 	fill_ratio = 0.025,
 	biomes = {"snowy"},
@@ -397,10 +355,20 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "default:dirt_with_snow",
+	sidelen = 16,
+	fill_ratio = 0.05,
+	biomes = {"alpine"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/pinetree.mts",
+	flags = "place_center_x, place_center_z",
+})
+
 -- Gr[a|e]y Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
+	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.025,
 	biomes = {"jumble"},
@@ -433,10 +401,20 @@ minetest.register_decoration({
 -- Apple Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
+	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.030,
 	biomes = {"grassy, jumble"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/tree.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:prairie_dirt",
+	sidelen = 16,
+	fill_ratio = 0.005,
+	biomes = {"prairie"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/tree.mts",
 	flags = "place_center_x, place_center_z",
 })
@@ -496,14 +474,33 @@ minetest.register_decoration({
 	decoration = "default:dry_shrub",
 })
 
+-- Dry Shrubs on Desert Sand
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "default:desert_sand",
+	sidelen = 16,
+	fill_ratio = 0.006,
+	biomes = {"desert"},
+	decoration = "default:dry_shrub",
+})
+
 -- Prairie Flowers
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.030,
-	biomes = {"prairie", "grassy"},
-	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola"},
+	biomes = {"grassy", "grassytwo"},
+	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
+})
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:prairie_dirt",
+	sidelen = 16,
+	fill_ratio = 0.050,
+	biomes = {"prairie"},
+	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
 })
 
 -- Crystal Spikes
@@ -532,7 +529,16 @@ minetest.register_decoration({
         place_on = "ethereal:gray_dirt_top", 
         sidelen = 16,
         fill_ratio = 0.05,
-        biomes = {"grayness", "snowy"},
+        biomes = {"grayness"},
+        decoration = "ethereal:snowygrass",
+})
+
+minetest.register_decoration({
+        deco_type = "simple",
+        place_on = "ethereal:cold_dirt", 
+        sidelen = 16,
+        fill_ratio = 0.05,
+        biomes = {"snowy"},
         decoration = "ethereal:snowygrass",
 })
 
@@ -556,23 +562,22 @@ minetest.register_decoration({
 	decoration = "ethereal:mushroom_plant",
 })
 
--- Strawberry Bushel
+-- Jungle Grass
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top",
+	place_on = "ethereal:jungle_dirt",
 	sidelen = 16,
-	fill_ratio = 0.020,
-	biomes = {"grassy", "prairie"},
-	decoration = "ethereal:strawberry_bush",
+	fill_ratio = 0.18,
+	biomes = {"junglee"},
+	decoration = "default:junglegrass",
 })
 
--- Jungle Grass
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.18,
-	biomes = {"junglee, jumble"},
+	biomes = {"jumble"},
 	decoration = "default:junglegrass",
 })
 
@@ -586,26 +591,70 @@ minetest.register_decoration({
 	decoration = "default:grass_5",
 })
 
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:jungle_dirt",
+	sidelen = 16,
+	fill_ratio = 0.50,
+	biomes = {"junglee"},
+	decoration = "default:grass_5",
+})
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:prairie_dirt",
+	sidelen = 16,
+	fill_ratio = 0.50,
+	biomes = {"prairie"},
+	decoration = "default:grass_5",
+})
+
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:grove_dirt", -- banana
+	sidelen = 16,
+	fill_ratio = 0.50,
+	biomes = {"grove"},
+	decoration = {"default:grass_5", "ethereal:fern"},
+})
+
 -- Snow
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top",
+	place_on = "ethereal:cold_dirt",
 	sidelen = 16,
 	fill_ratio = 1.00,
 	biomes = {"snowy"},
 	decoration = "default:snow",
 })
 
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "default:dirt_with_snow",
+	sidelen = 16,
+	fill_ratio = 1.00,
+	biomes = {"alpine"},
+	decoration = "default:snow",
+})
+
 -- Wild Onions
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
+	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.50,
 	biomes = {"grassy, jumble"},
 	decoration = "ethereal:wild_onion_4",
 })
 
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:prairie_dirt",
+	sidelen = 16,
+	fill_ratio = 0.50,
+	biomes = {"prairie"},
+	decoration = "ethereal:wild_onion_4",
+})
 
 --= Specific Plant Placements
 
@@ -702,7 +751,7 @@ minetest.register_abm({
 -- Flowers spread over green dirt
 minetest.register_abm({
 	nodenames = {"group:flora"},
-	neighbors = {"ethereal:green_dirt_top"},
+	neighbors = {"ethereal:green_dirt_top", "ethereal:prairie_dirt"},
 	interval = 40,
 	chance = 20,
 	action = function(pos, node)
@@ -723,6 +772,19 @@ minetest.register_abm({
 		end
 		
 		local seedling = minetest.find_nodes_in_area(pos0, pos1, "ethereal:green_dirt_top")
+		if #seedling > 0 then
+			seedling = seedling[math.random(#seedling)]
+			seedling.y = seedling.y + 1
+			light = minetest.get_node_light(seedling)
+			if not light or light < 12 then
+				return
+			end
+			if minetest.get_node(seedling).name == "air" then
+				minetest.set_node(seedling, {name=node.name})
+			end
+		end
+
+		local seedling = minetest.find_nodes_in_area(pos0, pos1, "ethereal:prairie_dirt")
 		if #seedling > 0 then
 			seedling = seedling[math.random(#seedling)]
 			seedling.y = seedling.y + 1
@@ -758,9 +820,9 @@ minetest.register_abm({
 		local pos0 = {x=pos.x-1,y=pos.y-1,z=pos.z-1}
 		local pos1 = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
 
-		local seedling = minetest.env:find_nodes_in_area(pos0, pos1, "default:water_source")
-		if seedling then --#seedling > 0 then
-			minetest.env:set_node(seedling[1], {name="default:ice"})
+		local water = minetest.env:find_nodes_in_area(pos0, pos1, "default:water_source")
+		if water then
+			minetest.env:set_node(water[1], {name="default:ice"})
 		end
 	end,
 })

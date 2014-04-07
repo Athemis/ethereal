@@ -16,6 +16,50 @@ minetest.register_node("ethereal:dry_dirt", {
 	sounds = default.node_sound_dirt_defaults()
 })
 
+-- Jungle Dirt
+minetest.register_node("ethereal:jungle_dirt", {
+	description = "Jungle Dirt",
+	tiles = {"ethereal_grass_jungle_top.png",
+	"default_dirt.png","default_dirt.png^ethereal_grass_jungle_side.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, soil=1,ethereal_grass=1},
+	drop = 'default:dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
+-- Grove Dirt
+minetest.register_node("ethereal:grove_dirt", {
+	description = "Grove Dirt",
+	tiles = {"ethereal_grass_grove_top.png",
+	"default_dirt.png","default_dirt.png^ethereal_grass_grove_side.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, soil=1,ethereal_grass=1},
+	drop = 'default:dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
+-- Prairie Dirt
+minetest.register_node("ethereal:prairie_dirt", {
+	description = "Prairie Dirt",
+	tiles = {"ethereal_grass_prairie_top.png",
+	"default_dirt.png","default_dirt.png^ethereal_grass_prairie_side.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, soil=1,ethereal_grass=1},
+	drop = 'default:dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
+-- Cold Dirt
+minetest.register_node("ethereal:cold_dirt", {
+	description = "Cold Dirt",
+	tiles = {"ethereal_grass_snowy_top.png",
+	"default_dirt.png","default_dirt.png^ethereal_grass_snowy_side.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, soil=1,ethereal_grass=1},
+	drop = 'default:dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
 minetest.register_craft({
 	type = "cooking",
 	output = "ethereal:dry_dirt",
@@ -73,6 +117,16 @@ minetest.register_node("ethereal:green_dirt_top", {
 	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, soil=1,ethereal_grass=1},
+	drop = 'default:dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
+-- Green Dirt 2 (Kept only for compatibility in Xanadu server)
+minetest.register_node("ethereal:green_dirt_top2", {
+	description = "Green Dirt Alt",
+	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
+	is_ground_content = true,
+	groups = {crumbly=3, soil=1},
 	drop = 'default:dirt',
 	sounds = default.node_sound_dirt_defaults()
 })
@@ -199,15 +253,20 @@ ethereal.register_sapling_abm( 'ethereal:tree_sapling',
 
 ethereal.register_sapling_abm( 'ethereal:jungle_tree_sapling',
 			 {x=7,y=0,z=3}, {x=11,y=19,z=11}, 'jungletree',
-			'ethereal:green_dirt_top', 'Jungletree Sapling', 1.0, 'ethereal_jungle_tree_sapling.png' );
+			'ethereal:jungle_dirt', 'Jungletree Sapling', 1.0, 'ethereal_jungle_tree_sapling.png' );
 
 ethereal.register_sapling_abm( 'ethereal:pine_tree_sapling',
 			{x=3,y=1,z=3}, {x=7,y=8,z=7}, 'pinetree',
-			'ethereal:green_dirt_top', 'Pine Sapling', 1.0, 'ethereal_pine_tree_sapling.png' );
+			'ethereal:cold_dirt', 'Pine Sapling', 1.0, 'ethereal_pine_tree_sapling.png' );
 
 ethereal.register_sapling_abm( 'ethereal:big_tree_sapling',
-			{x=4,y=0,z=4}, {x=9,y=8,z=9}, 'bigtree',
+			{x=4,y=0,z=3}, {x=9,y=8,z=9}, 'bigtree',
 			'ethereal:green_dirt_top', 'Big Tree Sapling', 1.5, 'ethereal_big_tree_sapling.png' );
+
+-- Grows on Green Dirt Alt
+ethereal.register_sapling_abm( 'ethereal:banana_tree_sapling',
+			{x=2,y=0,z=2}, {x=7,y=8,z=7}, 'bananatree',
+			'ethereal:grove_dirt', 'Banana Tree Sapling', 1.0, 'banana_tree_sapling.png' );
 
 -- this one grows on blue dirt
 ethereal.register_sapling_abm( 'ethereal:frost_tree_sapling',
