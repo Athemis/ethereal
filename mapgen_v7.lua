@@ -1,5 +1,12 @@
 --= Register Biomes
 
+plains = {
+	legacy = true,
+	debug = false,
+	smooth_biomes = false,
+	min_height = 1,
+}
+
 healing = {
 	legacy = true,
 	debug = false,
@@ -95,6 +102,18 @@ snowy = {
 --= Define Biomes
 
 minetest.register_biome({
+	name           = "plains",
+	node_top       = "ethereal:dry_dirt",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 1,
+	height_min     = plains.min_height,
+	height_max     = plains.min_height+60,
+	heat_point     = 55.0,
+	humidity_point = 25.0,
+})
+
+minetest.register_biome({
 	name           = "healing",
 	node_top       = "default:dirt_with_snow",
 	depth_top      = 1,
@@ -125,7 +144,7 @@ minetest.register_biome({
 	node_filler    = "default:dirt",
 	depth_filler   = 7,
 	height_min     = fiery.min_height,
-	height_max     = fiery.min_height+70,
+	height_max     = fiery.min_height+60,
 	heat_point     = 60.0,
 	humidity_point = 20.0,
 })
@@ -278,6 +297,17 @@ minetest.register_biome({
 })
 
 --= Register Biome Decoration (Schematics)
+
+-- Dead Tree
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:dry_dirt",
+	sidelen = 16,
+	fill_ratio = 0.006,
+	biomes = {"plains"},
+	schematic = minetest.get_modpath("ethereal").."/schematics/deadtree.mts",
+	flags = "place_center_x, place_center_z",
+})
 
 -- Healing Tree
 minetest.register_decoration({
@@ -446,6 +476,16 @@ minetest.register_decoration({
 
 --= Smaller Plant Decoration
 
+-- Dry Shrubs on Dry Dirt
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:dry_dirt",
+	sidelen = 16,
+	fill_ratio = 0.012,
+	biomes = {"plains"},
+	decoration = "default:dry_shrub",
+})
+
 -- Dry Shrubs on Lake Sand
 minetest.register_decoration({
 	deco_type = "simple",
@@ -462,7 +502,7 @@ minetest.register_decoration({
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.030,
-	biomes = {"prairie"},
+	biomes = {"prairie", "grassy"},
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola"},
 })
 
@@ -511,7 +551,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:mushroom_dirt",
 	sidelen = 16,
-	fill_ratio = 0.010,
+	fill_ratio = 0.015,
 	biomes = {"mushroom"},
 	decoration = "ethereal:mushroom_plant",
 })
@@ -541,7 +581,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
-	fill_ratio = 0.60,
+	fill_ratio = 0.50,
 	biomes = {"grassy, jumble"},
 	decoration = "default:grass_5",
 })
@@ -561,7 +601,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:green_dirt_top", --"default:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 1.00,
+	fill_ratio = 0.50,
 	biomes = {"grassy, jumble"},
 	decoration = "ethereal:wild_onion_4",
 })
@@ -734,5 +774,16 @@ minetest.register_abm({
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		minetest.add_node(pos,{name="default:water_source"})
 		nodeupdate(pos)
+	end,
+})
+
+-- If Water Source near Dry Dirt, change to normal Dirt
+minetest.register_abm({
+	nodenames = {"ethereal:dry_dirt"},
+	neighbors = {"group:water"},
+	interval = 10,
+	chance = 2,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		minetest.add_node(pos,{name="default:dirt"})
 	end,
 })

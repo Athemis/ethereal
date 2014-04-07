@@ -6,10 +6,27 @@ dofile(minetest.get_modpath("ethereal").."/crystal.lua")
 
 --= Define Dirt Types
 
+-- Dry Dirt
+minetest.register_node("ethereal:dry_dirt", {
+	description = "Dried Dirt",
+	tiles = {"ethereal_dry_dirt.png"},
+	is_ground_content = true,
+	groups = {crumbly=3},
+	drop = 'ethereal:dry_dirt',
+	sounds = default.node_sound_dirt_defaults()
+})
+
+minetest.register_craft({
+	type = "cooking",
+	output = "ethereal:dry_dirt",
+	recipe = "default:dirt",
+	cooktime = 3,
+})
+
 -- Blue Crystal Dirt
 minetest.register_node("ethereal:crystal_topped_dirt", {
 	description = "Crystal Dirt",
-	tiles = {"default_grass.png^ethereal_frost_grass.png",
+	tiles = {"ethereal_frost_grass.png",
 	"default_dirt.png","default_dirt.png^ethereal_frost_dirt_with_grass.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, soil=1,ethereal_grass=1},
@@ -31,8 +48,8 @@ minetest.register_node("ethereal:mushroom_dirt", {
 -- Red Fiery Dirt
 minetest.register_node("ethereal:fiery_dirt_top", {
 	description = "Fiery Dirt",
-	tiles = {"default_grass.png^ethereal_fiery_grass.png", "default_dirt.png",
-	"default_dirt.png^default_grass_side.png^ethereal_fiery_dirt_with_grass.png"},
+	tiles = {"ethereal_fiery_grass.png", "default_dirt.png",
+	"default_dirt.png^ethereal_fiery_dirt_with_grass.png"},
 	is_ground_content = true,
 	groups = {crumbly=3, soil=1,ethereal_grass=1},
 	drop = 'default:dirt',
