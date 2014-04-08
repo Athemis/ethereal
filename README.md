@@ -16,6 +16,14 @@ Following people made this available:
 
 Changes:
 --------
+0.0.9d
+
+    Added Bamboo Grove and Bamboo Sprouts )
+
+    Craft Bamboo into Paper and Bamboo Flooring
+
+    Cactus is now edible when crafted beside empty bucket
+
 0.0.9c
 
     Code re-worked so mod now uses sections for each function (easier to read and edit)
