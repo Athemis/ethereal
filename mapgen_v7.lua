@@ -165,9 +165,9 @@ minetest.register_biome({
 	node_filler    = "default:dirt",
 	depth_filler   = 7,
 	height_min     = 1,
-	height_max     = 71,
+	height_max     = 50,
 	heat_point     = 45.0,
-	humidity_point = 70.0,
+	humidity_point = 65.0,
 })
 
 minetest.register_biome({

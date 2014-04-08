@@ -115,8 +115,6 @@ minetest.register_craft({
 	burntime = 12.5,
 })
 
-
-
 --= Define Food Items
 
 -- Banana (Heals one heart when eaten)
@@ -347,6 +345,22 @@ minetest.register_craft({
 		{'farming:string', 'farming:string', ''},
 		{'farming:string', 'farming:string', ''},
 		{'farming:string', 'farming:string', ''},
+	}
+})
+
+-- Bucket of Cactus Pulp
+minetest.register_craftitem("ethereal:bucket_cactus", {
+	description = "Bucket of Cactus Pulp",
+	inventory_image = "bucket_cactus.png",
+	stack_max = 1,
+	on_use = minetest.item_eat(2, "bucket:bucket_empty"),
+})
+
+minetest.register_craft({
+	output = "ethereal:bucket_cactus",
+	type = shapeless,
+	recipe = {
+		{'bucket:bucket_empty','default:cactus'},
 	}
 })
 

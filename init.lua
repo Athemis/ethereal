@@ -1,6 +1,6 @@
 --[[
 
-	Minetest Ethereal Mod 0.9b
+	Minetest Ethereal Mod 0.9d
 
 	Created by ChinChow
 
@@ -20,3 +20,4 @@ dofile(minetest.get_modpath("ethereal").."/dirt.lua")
 dofile(minetest.get_modpath("ethereal").."/leaves.lua")
 dofile(minetest.get_modpath("ethereal").."/wood.lua")
 dofile(minetest.get_modpath("ethereal").."/sapling.lua")
+dofile(minetest.get_modpath("ethereal").."/bamboo.lua")
