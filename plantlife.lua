@@ -167,9 +167,9 @@ minetest.register_craftitem("ethereal:pine_nuts", {
 	on_use = minetest.item_eat(1),
 })
 
--- Banana Bread (Heals 3 hearts when eaten)
+-- Banana Loaf (Heals 3 hearts when eaten)
 minetest.register_craftitem("ethereal:banana_bread", {
-	description = "Banana Bread",
+	description = "Banana Loaf",
 	inventory_image = "banana_bread.png",
 	on_use = minetest.item_eat(6),
 })
@@ -295,6 +295,47 @@ minetest.register_craft({
 		{'', 'group:wood', ''},
 		{'', '', ''},
 	}
+})
+
+-- Hearty Stew (Heals 4 hearts - thanks to ZonerDarkRevention for his DokuCraft DeviantArt bowl texture)
+minetest.register_craftitem("ethereal:hearty_stew", {
+	description = "Hearty Stew",
+	inventory_image = "hearty_stew.png",
+	on_use = minetest.item_eat(8),
+})
+
+-- Cooked Hearty Stew (Heals 5 hearts)
+minetest.register_craftitem("ethereal:hearty_stew_cooked", {
+	description = "Hearty Stew Cooked",
+	inventory_image = "hearty_stew_cooked.png",
+	on_use = minetest.item_eat(10),
+})
+
+-- Hearty Stew
+minetest.register_craft({
+	output = 'ethereal:hearty_stew',
+	recipe = {
+		{'ethereal:wild_onion_plant','ethereal:mushroom_plant', 'ethereal:bamboo_sprout'},
+		{'','ethereal:mushroom_plant', ''},
+		{'','ethereal:bowl', ''},
+	}
+})
+
+minetest.register_craft({
+	output = 'ethereal:hearty_stew',
+	recipe = {
+		{'ethereal:wild_onion_plant','ethereal:mushroom_plant', 'ethereal:fern_tubers'},
+		{'','ethereal:mushroom_plant', ''},
+		{'','ethereal:bowl', ''},
+	}
+})
+
+-- Cooked Hearty Stew
+minetest.register_craft({
+	type = "cooking",
+	cooktime = 10,
+	output = "ethereal:hearty_stew_cooked",
+	recipe = "ethereal:hearty_stew"
 })
 
 -- Mushroom Soup

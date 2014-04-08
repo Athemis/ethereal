@@ -1,5 +1,5 @@
 Ethereal
---------
+========
 
 A mod for Minetest that creates a fantasy world.
 
@@ -14,9 +14,19 @@ Following people made this available:
 
 *Tell me if I forgot to mention someone.
 
+*Note: I only **update** this repo!*
+
 Changes:
 --------
-0.0.9d
+*0.0.9e*
+
+    Changed textures for Bowl, Mushroom Soup, Crystal Spike, Banana Loaf, Strawberry & Bush
+
+    Added Hearty Stew Recipes
+
+    If BakedClay mod is installed, Mesa Biome will be added to the mix
+
+*0.0.9d*
 
     Added Bamboo Grove and Bamboo Sprouts )
 
@@ -24,19 +34,19 @@ Changes:
 
     Cactus is now edible when crafted beside empty bucket
 
-0.0.9c
+*0.0.9c*
 
     Code re-worked so mod now uses sections for each function (easier to read and edit)
 
     New textures for Strawberry Bush and Crystal Spikes
 
-0.0.9b
+*0.0.9b*
 
     Pine Tree Leaves have new texture and sometimes give Pine Nuts
 
     Jungle Tree's now use default Jungle Wood as texture
 
-0.0.9
+*0.0.9*
 
     Prairie, Grove, Jungle and Snowy biomes have their own dirt
 
@@ -44,7 +54,7 @@ Changes:
 
     Mapgen tweaks and code changes for new dirt added
 
-0.0.8m
+*0.0.8m*
 
     Added Banana Trunk and Wood
 
@@ -56,7 +66,7 @@ Changes:
 
     Changed Pine Needles texture
 
-0.0.8k
+*0.0.8k*
 
     Added Desert Sand biome
 
@@ -70,17 +80,17 @@ Changes:
 
     Tidied up code and removed redundant lines
 
-0.0.8e
+*0.0.8e*
 
     New Plains biome added between Fiery and Green areas to hopefully stop forest fires, these have dry dirt and dead trees
 
     Placing water near Dry Dirt turns it into normal dirt, cooking normal dirt changes it into Dry Dirt
 
-Note: if your Ethereal world does have a few forest fires appearing you can always add this line to your minetest.conf file:
+*Note: if your Ethereal world does have a few forest fires appearing you can always add this line to your minetest.conf file:*
 
-disable_fire = true
+`disable_fire = true`
 
-0.0.8
+*0.0.8*
 
     Healing Tree (grows on high snowy peaks, leaves are edible and golden apples heal all hearts)
 
@@ -98,7 +108,7 @@ disable_fire = true
 
     Palm Leaves can be cooked into Palm Wax and made into Candles
 
-0.0.7c
+*0.0.7c*
 
     Gravel can be found under lake biomes (or craft 5 cobble in X pattern)
 
