@@ -7,7 +7,7 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 
 Following people made this available:
 ------------------------------------
-- Chinchow
+- Chinchow (a.k.a. Master Amazing God O' Mod ;)
 - paramat
 - Sokomine
 - TenPlus1
