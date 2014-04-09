@@ -1,7 +1,7 @@
 Ethereal
 ========
 
-A mod for Minetest that creates a fantasy world.
+A mod for Minetest that creates a fantasy world. Magichet version.
 
 Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=136409
 
@@ -14,7 +14,7 @@ Following people made this available:
 
 *Tell me if I forgot to mention someone.
 
-*Note: I only **update** this repo!*
+*Note: I only* **update** *this repo!*
 
 Changes:
 --------

@@ -23,6 +23,8 @@ dofile(minetest.get_modpath("ethereal").."/leaves.lua")
 dofile(minetest.get_modpath("ethereal").."/wood.lua")
 dofile(minetest.get_modpath("ethereal").."/sapling.lua")
 dofile(minetest.get_modpath("ethereal").."/bamboo.lua")
+-- added by 4aiman
+dofile(minetest.get_modpath("ethereal").."/farming.lua")
 
 if minetest.get_modpath("bakedclay") ~= nil then
     dofile(minetest.get_modpath("ethereal").."/mesa.lua")

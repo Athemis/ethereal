@@ -5,7 +5,7 @@
 minetest.register_node("ethereal:frost_tree", {
     description = "Frost Tree",
     tiles = {"ethereal_frost_tree_top.png", "ethereal_frost_tree_top.png", "ethereal_frost_tree.png"},
-    groups = {tree=1,choppy=default.dig.tree,oddly_breakable_by_hand=1,put_out_fire=1},
+    groups = {tree=1,choppy=default.dig.ice,oddly_breakable_by_hand=1,put_out_fire=1},
     sounds = default.node_sound_wood_defaults(),
     paramtype2 = "facedir",
 })
@@ -14,7 +14,7 @@ minetest.register_node("ethereal:frost_tree", {
 minetest.register_node("ethereal:mushroom_trunk", {
     description = "Mushroom",
     tiles = {"mushroom_trunk_top.png", "mushroom_trunk_top.png", "mushroom_trunk.png"},
-    groups = {tree=1,choppy=default.dig.tree,oddly_breakable_by_hand=1,flammable=2},
+    groups = {tree=1,choppy=default.dig.wood,oddly_breakable_by_hand=1,flammable=2},
     sounds = default.node_sound_wood_defaults(),
     paramtype2 = "facedir",
 })
