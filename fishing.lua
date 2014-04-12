@@ -36,6 +36,7 @@ minetest.register_craftitem("ethereal:fishing_rod", {
 minetest.register_craftitem("ethereal:fishing_rod_baited", {
 	description = "Baited Fishing Rod",
 	inventory_image = "fishing_rod_baited.png",
+	wield_image = "fishing_rod_wield.png",
 	stack_max = 1,
 	liquids_pointable = true,
 	on_use = function (itemstack, user, pointed_thing)
