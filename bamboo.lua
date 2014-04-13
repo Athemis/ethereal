@@ -20,7 +20,6 @@ minetest.register_node("ethereal:bamboo", {
 	inventory_image = "bamboo.png",
 	wield_image = "bamboo.png",
 	paramtype = "light",
-	walkable = false,
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
@@ -85,7 +84,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:bamboo_dirt",
 	sidelen = 16,
-	fill_ratio = 0.05,
+	fill_ratio = 0.025,
 	biomes = {"bamboo"},
 	decoration = "ethereal:bamboo_sprout",
 })
@@ -95,7 +94,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:bamboo_dirt",
 	sidelen = 16,
-	fill_ratio = 0.50,
+	fill_ratio = 0.40,
 	biomes = {"bamboo"},
 	decoration = "default:grass_3",
 })

@@ -294,7 +294,7 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:mushroom_dirt",
 	sidelen = 16,
-	fill_ratio = 0.035,
+	fill_ratio = 0.025,
 	biomes = {"mushroom"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomtwo.mts",
 	flags = "place_center_x, place_center_z",
@@ -336,10 +336,10 @@ minetest.register_decoration({
 -- Gr[a|e]y Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:gray_dirt_top",
+	place_on = {"ethereal:gray_dirt_top", "ethereal:green_dirt_top"},
 	sidelen = 16,
 	fill_ratio = 0.025,
-	biomes = {"grayness"},
+	biomes = {"grayness", "jumble"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/graytrees.mts",
 	flags = "place_center_x, place_center_z",
 })
@@ -347,32 +347,11 @@ minetest.register_decoration({
 -- Pine Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:cold_dirt",
+	place_on = {"ethereal:cold_dirt", "default:dirt_with_snow"},
 	sidelen = 16,
 	fill_ratio = 0.025,
-	biomes = {"snowy"},
+	biomes = {"snowy", "alpine"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/pinetree.mts",
-	flags = "place_center_x, place_center_z",
-})
-
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "default:dirt_with_snow",
-	sidelen = 16,
-	fill_ratio = 0.05,
-	biomes = {"alpine"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/pinetree.mts",
-	flags = "place_center_x, place_center_z",
-})
-
--- Gr[a|e]y Tree
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "ethereal:green_dirt_top",
-	sidelen = 16,
-	fill_ratio = 0.025,
-	biomes = {"jumble"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/graytrees.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -383,17 +362,6 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.010,
 	biomes = {"desertstone"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/cactus.mts",
-	flags = "place_center_x, place_center_z",
-})
-
--- Cactus on Sand
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "default:sand",
-	sidelen = 16,
-	fill_ratio = 0.003,
-	biomes = {"sandclay"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/cactus.mts",
 	flags = "place_center_x, place_center_z",
 })
@@ -411,10 +379,10 @@ minetest.register_decoration({
 
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = "ethereal:prairie_dirt",
+	place_on = {"ethereal:prairie_dirt", "ethereal:green_dirt_top"},
 	sidelen = 16,
 	fill_ratio = 0.005,
-	biomes = {"prairie"},
+	biomes = {"prairie", "grassytwo"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/tree.mts",
 	flags = "place_center_x, place_center_z",
 })
@@ -457,30 +425,10 @@ minetest.register_decoration({
 -- Dry Shrubs on Dry Dirt
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:dry_dirt",
+	place_on = {"ethereal:dry_dirt", "default:sand", "default:desert_sand", "sandstone"},
 	sidelen = 16,
 	fill_ratio = 0.012,
-	biomes = {"plains"},
-	decoration = "default:dry_shrub",
-})
-
--- Dry Shrubs on Lake Sand
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "default:sand",
-	sidelen = 16,
-	fill_ratio = 0.006,
-	biomes = {"lake"},
-	decoration = "default:dry_shrub",
-})
-
--- Dry Shrubs on Desert Sand
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "default:desert_sand",
-	sidelen = 16,
-	fill_ratio = 0.006,
-	biomes = {"desert"},
+	biomes = {"plains", "lake", "desert", "desertstone"},
 	decoration = "default:dry_shrub",
 })
 
@@ -490,7 +438,7 @@ minetest.register_decoration({
 	place_on = "ethereal:green_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.030,
-	biomes = {"grassy", "grassytwo"},
+	biomes = {"grassy", "grassy", "grassytwo"},
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
 })
 
@@ -526,30 +474,21 @@ minetest.register_decoration({
 -- Snowy Grass
 minetest.register_decoration({
         deco_type = "simple",
-        place_on = "ethereal:gray_dirt_top", 
+        place_on = {"ethereal:gray_dirt_top", "ethereal:cold_dirt"},
         sidelen = 16,
         fill_ratio = 0.05,
-        biomes = {"grayness"},
+        biomes = {"grayness", "snowy"},
         decoration = "ethereal:snowygrass",
 })
 
-minetest.register_decoration({
-        deco_type = "simple",
-        place_on = "ethereal:cold_dirt", 
-        sidelen = 16,
-        fill_ratio = 0.05,
-        biomes = {"snowy"},
-        decoration = "ethereal:snowygrass",
-})
-
--- Dry Desert Shrub
+-- Cactus
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:sandstone",
 	sidelen = 16,
 	fill_ratio = 0.010,
 	biomes = {"desertstone"},
-	decoration = {"default:cactus", "default:dry_shrub"},
+	decoration = "default:cactus",
 })
 
 -- Small Mushroom
@@ -565,94 +504,50 @@ minetest.register_decoration({
 -- Jungle Grass
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:jungle_dirt",
+	place_on = {"ethereal:jungle_dirt", "ethereal:green_dirt_top"},
 	sidelen = 16,
 	fill_ratio = 0.18,
-	biomes = {"junglee"},
-	decoration = "default:junglegrass",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top",
-	sidelen = 16,
-	fill_ratio = 0.18,
-	biomes = {"jumble"},
+	biomes = {"junglee", "jumble"},
 	decoration = "default:junglegrass",
 })
 
 -- Grass
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top",
+	place_on = {"ethereal:green_dirt_top", "ethereal:jungle_dirt", "ethereal:prairie_dirt", "ethereal:grove_dirt"},
 	sidelen = 16,
-	fill_ratio = 0.50,
-	biomes = {"grassy, jumble"},
+	fill_ratio = 0.40, -- was 0.50
+	biomes = {"grassy", "grassytwo", "jumble", "junglee", "prairie", "grove"},
 	decoration = "default:grass_5",
 })
 
+-- Ferns
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:jungle_dirt",
+	place_on = "ethereal:grove_dirt",
 	sidelen = 16,
-	fill_ratio = 0.50,
-	biomes = {"junglee"},
-	decoration = "default:grass_5",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "ethereal:prairie_dirt",
-	sidelen = 16,
-	fill_ratio = 0.50,
-	biomes = {"prairie"},
-	decoration = "default:grass_5",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "ethereal:grove_dirt", -- banana
-	sidelen = 16,
-	fill_ratio = 0.50,
+	fill_ratio = 0.20,
 	biomes = {"grove"},
-	decoration = {"default:grass_5", "ethereal:fern"},
+	decoration = "ethereal:fern",
 })
 
 -- Snow
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:cold_dirt",
+	place_on = {"ethereal:cold_dirt", "default:dirt_with_snow"},
 	sidelen = 16,
-	fill_ratio = 1.00,
-	biomes = {"snowy"},
-	decoration = "default:snow",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "default:dirt_with_snow",
-	sidelen = 16,
-	fill_ratio = 1.00,
-	biomes = {"alpine"},
+	fill_ratio = 0.85,
+	biomes = {"snowy", "apline"},
 	decoration = "default:snow",
 })
 
 -- Wild Onions
 minetest.register_decoration({
 	deco_type = "simple",
-	place_on = "ethereal:green_dirt_top",
+	place_on = {"ethereal:green_dirt_top", "ethereal:prairie_dirt"},
 	sidelen = 16,
-	fill_ratio = 0.50,
-	biomes = {"grassy, jumble"},
-	decoration = "ethereal:wild_onion_4",
-})
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "ethereal:prairie_dirt",
-	sidelen = 16,
-	fill_ratio = 0.50,
-	biomes = {"prairie"},
+	fill_ratio = 0.35,
+	biomes = {"grassy", "grassytwo", "jumble", "prairie"},
 	decoration = "ethereal:wild_onion_4",
 })
 

@@ -174,31 +174,6 @@ minetest.register_craftitem("ethereal:banana_bread", {
 	on_use = minetest.item_eat(6),
 })
 
--- Strawberry Bush (Gives 3 Strawberries, each heal 1/2 heart)
-minetest.register_node("ethereal:strawberry_bush", {
-	drawtype = "plantlike",
-	walkable = false,
-	paramtype = "light",
-	visual_scale = 0.8,
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
-	},
-	description = "Strawberry Bush",
-	tiles = {"strawberry_bush.png"},
-	is_ground_content = true,
-	groups = {snappy=3,flammable=1},
-	drop = 'ethereal:strawberry 3',
-	sounds = default.node_sound_defaults(),
-})
-
--- Strawberry (Heals half heart when eaten)
-minetest.register_craftitem("ethereal:strawberry", {
-	description = "Strawberry",
-	inventory_image = "strawberry.png",
-	on_use = minetest.item_eat(1),
-})
-
 -- Mushroom Plant (Must be farmed to become edible)
 minetest.register_node("ethereal:mushroom_plant", {
 	description = "Mushroom (edible)",

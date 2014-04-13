@@ -21,6 +21,7 @@ dofile(minetest.get_modpath("ethereal").."/leaves.lua")
 dofile(minetest.get_modpath("ethereal").."/wood.lua")
 dofile(minetest.get_modpath("ethereal").."/sapling.lua")
 dofile(minetest.get_modpath("ethereal").."/bamboo.lua")
+dofile(minetest.get_modpath("ethereal").."/strawberry.lua")
 dofile(minetest.get_modpath("ethereal").."/fishing.lua")
 
 if minetest.get_modpath("bakedclay") ~= nil then

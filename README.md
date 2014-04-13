@@ -18,6 +18,18 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9h*
+
+    Added Strawberry farming, Strawberry Seeds and new Textures
+
+    Tidied up mapgen_v7.lua for better spawning of plants and trees
+
+    Player can no longer walk through Bamboo Stalks
+
+*0.0.9g*
+
+    Changed Ethereal's growing routine for Saplings, it now uses 1 single abm to grow all tree's
+	
 *0.0.9f*
 
     Added Fishing to Ethereal, Fishing Rod, Worms, Fish and Cooked Fish
