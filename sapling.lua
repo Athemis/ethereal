@@ -97,9 +97,9 @@ ethereal.saplings["ethereal:big_tree_sapling"]={
 }
 
 ethereal.saplings["ethereal:banana_tree_sapling"]={
-       ['offset']  = center_offset,{x=2,y=0,z=2}, {x=7,y=8,z=7}, "bananatree"
-       ['size']    = schematic_size,
-       ['sname']   = schematic_name,
+       ['offset']  = {x=2,y=0,z=2},  
+       ['size']    = {x=7,y=8,z=7},
+       ['sname']   = "bananatree",
        ['growson'] = "ethereal:grove_dirt",
 }
 
