@@ -4,15 +4,6 @@ ethereal.saplings = {}
 -- Function to Register Saplings
 ethereal.register_sapling = function( sapling_node_name, sapling_descr, sapling_texture )
 
-    table.insert(ethereal.saplings,{[sapling_node_name] = {
-                                                           ['offset']  = center_offset,
-                                                           ['size']    = schematic_size,
-                                                           ['sname']   = schematic_name,
-                                                           ['growson'] = grows_only_on,
-                                                           }
-                                    }
-                )
-
     -- if the sapling does not exist yet, create a node for it
     if( not( minetest.registered_nodes[ sapling_node_name ] )) then
         minetest.register_node( sapling_node_name, {
@@ -69,6 +60,76 @@ ethereal.centre_place = function(pos, center_offset, schematic_size, schem_name)
     minetest.place_schematic(p, minetest.get_modpath("ethereal").."/schematics/"..schem_name..".mts", rotation, {}, false );
 
 end
+
+ethereal.saplings["ethereal:yellow_tree_sapling"]={
+       ['offset']  = {x=4,y=0,z=4},
+       ['size']    = {x=9,y=19,z=9},
+       ['sname']   = "yellowtree",
+       ['growson'] = "default:dirt_with_snow",
+}
+
+ethereal.saplings["ethereal:tree_sapling"]={
+       ['offset']  = {x=2,y=0,z=2},
+       ['size']    = {x=5,y=7,z=5},
+       ['sname']   = "tree",
+       ['growson'] = "ethereal:green_dirt_top",
+}
+
+ethereal.saplings["ethereal:jungle_tree_sapling"]={
+       ['offset']  = {x=6,y=0,z=3},
+       ['size']    = {x=13,y=19,z=7},
+       ['sname']   = "jungletree",
+       ['growson'] = "ethereal:jungle_dirt",
+}
+
+ethereal.saplings["ethereal:pine_tree_sapling"]={
+       ['offset']  = {x=3,y=1,z=3},
+       ['size']    = {x=7,y=8,z=7},
+       ['sname']   = "pinetree",
+       ['growson'] = "ethereal:cold_dirt",
+}
+
+ethereal.saplings["ethereal:big_tree_sapling"]={
+       ['offset']  = {x=4,y=0,z=3},
+       ['size']    = {x=9,y=8,z=9},
+       ['sname']   = "bigtree",
+       ['growson'] = "ethereal:green_dirt_top",
+}
+
+ethereal.saplings["ethereal:banana_tree_sapling"]={
+       ['offset']  = center_offset,{x=2,y=0,z=2}, {x=7,y=8,z=7}, "bananatree"
+       ['size']    = schematic_size,
+       ['sname']   = schematic_name,
+       ['growson'] = "ethereal:grove_dirt",
+}
+
+ethereal.saplings["ethereal:frost_tree_sapling"]={
+       ['offset']  = {x=3,y=0,z=3},
+       ['size']    = {x=8,y=20,z=8},
+       ['sname']   = "frosttrees",
+       ['growson'] = "ethereal:crystal_topped_dirt",
+}
+
+ethereal.saplings["ethereal:gray_tree_sapling"]={
+       ['offset']  = {x=2,y=0,z=2},
+       ['size']    = {x=5,y=8,z=5},
+       ['sname']   = "graytrees",
+       ['growson'] = "ethereal:gray_dirt_top",
+}
+
+ethereal.saplings["ethereal:mushroom_sapling"]={
+       ['offset']  = {x=3,y=0,z=3},
+       ['size']    = {x=8,y=12,z=9},
+       ['sname']   = "mushroomone",
+       ['growson'] = "ethereal:mushroom_dirt",
+}
+
+ethereal.saplings["ethereal:palm_sapling"]={
+       ['offset']  = {x=3,y=0,z=4},
+       ['size']    = {x=7,y=10,z=7},
+       ['sname']   = "palmtree",
+       ['growson'] = "default:sand",
+}
 
 -- Grow saplings
 

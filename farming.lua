@@ -45,6 +45,7 @@ if minetest.registered_items['farming:fertilizer'] then
        description = 'Fertilizer X',
        inventory_image = 'ethereal_fertilizer.png',
        on_place = function(itemstack, placer, pointed_thing)
+       print(minetest.serialize(ethereal.saplings))
           local sapling_name = minetest.get_node(pointed_thing.under).name
           if pointed_thing and sapling_name:find('sapling') then
              local schematic_name = ethereal.saplings[sapling_name].sname
