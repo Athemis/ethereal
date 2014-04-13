@@ -1,8 +1,9 @@
+
 math.randomseed(os.time())
 math.random()
 -- this one was taken from the sapling.lua sapling ABM
 local fertilize = function(pos, schematic_name, schematic_size, center_offset, grows_only_on)
-
+print(test)
             local node_under_name =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
 
             -- if grows_only_on is specified, tree grows on specific node
@@ -39,20 +40,22 @@ local fertilize = function(pos, schematic_name, schematic_size, center_offset, g
 
 if minetest.registered_items['farming:fertilizer'] then
    -- redefine that fertilizer
-   minetest.register_craftitem(':default:fertilizer', {
+   local test=minetest.registered_items['farming:fertilizer'].on_place
+   minetest.register_craftitem(':farming:fertilizer', {
        description = 'Fertilizer X',
        inventory_image = 'ethereal_fertilizer.png',
        on_place = function(itemstack, placer, pointed_thing)
-          if pointed_thing and pointed_thing.name:find('sapling') then
-             local sapling_name = minetest.get_node(pointed_thing.under).name
+          local sapling_name = minetest.get_node(pointed_thing.under).name
+          if pointed_thing and sapling_name:find('sapling') then
              local schematic_name = ethereal.saplings[sapling_name].sname
              local schematic_size = ethereal.saplings[sapling_name].size
              local center_offset  = ethereal.saplings[sapling_name].offset
              local grows_only_on  = ethereal.saplings[sapling_name].growson
              -- grow tree only by 1/5 chance
-             if math.random()>0.2 then
+            -- if math.random()>0.2 then
                 fertilize(pos, schematic_name, schematic_size, center_offset, grows_only_on)
-             end
+            -- end
+             test(itemstack, placer, pointed_thing)
           end
        end,
        }
@@ -63,8 +66,8 @@ else
        description = 'Fertilizer X',
        inventory_image = 'ethereal_fertilizer.png',
        on_place = function(itemstack, placer, pointed_thing)
-          if pointed_thing and pointed_thing.name:find('sapling') then
-             local sapling_name = minetest.get_node(pointed_thing.under).name
+          local sapling_name = minetest.get_node(pointed_thing.under).name
+          if pointed_thing and sapling_name:find('sapling') then
              local schematic_name = ethereal.saplings[sapling_name].sname
              local schematic_size = ethereal.saplings[sapling_name].size
              local center_offset  = ethereal.saplings[sapling_name].offset

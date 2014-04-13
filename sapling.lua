@@ -1,8 +1,8 @@
-
---= Check For Saplings, Make Them Grow
+-- a table for farming & fertilizer support
 ethereal.saplings = {}
 
-ethereal.register_sapling_abm = function( sapling_node_name, center_offset, schematic_size, schematic_name, grows_only_on, sapling_descr, sapling_size, sapling_texture )
+-- Function to Register Saplings
+ethereal.register_sapling = function( sapling_node_name, sapling_descr, sapling_texture )
 
     table.insert(ethereal.saplings,{[sapling_node_name] = {
                                                            ['offset']  = center_offset,
@@ -18,111 +18,90 @@ ethereal.register_sapling_abm = function( sapling_node_name, center_offset, sche
         minetest.register_node( sapling_node_name, {
             description = sapling_descr,
             drawtype = "plantlike",
-            visual_scale = sapling_size,
+            visual_scale = 1.0,
             tiles = { sapling_texture},
             inventory_image = sapling_texture,
             wield_image = sapling_texture,
             paramtype = "light",
             walkable = false,
-            groups = {snappy=default.dig.leaves,dig_immediate=3,flammable=2},
+            groups = {snappy=default.dig.leaves,dig_immediate=3,flammable=2,ethereal_sapling=1},
             sounds = default.node_sound_defaults(),
         })
     end
 
-    --Grow saplings
-    minetest.register_abm({
-        nodenames = { sapling_node_name },
-        interval = 10,
-        chance = 50,
-        action = function(pos, node, active_object_count, active_object_count_wider)
-
-            local node_under_name =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
-
-            -- if grows_only_on is specified, tree grows on specific node
-            if( grows_only_on and node_under_name ~= grows_only_on ) then
-                return;
-            end
-
-            minetest.log("action", "A sapling grows into "..tostring( schematic_name ).." at "..minetest.pos_to_string(pos))
-
-            -- Calculate Tree's centre position (to grow where sapling was)
-            -- an offset depending on rotation; rotation thus can't be "random"
-            local rotation = tostring( (math.random( 4 )-1) * 90);
-            local p = {x=pos.x, y=pos.y, z=pos.z};
-            if(     rotation=="0" ) then
-                p.x = pos.x - center_offset.x;
-                p.z = pos.z - center_offset.z;
-            elseif( rotation=="90" ) then
-                p.x = pos.x - center_offset.z;
-                p.z = pos.z - ( schematic_size.x - center_offset.x - 1);
-            elseif( rotation=="180" ) then
-                p.x = pos.x - ( schematic_size.x - center_offset.x - 1);
-                p.z = pos.z - ( schematic_size.z - center_offset.z - 1);
-            elseif( rotation=="270" ) then
-                p.x = pos.x - ( schematic_size.z - center_offset.z - 1);
-                p.z = pos.z - center_offset.x;
-            end
-
-            -- remove the sapling so that the tree may use that space to grow
-            minetest.remove_node( pos );
-            -- adjust the position so that the tree is centered on the position of the sapling;
-            -- rotation is random; existing blocks will NOT be replaced by the tree
-            minetest.place_schematic( p, minetest.get_modpath("ethereal").."/schematics/"..schematic_name..".mts", rotation, {}, false );
-        end,
-    })
 end
 
--- Apple Tree grows on Green Dirt
-ethereal.register_sapling_abm( 'ethereal:tree_sapling',
-                {x=2,y=0,z=2}, {x=5,y=7,z=5}, 'tree',
-            'ethereal:green_dirt_top', 'Tree Sapling', 1.0, 'ethereal_tree_sapling.png' );
+-- Register Saplings
 
--- Old Jungle Tree (just in case)
---ethereal.register_sapling_abm( 'ethereal:jungle_tree_sapling',
---           {x=7,y=0,z=3}, {x=11,y=19,z=11}, 'jungletree',
---          'ethereal:jungle_dirt', 'Jungletree Sapling', 1.0, 'ethereal_jungle_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:yellow_tree_sapling', 'Yellow Tree Sapling', 'yellow_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:tree_sapling', 'Tree Sapling', 'ethereal_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:jungle_tree_sapling','Jungletree Sapling', 'ethereal_jungle_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:pine_tree_sapling', 'Pine Sapling', 'ethereal_pine_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:big_tree_sapling', 'Big Tree Sapling', 'ethereal_big_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:banana_tree_sapling', 'Banana Tree Sapling', 'banana_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:frost_tree_sapling', 'Frost Sapling', 'ethereal_frost_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:gray_tree_sapling', 'Gray Sapling', 'ethereal_gray_tree_sapling.png' );
+ethereal.register_sapling( 'ethereal:mushroom_sapling', 'Mushroom Sapling', 'ethereal_mushroom_sapling.png' );
+ethereal.register_sapling( 'ethereal:palm_sapling', 'Palm Sapling', 'moretrees_palm_sapling.png' );
 
--- Jungle Tree grows on Jungle Dirt
-ethereal.register_sapling_abm( 'ethereal:jungletree_sapling',
-             {x=6,y=0,z=4}, {x=11,y=19,z=11}, 'jungletree',
-            'ethereal:jungle_dirt', 'Jungletree Sapling', 1.0, 'ethereal_jungle_tree_sapling.png' );
+-- Find centre position for Tree to grow
+ethereal.centre_place = function(pos, center_offset, schematic_size, schem_name)
+    -- Calculate Tree's centre position (to grow where sapling was)
+    -- an offset depending on rotation; rotation thus can't be "random"
+    local rotation = tostring( (math.random( 4 )-1) * 90);
+    local p = {x=pos.x, y=pos.y, z=pos.z};
+    if(     rotation=="0" ) then
+        p.x = pos.x - center_offset.x;
+        p.z = pos.z - center_offset.z;
+    elseif( rotation=="90" ) then
+        p.x = pos.x - center_offset.z;
+        p.z = pos.z - ( schematic_size.x - center_offset.x - 1);
+    elseif( rotation=="180" ) then
+        p.x = pos.x - ( schematic_size.x - center_offset.x - 1);
+        p.z = pos.z - ( schematic_size.z - center_offset.z - 1);
+    elseif( rotation=="270" ) then
+        p.x = pos.x - ( schematic_size.z - center_offset.z - 1);
+        p.z = pos.z - center_offset.x;
+    end
 
--- Pine Tree grows on Cold Dirt
-ethereal.register_sapling_abm( 'ethereal:pinetree_sapling',
-            {x=3,y=1,z=3}, {x=7,y=8,z=7}, 'pinetree',
-            'ethereal:cold_dirt', 'Pine Sapling', 1.0, 'ethereal_pine_tree_sapling.png' );
+    -- Remove Sapling and Place Tree Schematic
+    minetest.remove_node(pos,true);
+    minetest.place_schematic(p, minetest.get_modpath("ethereal").."/schematics/"..schem_name..".mts", rotation, {}, false );
 
--- Big Tree grows on Green Dirt also
-ethereal.register_sapling_abm( 'ethereal:bigtree_sapling',
-            {x=4,y=0,z=3}, {x=9,y=8,z=9}, 'bigtree',
-            'ethereal:green_dirt_top', 'Big Tree Sapling', 1.5, 'ethereal_big_tree_sapling.png' );
+end
 
--- Banana Tree grows on Grove Dirt
-ethereal.register_sapling_abm( 'ethereal:bananatree_sapling',
-            {x=2,y=0,z=2}, {x=7,y=8,z=7}, 'bananatree',
-            'ethereal:grove_dirt', 'Banana Tree Sapling', 1.0, 'banana_tree_sapling.png' );
+-- Grow saplings
 
--- Frost Tree grows on Frost Dirt
-ethereal.register_sapling_abm( 'ethereal:frosttree_sapling',
-            {x=3,y=0,z=3}, {x=8,y=20,z=8}, 'frosttree',
-            'ethereal:crystal_topped_dirt', 'Frost Sapling', 1.0, 'ethereal_frost_tree_sapling.png' );
+minetest.register_abm({
+    nodenames = { "group:ethereal_sapling" },
+    interval = 10,
+    chance = 50,
+    action = function(pos, node)
 
--- Grey Tree grows on Grey Dirt
-ethereal.register_sapling_abm( 'ethereal:graytree_sapling',
-            {x=2,y=0,z=2}, {x=5,y=8,z=5}, 'graytree',
-            "ethereal:gray_dirt_top", 'Gray Sapling', 1.0, 'ethereal_gray_tree_sapling.png' );
+        local node_under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
 
--- Giant Mushrooms grow on Mushroom Dirt
-ethereal.register_sapling_abm( 'ethereal:mushroomone_sapling',
-            {x=3,y=0,z=3}, {x=8,y=12,z=9}, 'mushroomone',
-            'ethereal:mushroom_dirt', 'Mushroom Sapling', 1.0, 'ethereal_mushroom_sapling.png' );
+        -- Check if Sapling is growing on correct substrate
+        if (node.name == "ethereal:yellow_tree_sapling" and node_under == "default:dirt_with_snow") then
+            ethereal.centre_place ( pos, {x=4,y=0,z=4}, {x=9,y=19,z=9}, "yellowtree"); return
+        elseif (node.name == "ethereal:tree_sapling" and node_under == "ethereal:green_dirt_top") then
+            ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=5,y=7,z=5}, "tree"); return
+        elseif (node.name == "ethereal:jungle_tree_sapling" and node_under == "ethereal:jungle_dirt") then
+            ethereal.centre_place ( pos, {x=6,y=0,z=3}, {x=13,y=19,z=7}, "jungletree"); return
+        elseif (node.name == "ethereal:pine_tree_sapling" and node_under == "ethereal:cold_dirt") then
+            ethereal.centre_place ( pos, {x=3,y=1,z=3}, {x=7,y=8,z=7}, "pinetree"); return
+        elseif (node.name == "ethereal:big_tree_sapling" and node_under == "ethereal:green_dirt_top") then
+            ethereal.centre_place ( pos, {x=4,y=0,z=3}, {x=9,y=8,z=9}, "bigtree"); return
+        elseif (node.name == "ethereal:banana_tree_sapling" and node_under == "ethereal:grove_dirt") then
+            ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=7,y=8,z=7}, "bananatree"); return
+        elseif (node.name == "ethereal:frost_tree_sapling" and node_under == "ethereal:crystal_topped_dirt") then
+            ethereal.centre_place ( pos, {x=3,y=0,z=3}, {x=8,y=20,z=8}, "frosttrees"); return
+        elseif (node.name == "ethereal:gray_tree_sapling" and node_under == "ethereal:gray_dirt_top") then
+            ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=5,y=8,z=5}, "graytrees"); return
+        elseif (node.name == "ethereal:mushroom_sapling" and node_under == "ethereal:mushroom_dirt") then
+            ethereal.centre_place ( pos, {x=3,y=0,z=3}, {x=8,y=12,z=9}, "mushroomone"); return
+        elseif (node.name == "ethereal:palm_sapling" and node_under == "default:sand") then
+            ethereal.centre_place ( pos, {x=3,y=0,z=4}, {x=7,y=10,z=7}, "palmtree"); return
+        end
 
--- Palm Tree grows on Sandy Beach
-ethereal.register_sapling_abm( 'ethereal:palmtree_sapling',
-            {x=3,y=0,z=4}, {x=7,y=10,z=7}, 'palmtree',
-            'default:sand', 'Palm Sapling', 1.0, 'moretrees_palm_sapling.png' );
-
--- Healing Tree grows on Snowy Grass
-ethereal.register_sapling_abm( 'ethereal:yellowtree_sapling',
-            {x=4,y=0,z=4}, {x=9,y=19,z=9}, 'yellowtree',
-            'default:dirt_with_snow', 'Yellow Tree Sapling', 1.0, 'yellow_tree_sapling.png' );
+    end,
+})

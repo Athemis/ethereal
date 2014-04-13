@@ -1,6 +1,6 @@
 --[[
 
-    Minetest Ethereal Mod 0.9e
+    Minetest Ethereal Mod 0.9g
 
     Created by ChinChow
 
@@ -11,6 +11,7 @@
 ]]
 
 dofile(minetest.get_modpath("ethereal").."/mapgen_v7.lua")
+
 dofile(minetest.get_modpath("ethereal").."/plantlife.lua")
 dofile(minetest.get_modpath("ethereal").."/mushroom.lua")
 dofile(minetest.get_modpath("ethereal").."/onion.lua")
@@ -25,6 +26,9 @@ dofile(minetest.get_modpath("ethereal").."/sapling.lua")
 dofile(minetest.get_modpath("ethereal").."/bamboo.lua")
 -- added by 4aiman
 dofile(minetest.get_modpath("ethereal").."/farming.lua")
+
+dofile(minetest.get_modpath("ethereal").."/fishing.lua")
+
 
 if minetest.get_modpath("bakedclay") ~= nil then
     dofile(minetest.get_modpath("ethereal").."/mesa.lua")

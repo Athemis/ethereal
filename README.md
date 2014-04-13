@@ -18,6 +18,11 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9f*
+
+    Added Fishing to Ethereal, Fishing Rod, Worms, Fish and Cooked Fish
+    (Left-click the water with a Baited Rod in the hope of landing your prize)
+
 *0.0.9e*
 
     Changed textures for Bowl, Mushroom Soup, Crystal Spike, Banana Loaf, Strawberry & Bush
