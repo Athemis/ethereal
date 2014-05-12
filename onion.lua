@@ -87,7 +87,7 @@ minetest.register_abm({
 	chance = 3,
 	action = function(pos, node)
 		-- return if already full grown
-		if minetest.get_item_group(node.name, "onion") == 4 then
+		if minetest.get_item_group(node.name, "onion") == 5 then
 			return
 		end
 		

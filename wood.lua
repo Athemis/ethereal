@@ -1,6 +1,15 @@
 
 --= Define Tree and Mushroom Trunks
 
+-- Scorched Tree Trunk
+minetest.register_node("ethereal:scorched_tree", {
+	description = "Scorched Tree",
+	tiles = {"scorched_tree_top.png", "scorched_tree_top.png", "scorched_tree.png"},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+})
+
 -- Frost Tree Trunk
 minetest.register_node("ethereal:frost_tree", {
 	description = "Frost Tree",

@@ -1,4 +1,4 @@
-ethereal = {""} -- This line stops errors
+ethereal = {}
 
 --= Define Biomes
 
@@ -32,7 +32,7 @@ minetest.register_biome({
 	depth_top      = 1,
 	node_filler    = "default:dirt",
 	depth_filler   = 2,
-	height_min     = 1,
+	height_min     = 5,
 	height_max     = 40,
 	heat_point     = 10.0,
 	humidity_point = 40.0,
@@ -68,7 +68,7 @@ minetest.register_biome({
 	depth_top      = 2,
 	node_filler    = "air",
 	depth_filler   = 8,
-	height_min     = 1,
+	height_min     = 4,
 	height_max     = 41,
 	heat_point     = 15.0,
 	humidity_point = 25.0,
@@ -202,7 +202,7 @@ minetest.register_biome({
 	depth_top      = 1,
 	node_filler    = "default:dirt",
 	depth_filler   = 1,
-	height_min     = 1,
+	height_min     = 3,
 	height_max     = 61,
 	heat_point     = 55.0,
 	humidity_point = 25.0,
@@ -245,23 +245,12 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
--- Dead Tree
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "ethereal:dry_dirt",
-	sidelen = 16,
-	fill_ratio = 0.006,
-	biomes = {"plains"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/deadtree.mts",
-	flags = "place_center_x, place_center_z",
-})
-
 -- Healing Tree
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "default:dirt_with_snow",
 	sidelen = 16,
-	fill_ratio = 0.03,
+	fill_ratio = 0.04,
 	biomes = {"healing"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/yellowtree.mts",
 	flags = "place_center_x, place_center_z",
@@ -283,20 +272,9 @@ minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:mushroom_dirt",
 	sidelen = 16,
-	fill_ratio = 0.035, -- was 0.070, trying 2 different sized shrooms in same biome (below)
+	fill_ratio = 0.070,
 	biomes = {"mushroom"},
 	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomone.mts",
-	flags = "place_center_x, place_center_z",
-})
-
--- Not so Giant Shrooms
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "ethereal:mushroom_dirt",
-	sidelen = 16,
-	fill_ratio = 0.025,
-	biomes = {"mushroom"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomtwo.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -355,17 +333,6 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
--- Cactus on Desert
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "default:sandstone",
-	sidelen = 16,
-	fill_ratio = 0.010,
-	biomes = {"desertstone"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/cactus.mts",
-	flags = "place_center_x, place_center_z",
-})
-
 -- Apple Tree
 minetest.register_decoration({
 	deco_type = "schematic",
@@ -420,6 +387,17 @@ minetest.register_decoration({
 	flags = "place_center_x, place_center_z",
 })
 
+-- Dead Tree
+minetest.register_decoration({
+	deco_type = "simple",
+	place_on = "ethereal:dry_dirt",
+	sidelen = 16,
+	fill_ratio = 0.006,
+	biomes = {"plains"},
+	decoration = "ethereal:scorched_tree",
+	height = 6,
+})
+
 --= Smaller Plant Decoration
 
 -- Dry Shrubs on Dry Dirt
@@ -451,14 +429,14 @@ minetest.register_decoration({
 	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
 })
 
--- Crystal Spikes
+-- Crystal Spikes & Grass
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:crystal_topped_dirt",
 	sidelen = 16,
-	fill_ratio = 0.010,
+	fill_ratio = 0.015,
 	biomes = {"frost"},
-	decoration = "ethereal:crystal_spike",
+	decoration = {"ethereal:crystal_spike", "ethereal:crystalgrass"},
 })
 
 -- Red Shrub
@@ -486,9 +464,11 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "default:sandstone",
 	sidelen = 16,
-	fill_ratio = 0.010,
+	fill_ratio = 0.010, -- 0.10
 	biomes = {"desertstone"},
 	decoration = "default:cactus",
+--	height = 3,
+	height_max = 3,
 })
 
 -- Small Mushroom

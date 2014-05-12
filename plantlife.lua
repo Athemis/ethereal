@@ -78,6 +78,27 @@ minetest.register_node("ethereal:snowygrass", {
         },
 })
 
+-- Crystal Shrub (not Flammable - too cold to burn)
+minetest.register_node("ethereal:crystalgrass", {
+        description = "Crystal Grass",
+        drawtype = "plantlike",
+        visual_scale = 0.9,
+        tiles = {"ethereal_crystalgrass.png"},
+        inventory_image = "ethereal_crystalgrass.png",
+        wield_image = "ethereal_crystalgrass.png",
+        paramtype = "light",
+	waving = 1,
+        walkable = false,
+        buildable_to = true,
+        is_ground_content = true,
+        groups = {snappy=3,flora=1,attached_node=1},
+        sounds = default.node_sound_leaves_defaults(),
+        selection_box = {
+                type = "fixed",
+                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+        },
+})
+
 --= Define Moss Types (Has grass textures on all sides)
 
 function ethereal.add_moss(typ, descr, texture, receipe_item)

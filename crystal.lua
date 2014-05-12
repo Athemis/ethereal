@@ -150,3 +150,31 @@ minetest.register_craft({
 		{'group:stick', '', 'group:stick'},
 	}
 })
+
+-- Charcoal Lump
+minetest.register_node("ethereal:charcoal_lump", {
+	description = "Lump of Charcoal",
+	inventory_image = "charcoal_lump.png",
+})
+
+minetest.register_craft({
+	output = 'ethereal:charcoal_lump 2',
+	recipe = {
+		{'ethereal:scorched_tree'}
+	}
+})
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "ethereal:charcoal_lump",
+	burntime = 20,
+})
+
+-- Make Torch from Charcoal Lump
+minetest.register_craft({
+	output = 'default:torch 4',
+	recipe = {
+		{'ethereal:charcoal_lump'},
+		{'default:stick'},
+	}
+})

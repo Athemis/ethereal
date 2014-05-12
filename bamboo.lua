@@ -70,13 +70,14 @@ minetest.register_biome({
 
 -- Bamboo Stalks
 minetest.register_decoration({
-	deco_type = "schematic",
+	deco_type = "simple",
 	place_on = "ethereal:bamboo_dirt",
 	sidelen = 16,
 	fill_ratio = 0.055,
 	biomes = {"bamboo"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/bamboo.mts",
-	flags = "place_center_x, place_center_z",
+	decoration = "ethereal:bamboo",
+--	height = 5,
+	height_max = 5,
 })
 
 -- Bamboo Sprouts
