@@ -80,6 +80,45 @@ minetest.register_craft({
 	}
 })
 
+-- Crystal Shovel (with Soft Touch, can dig up dirt with grass intact)
+minetest.register_tool("ethereal:shovel_crystal", {
+	description = "Crystal (soft touch) Shovel",
+	inventory_image = "crystal_shovel.png",
+	wield_image = "crystal_shovel.png^[transformR90",
+
+	on_use = function(itemstack, user, pointed_thing)
+
+		if pointed_thing.type == "node" then
+
+			local pos = pointed_thing.under
+			local nn = minetest.get_node(pos).name
+			local is_dirt = minetest.get_item_group(nn, "soil")
+			local inv = user:get_inventory()
+
+			if is_dirt == 1 then
+				minetest.env:dig_node(pointed_thing.under)
+
+				local nm = minetest.get_node(pos).name
+
+				if minetest.get_node(pos).name == "air" then
+					inv:add_item("main", {name=nn})
+					itemstack:add_wear(65535/100) -- 111 uses
+				end
+			end
+		end
+		return itemstack
+	end,
+})
+
+minetest.register_craft({
+	output = 'ethereal:shovel_crystal',
+	recipe = {
+		{'', 'ethereal:crystal_ingot', ''},
+		{'', 'default:steel_ingot', ''},
+		{'', 'default:steel_ingot', ''},
+	}
+})
+
 -- Crystal Gilly Staff and Recipe (When held it allows you to breath underwater)
 
 minetest.register_craftitem("ethereal:crystal_gilly_staff", {
@@ -152,7 +191,7 @@ minetest.register_craft({
 })
 
 -- Charcoal Lump
-minetest.register_node("ethereal:charcoal_lump", {
+minetest.register_craftitem("ethereal:charcoal_lump", {
 	description = "Lump of Charcoal",
 	inventory_image = "charcoal_lump.png",
 })
