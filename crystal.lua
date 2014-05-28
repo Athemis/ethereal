@@ -103,6 +103,7 @@ minetest.register_tool("ethereal:shovel_crystal", {
 				if minetest.get_node(pos).name == "air" then
 					inv:add_item("main", {name=nn})
 					itemstack:add_wear(65535/100) -- 111 uses
+					minetest.sound_play("default_dig_crumbly", {pos = pos, gain = 0.35})
 				end
 			end
 		end

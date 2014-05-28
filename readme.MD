@@ -19,7 +19,10 @@ Following people made this available:
 Changes:
 --------
 *0.0.9k*
+    Fixed bug in Crystal Shovel, now works with dirt_with_snow and has sounds
 
+    Tweaked Fiery Biomes slightly, smaller craters on outside, large in hotter areas
+    
     Fixed bug in charcoal lumps (no more placing as unknown nodes)
 
     Added Crystal Shovel with soft touch, can be used to dig up dirt with grass intact
