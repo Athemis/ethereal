@@ -221,6 +221,18 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
+	name           = "fiery2",
+	node_top       = "ethereal:fiery_dirt_top",
+	depth_top      = 1,
+	node_filler    = "default:dirt",
+	depth_filler   = 7,
+	height_min     = 5,
+	height_max     = 65,
+	heat_point     = 80.0,
+	humidity_point = 10.0,
+})
+
+minetest.register_biome({
 	name           = "sandclay",
 	node_top       = "default:sand",
 	depth_top      = 3,
@@ -234,6 +246,8 @@ minetest.register_biome({
 
 --= Register Biome Decoration (Schematics)
 
+local path = minetest.get_modpath("ethereal")
+
 -- Banana Tree
 minetest.register_decoration({
 	deco_type = "schematic",
@@ -241,7 +255,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.015,
 	biomes = {"grove"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/bananatree.mts",
+	schematic = path.."/schematics/bananatree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -252,7 +266,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.04,
 	biomes = {"healing"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/yellowtree.mts",
+	schematic = path.."/schematics/yellowtree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -263,7 +277,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.010,
 	biomes = {"frost"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/frosttrees.mts",
+	schematic = path.."/schematics/frosttrees.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -274,30 +288,31 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.070,
 	biomes = {"mushroom"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/mushroomone.mts",
+	schematic = path.."/schematics/mushroomone.mts",
 	flags = "place_center_x, place_center_z",
 })
 
--- Volcano Pit
+-- Small Lava Crater
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "ethereal:fiery_dirt_top",
+	sidelen = 16,
+	fill_ratio = 0.012,
+	biomes = {"fiery"},
+	schematic = path.."/schematics/volcanom.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+-- Large Lava Crater
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "ethereal:fiery_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.010,
-	biomes = {"fiery"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/volcanol.mts",
+	biomes = {"fiery2"},
+	schematic = path.."/schematics/volcanol.mts",
 	flags = "place_center_x, place_center_z",
-})
-
--- Different Volcano Pit
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "ethereal:fiery_dirt_top",
-	sidelen = 16,
-	fill_ratio = 0.009,
-	biomes = {"fiery"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/volcanom.mts",
-	flags = "place_center_x, place_center_z",
+--	replacements = {{"default:stone", "default:desert_stone"}},
 })
 
 -- Jungle Tree
@@ -307,7 +322,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.3, -- was 0.250
 	biomes = {"junglee, jumble"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/jungletree.mts",
+	schematic = path.."/schematics/jungletree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -318,7 +333,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.025,
 	biomes = {"grayness", "jumble"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/graytrees.mts",
+	schematic = path.."/schematics/graytrees.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -329,7 +344,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.025,
 	biomes = {"snowy", "alpine"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/pinetree.mts",
+	schematic = path.."/schematics/pinetree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -340,7 +355,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.030,
 	biomes = {"grassy, jumble"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/tree.mts",
+	schematic = path.."/schematics/tree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -350,7 +365,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.005,
 	biomes = {"prairie", "grassytwo"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/tree.mts",
+	schematic = path.."/schematics/tree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -361,7 +376,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.010,
 	biomes = {"grassytwo"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/bigtree.mts",
+	schematic = path.."/schematics/bigtree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -372,7 +387,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.002,
 	biomes = {"desertsandstone"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/rail.mts",
+	schematic = path.."/schematics/rail.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -383,7 +398,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.002,
 	biomes = {"desertsandstone"},
-	schematic = minetest.get_modpath("ethereal").."/schematics/railtwo.mts",
+	schematic = path.."/schematics/railtwo.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -434,7 +449,7 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:crystal_topped_dirt",
 	sidelen = 16,
-	fill_ratio = 0.015,
+	fill_ratio = 0.02,
 	biomes = {"frost"},
 	decoration = {"ethereal:crystal_spike", "ethereal:crystalgrass"},
 })
@@ -445,7 +460,7 @@ minetest.register_decoration({
         place_on = "ethereal:fiery_dirt_top", 
         sidelen = 16,
         fill_ratio = 0.20,
-        biomes = {"fiery"},
+        biomes = {"fiery", "fiery2"},
         decoration = "ethereal:dry_shrub",
 })
 
@@ -516,8 +531,8 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = {"ethereal:cold_dirt", "default:dirt_with_snow"},
 	sidelen = 16,
-	fill_ratio = 0.85,
-	biomes = {"snowy", "apline"},
+	fill_ratio = 0.80,
+	biomes = {"snowy", "alpine"},
 	decoration = "default:snow",
 })
 
@@ -553,7 +568,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				local z = pr:next(z0, z1)
 				if minetest.get_node({x=x,y=1,z=z}).name == "default:sand" and
 					minetest.find_node_near({x=x,y=1,z=z}, 1, "default:water_source") then
-					schematic = minetest.get_modpath("ethereal").."/schematics/palmtree.mts"
+					schematic = path.."/schematics/palmtree.mts"
 					minetest.place_schematic({x=x-3,y=2,z=z-4}, schematic, 0, '', 0)
 				end
 			end

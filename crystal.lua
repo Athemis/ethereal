@@ -93,17 +93,28 @@ minetest.register_tool("ethereal:shovel_crystal", {
 			local pos = pointed_thing.under
 			local nn = minetest.get_node(pos).name
 			local is_dirt = minetest.get_item_group(nn, "soil")
+			local is_crumbly = minetest.get_item_group(nn, "crumbly")
 			local inv = user:get_inventory()
 
-			if is_dirt == 1 then
+			if is_dirt then
 				minetest.env:dig_node(pointed_thing.under)
 
 				local nm = minetest.get_node(pos).name
 
 				if minetest.get_node(pos).name == "air" then
-					inv:add_item("main", {name=nn})
+					inv:add_item("main", {name = nn})
 					itemstack:add_wear(65535/100) -- 111 uses
 					minetest.sound_play("default_dig_crumbly", {pos = pos, gain = 0.35})
+				end
+			elseif is_crumble then
+				minetest.env:dig_node(pointed_thing.under)
+
+				local nm = minetest.get_node(pos).name
+
+				if minetest.get_node(pos).name == "air" then
+					inv:add_item("main", {name = nn})
+					itemstack:add_wear(65535/100) -- 111 uses
+					minetest.sound_play("default_dirt_break", {pos = pos, gain = 0.35})
 				end
 			end
 		end
