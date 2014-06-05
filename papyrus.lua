@@ -1,3 +1,23 @@
+
+--= Re-register Papyrus (dug papyrus makes any above fall)
+
+minetest.register_node(":default:papyrus", {
+	description = "Papyrus",
+	drawtype = "plantlike",
+	tiles = {"default_papyrus.png"},
+	inventory_image = "default_papyrus.png",
+	wield_image = "default_papyrus.png",
+	paramtype = "light",
+	walkable = true,
+	is_ground_content = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+	},
+	groups = {snappy=3,flammable=2,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 --= Place Papyrus on Dirt next to Water
 
 minetest.register_decoration({

@@ -410,7 +410,8 @@ minetest.register_decoration({
 	fill_ratio = 0.006,
 	biomes = {"plains"},
 	decoration = "ethereal:scorched_tree",
-	height = 6,
+--	height = 6,
+	height_max = 6,
 })
 
 --= Smaller Plant Decoration

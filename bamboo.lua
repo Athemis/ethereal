@@ -20,12 +20,13 @@ minetest.register_node("ethereal:bamboo", {
 	inventory_image = "bamboo.png",
 	wield_image = "bamboo.png",
 	paramtype = "light",
+	walkable = true,
 	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
 	},
-	groups = {choppy=3, oddly_breakable_by_hand=1, flammable=2},
+	groups = {choppy=3, oddly_breakable_by_hand=1, flammable=2, attached_node=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 

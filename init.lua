@@ -1,6 +1,6 @@
 --[[
 
-	Minetest Ethereal Mod 0.9f
+	Minetest Ethereal Mod 0.9L
 
 	Created by ChinChow
 
@@ -24,6 +24,6 @@ dofile(minetest.get_modpath("ethereal").."/bamboo.lua")
 dofile(minetest.get_modpath("ethereal").."/strawberry.lua")
 dofile(minetest.get_modpath("ethereal").."/fishing.lua")
 
-if minetest.get_modpath("bakedclay") ~= nil then
+if minetest.get_modpath("bakedclay") then
 	dofile(minetest.get_modpath("ethereal").."/mesa.lua")
 end

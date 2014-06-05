@@ -18,11 +18,23 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9L*
+
+    Scorched Tree's are now different sizes
+
+    Crystal Shovel with soft touch can now be used to dig up sand and gravel
+
+    Bamboo and Papyrus drop entire stalk when bottom node dug
+
+    Crystal Spikes require steel pick or better to dig and fall when dirt below is removed
+
+    Few changes to mapgen and water functions
+
 *0.0.9k*
     Fixed bug in Crystal Shovel, now works with dirt_with_snow and has sounds
 
     Tweaked Fiery Biomes slightly, smaller craters on outside, large in hotter areas
-    
+
     Fixed bug in charcoal lumps (no more placing as unknown nodes)
 
     Added Crystal Shovel with soft touch, can be used to dig up dirt with grass intact
@@ -30,25 +42,25 @@ Changes:
 *0.0.9i*
 
     Cleaned up mapgen_v7.lua file, maps now generate a little faster
-    
+
     Removed cactus.mts, no longer required
-    
+
     Removed mushroomtwo.mts, no longer required
-    
+
     Removed bamboo.mts, no longer required
-    
+
     Removed deadtree.mts, no longer required
-    
+
     Few new textures added
-    
+
     Papyrus also spawns on jungle dirt near water
-    
+
     Replaced dead tree's with scorched tree's
-    
+
     Each scorched tree trunk crafts into 2x charcoal Lumps (fixed)
-    
+
     Torches can also be crafted from Charcoal
-    
+
 *0.0.9h*
 
     Added Strawberry farming, Strawberry Seeds and new Textures
@@ -60,7 +72,7 @@ Changes:
 *0.0.9g*
 
     Changed Ethereal's growing routine for Saplings, it now uses 1 single abm to grow all tree's
-	
+
 *0.0.9f*
 
     Added Fishing to Ethereal, Fishing Rod, Worms, Fish and Cooked Fish
