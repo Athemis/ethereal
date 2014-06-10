@@ -128,27 +128,16 @@ minetest.register_node("ethereal:green_dirt_top", {
 	sounds = default.node_sound_dirt_defaults()
 })
 
--- Green Dirt 2 (Kept only for compatibility in Xanadu server)
-minetest.register_node("ethereal:green_dirt_top2", {
-	description = "Green Dirt Alt",
-	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
-	is_ground_content = true,
-	groups = {crumbly=3, soil=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
-
 --= Check surrounding Coloured Grass and Change Dirt to Same Colour
 
 minetest.register_abm({
 	nodenames = {"default:dirt_with_grass"},
-	interval = 2,
-	chance = 1,
+	interval = 5,
+	chance = 5,
 	action = function(pos, node)
 		local count_grasses = {};
 		local curr_max  = 0;
 		local curr_type = "ethereal:green_dirt_top"; -- Fallback Colour
-
 		local positions = minetest.find_nodes_in_area( {x=(pos.x-2), y=(pos.y-2), z=(pos.z-2)},
 							       {x=(pos.x+2), y=(pos.y+2), z=(pos.z+2)},
 							   "group:ethereal_grass" );
@@ -176,11 +165,10 @@ minetest.register_abm({
 
 minetest.register_abm({
 	nodenames = {"group:ethereal_grass"},
-	interval = 2,
-	chance = 20,
+	interval = 5,
+	chance = 5,
 	action = function(pos, node)
-		local above = {x=pos.x, y=pos.y+1, z=pos.z}
-		local name = minetest.get_node(above).name
+		local name = minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name
 		local nodedef = minetest.registered_nodes[name]
 		if name ~= "ignore" and nodedef
 				and not ((nodedef.sunlight_propagates or nodedef.paramtype == "light")

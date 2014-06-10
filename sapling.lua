@@ -69,8 +69,8 @@ end
 
 minetest.register_abm({
 	nodenames = { "group:ethereal_sapling" },
-	interval = 10,
-	chance = 50,
+	interval = 20,
+	chance = 25,
 	action = function(pos, node)
 
 		local node_under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;

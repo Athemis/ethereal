@@ -18,6 +18,17 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9m*
+    Changed Bamboo biome slightly, Bamboo Sprout has new image
+
+    Abm timings changed and a few bugs fixed
+
+    Crystal Gilly Staff has to be used (left-click) to replenish air while underwater
+
+    Crystal Shovel now works with protection mods
+
+    Tidied code and changed ladder recipe's to double output
+
 *0.0.9L*
 
     Scorched Tree's are now different sizes

@@ -20,8 +20,8 @@ minetest.register_node("ethereal:bamboo", {
 	inventory_image = "bamboo.png",
 	wield_image = "bamboo.png",
 	paramtype = "light",
-	walkable = true,
 	is_ground_content = true,
+	walkable = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
@@ -35,7 +35,6 @@ minetest.register_node("ethereal:bamboo", {
 minetest.register_node("ethereal:bamboo_sprout", {
         description = "Bamboo Sprout",
         drawtype = "plantlike",
-        visual_scale = 0.8,
         tiles = {"bamboo_sprout.png"},
         inventory_image = "bamboo_sprout.png",
         wield_image = "bamboo_sprout.png",
@@ -49,8 +48,7 @@ minetest.register_node("ethereal:bamboo_sprout", {
                 type = "fixed",
                 fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
         },
-	-- sprouts are edible, heal half a heart
-	on_use = minetest.item_eat(1),
+	-- sprouts are edible if cooked in stew
 })
 
 -- Register Mapgen Biome for Bamboo
@@ -81,24 +79,14 @@ minetest.register_decoration({
 	height_max = 5,
 })
 
--- Bamboo Sprouts
+-- Bamboo Sprouts and Grass for filler
 minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "ethereal:bamboo_dirt",
 	sidelen = 16,
-	fill_ratio = 0.025,
+	fill_ratio = 0.25, -- was 0.025
 	biomes = {"bamboo"},
-	decoration = "ethereal:bamboo_sprout",
-})
-
--- Grass for filler
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = "ethereal:bamboo_dirt",
-	sidelen = 16,
-	fill_ratio = 0.40,
-	biomes = {"bamboo"},
-	decoration = "default:grass_3",
+	decoration = {"ethereal:bamboo_sprout", "default:grass_2", "default:grass_3"},
 })
 
 -- Bamboo Flooring
