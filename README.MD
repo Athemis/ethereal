@@ -18,6 +18,13 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9n*
+    New textures for farming mushrooms and spores
+
+    Illumi-shrooms spawn in caves to brighten things up a little
+
+    Crafting a wooden sign now gives 4 instead of 1
+
 *0.0.9m*
     Changed Bamboo biome slightly, Bamboo Sprout has new image
 

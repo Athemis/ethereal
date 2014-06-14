@@ -31,6 +31,16 @@ minetest.register_craft({
 	}
 })
 
+-- Signs (Changes default recipe to give 4x signs instead of only 1)
+minetest.register_craft({
+	output = 'default:sign_wall 4',
+	recipe = {
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'group:wood', 'group:wood', 'group:wood'},
+		{'', 'group:stick', ''},
+	}
+})
+
 -- Charcoal Lump
 minetest.register_craftitem("ethereal:charcoal_lump", {
 	description = "Lump of Charcoal",
@@ -58,3 +68,79 @@ minetest.register_craft({
 		{'default:stick'},
 	}
 })
+
+
+-- Illuminated Cave Shrooms (Red, Green and Blue)
+
+minetest.register_node("ethereal:illumishroom", {
+	description = "Red Illumishroom",
+	drawtype = "plantlike",
+	tiles = { "illumishroom.png" },
+	inventory_image = "illumishroom.png",
+	wield_image = "illumishroom.png",
+	paramtype = "light",
+	light_source = 5,
+	walkable = false,
+	groups = {dig_immediate=3, attached_node=1,flammable=3},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
+})
+
+minetest.register_node("ethereal:illumishroom2", {
+	description = "Green Illumishroom",
+	drawtype = "plantlike",
+	tiles = { "illumishroom2.png" },
+	inventory_image = "illumishroom2.png",
+	wield_image = "illumishroom2.png",
+	paramtype = "light",
+	light_source = 5,
+	walkable = false,
+	groups = {dig_immediate=3, attached_node=1,flammable=3},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
+})
+
+minetest.register_node("ethereal:illumishroom3", {
+	description = "Cyan Illumishroom",
+	drawtype = "plantlike",
+	tiles = { "illumishroom3.png" },
+	inventory_image = "illumishroom3.png",
+	wield_image = "illumishroom3.png",
+	paramtype = "light",
+	light_source = 5,
+	walkable = false,
+	groups = {dig_immediate=3, attached_node=1,flammable=3},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
+})
+
+-- Generate Illumishroom in caves next to coal
+minetest.register_on_generated(function(minp, maxp, seed)
+
+	local coal_nodes = minetest.find_nodes_in_area(minp, maxp, "default:stone_with_coal")
+
+	for key, pos in pairs(coal_nodes) do
+
+		local bpos = { x=pos.x, y=pos.y + 1, z=pos.z }
+		nod = minetest.get_node(bpos).name
+
+		if nod == "air" then
+			if bpos.y > -3000 and bpos.y < -2000 then
+				minetest.add_node(bpos, {name = "ethereal:illumishroom3"})
+			elseif bpos.y > -2000 and bpos.y < -1000 then
+				minetest.add_node(bpos, {name = "ethereal:illumishroom2"})
+			elseif bpos.y > -1000 and bpos.y < 0 then
+				minetest.add_node(bpos, {name = "ethereal:illumishroom"})
+			end
+		end
+	end
+end)
