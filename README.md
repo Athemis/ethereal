@@ -18,6 +18,13 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9o*
+    Added Obsidian Brick craft for building
+
+    Changed Illumishroom cave levels
+
+    Changed is_ground_content to false for ethereal dirt so mapgen doesn't carve it up with caves
+
 *0.0.9n*
     New textures for farming mushrooms and spores
 

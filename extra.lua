@@ -69,6 +69,16 @@ minetest.register_craft({
 	}
 })
 
+-- Obsidian Brick
+
+minetest.register_node("ethereal:obsidian_brick", {
+	description = "Obsidian Brick",
+	inventory_image = minetest.inventorycube("obsidian_brick.png"),
+	tiles = {"obsidian_brick.png"},
+	paramtype = "facedir",
+	groups = {cracky=1,level=3},
+	sounds = default.node_sound_stone_defaults(),
+})
 
 -- Illuminated Cave Shrooms (Red, Green and Blue)
 
@@ -138,7 +148,7 @@ minetest.register_on_generated(function(minp, maxp, seed)
 				minetest.add_node(bpos, {name = "ethereal:illumishroom3"})
 			elseif bpos.y > -2000 and bpos.y < -1000 then
 				minetest.add_node(bpos, {name = "ethereal:illumishroom2"})
-			elseif bpos.y > -1000 and bpos.y < 0 then
+			elseif bpos.y > -1000 and bpos.y < -30 then
 				minetest.add_node(bpos, {name = "ethereal:illumishroom"})
 			end
 		end
