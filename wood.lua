@@ -1,6 +1,24 @@
 
 --= Define Tree and Mushroom Trunks
 
+-- Willow Trunk
+minetest.register_node("ethereal:willow_trunk", {
+	description = "Willow Trunk",
+	tiles = {"willow_trunk_top.png", "willow_trunk_top.png", "willow_trunk.png"},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+})
+
+-- Redwood Trunk
+minetest.register_node("ethereal:redwood_trunk", {
+	description = "Redwood Trunk",
+	tiles = {"redwood_trunk_top.png", "redwood_trunk_top.png", "redwood_trunk.png"},
+	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=2},
+	sounds = default.node_sound_wood_defaults(),
+	paramtype2 = "facedir",
+})
+
 -- Scorched Tree Trunk
 minetest.register_node("ethereal:scorched_tree", {
 	description = "Scorched Tree",
@@ -57,6 +75,24 @@ minetest.register_node("ethereal:banana_trunk", {
 
 --= Define Tree Wood
 
+-- Willow Tree Wood
+minetest.register_node("ethereal:willow_wood", {
+	description = "Willow Wood",
+	tiles = {"willow_wood.png"},
+	is_ground_content = true,
+	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+})
+
+-- Redwood Tree Wood
+minetest.register_node("ethereal:redwood_wood", {
+	description = "Redwood Wood",
+	tiles = {"redwood_wood.png"},
+	is_ground_content = true,
+	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
+	sounds = default.node_sound_wood_defaults(),
+})
+
 -- Healing Tree Wood
 minetest.register_node("ethereal:yellow_wood", {
 	description = "Healing Tree Wood",
@@ -91,6 +127,28 @@ minetest.register_node("ethereal:frost_wood", {
 	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
 	sounds = default.node_sound_wood_defaults(),
+})
+
+-- Turn Willow Tree Trunk into Wood
+minetest.register_craft({
+	output = 'ethereal:willow_wood 4',
+	type = shapeless,
+	recipe = {
+		{'ethereal:willow_trunk', ''},
+		{'', ''},
+		{'', ''},
+	}
+})
+
+-- Turn Redwood Tree Trunk into Wood
+minetest.register_craft({
+	output = 'ethereal:redwood_wood 4',
+	type = shapeless,
+	recipe = {
+		{'ethereal:redwood_trunk', ''},
+		{'', ''},
+		{'', ''},
+	}
 })
 
 -- Turn Healing Tree Trunk into Wood

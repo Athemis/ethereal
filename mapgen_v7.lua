@@ -34,7 +34,7 @@ minetest.register_biome({
 	depth_filler   = 2,
 	height_min     = 5,
 	height_max     = 40,
-	heat_point     = 10.0,
+	heat_point     = 11.0,
 	humidity_point = 40.0,
 })
 
@@ -327,13 +327,24 @@ minetest.register_decoration({
 })
 
 -- Gr[a|e]y Tree
+--minetest.register_decoration({
+--	deco_type = "schematic",
+--	place_on = {"ethereal:gray_dirt_top", "ethereal:green_dirt_top"},
+--	sidelen = 16,
+--	fill_ratio = 0.025,
+--	biomes = {"grayness", "jumble"},
+--	schematic = path.."/schematics/graytrees.mts",
+--	flags = "place_center_x, place_center_z",
+--})
+
+-- Willow Tree
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = {"ethereal:gray_dirt_top", "ethereal:green_dirt_top"},
+	place_on = "ethereal:gray_dirt_top",
 	sidelen = 16,
 	fill_ratio = 0.025,
-	biomes = {"grayness", "jumble"},
-	schematic = path.."/schematics/graytrees.mts",
+	biomes = {"grayness"},
+	schematic = path.."/schematics/willow.mts",
 	flags = "place_center_x, place_center_z",
 })
 

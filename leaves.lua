@@ -10,6 +10,51 @@ end
 
 --= Define leaves for ALL trees (and Mushroom Tops)
 
+-- Willow Twig
+minetest.register_node("ethereal:willow_twig", {
+	description = "Willow Twig",
+	drawtype = "plantlike",
+	tiles = {"willow_twig.png"},
+	paramtype = "light",
+	walkable = true,
+	visual_scale = 1.2,
+	waving = 1,
+	groups = {snappy=3, leafdecay=3, leaves=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{	items = {'ethereal:willow_sapling'},
+				rarity = 50,
+			},
+			{	items = {'ethereal:willow_twig'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Redwood leaves
+minetest.register_node("ethereal:redwood_leaves", {
+	description = "Redwood Leaves",
+	drawtype = leaftype,
+	visual_scale = 1.1,
+	tiles = {"redwood_leaves.png"},
+	paramtype = "light",
+	waving = 1,
+	groups = {snappy=3, leafdecay=3, leaves=1},
+	drop = {
+		max_items = 1,
+		items = {
+			{	items = {'ethereal:redwood_sapling'},
+				rarity = 50,
+			},
+			{	items = {'ethereal:redwood_leaves'},
+			}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 -- Default Apple Tree Leaves
 minetest.register_node(":default:leaves", {
 	description = "Leaves",

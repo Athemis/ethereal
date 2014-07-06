@@ -23,6 +23,7 @@ end
 
 -- Register Saplings
 
+ethereal.register_sapling( 'ethereal:willow_sapling', 'Willow Sapling', 'willow_sapling.png' );
 ethereal.register_sapling( 'ethereal:yellow_tree_sapling', 'Yellow Tree Sapling', 'yellow_tree_sapling.png' );
 ethereal.register_sapling( 'ethereal:tree_sapling', 'Tree Sapling', 'ethereal_tree_sapling.png' );
 ethereal.register_sapling( 'ethereal:jungle_tree_sapling','Jungletree Sapling', 'ethereal_jungle_tree_sapling.png' );
@@ -33,6 +34,7 @@ ethereal.register_sapling( 'ethereal:frost_tree_sapling', 'Frost Sapling', 'ethe
 ethereal.register_sapling( 'ethereal:gray_tree_sapling', 'Gray Sapling', 'ethereal_gray_tree_sapling.png' );
 ethereal.register_sapling( 'ethereal:mushroom_sapling', 'Mushroom Sapling', 'ethereal_mushroom_sapling.png' );
 ethereal.register_sapling( 'ethereal:palm_sapling', 'Palm Sapling', 'moretrees_palm_sapling.png' );
+ethereal.register_sapling( 'ethereal:redwood_sapling', 'Redwood Sapling', 'redwood_sapling.png' );
 
 -- Find centre position for Tree to grow
 
@@ -59,7 +61,7 @@ ethereal.centre_place = function(pos, center_offset, schematic_size, schem_name)
 
 	-- Remove Sapling and Place Tree Schematic
 
-	minetest.remove_node(pos);
+	minetest.env:set_node(pos, {name="air"}) -- quicker than remove_node
 
 	minetest.place_schematic(p, minetest.get_modpath("ethereal").."/schematics/"..schem_name..".mts", rotation, {}, false );
 
@@ -97,6 +99,10 @@ minetest.register_abm({
 			ethereal.centre_place ( pos, {x=3,y=0,z=3}, {x=8,y=12,z=9}, "mushroomone"); return
 		elseif (node.name == "ethereal:palm_sapling" and node_under == "default:sand") then
 			ethereal.centre_place ( pos, {x=3,y=0,z=4}, {x=7,y=10,z=7}, "palmtree"); return
+		elseif (node.name == "ethereal:willow_sapling" and node_under == "ethereal:gray_dirt_top") then
+			ethereal.centre_place ( pos, {x=5,y=0,z=5}, {x=11,y=14,z=11}, "willow"); return
+		elseif (node.name == "ethereal:redwood_sapling" and node_under == "bakedclay:red") then
+			ethereal.centre_place ( pos, {x=9,y=0,z=9}, {x=18,y=43,z=18}, "redwood"); return
 		end
 
 	end,

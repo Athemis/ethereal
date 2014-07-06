@@ -18,7 +18,18 @@ Following people made this available:
 
 Changes:
 --------
+*0.0.9p*
+
+    Willow Trees now spawn in grey biome instead of tiny grey trees (model by Phiwari123)
+
+    Redwood Trees now spawn in Mesa biome (model by Wes42033)
+
+    BakedClay mod no longer required for Mesa biome but used if found
+
+    Paper Wall added
+
 *0.0.9o*
+
     Added Obsidian Brick craft for building
 
     Changed Illumishroom cave levels
@@ -26,6 +37,7 @@ Changes:
     Changed is_ground_content to false for ethereal dirt so mapgen doesn't carve it up with caves
 
 *0.0.9n*
+
     New textures for farming mushrooms and spores
 
     Illumi-shrooms spawn in caves to brighten things up a little
@@ -33,6 +45,7 @@ Changes:
     Crafting a wooden sign now gives 4 instead of 1
 
 *0.0.9m*
+
     Changed Bamboo biome slightly, Bamboo Sprout has new image
 
     Abm timings changed and a few bugs fixed

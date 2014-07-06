@@ -1,6 +1,39 @@
 
 --= Additional Items
 
+--= Paper Wall
+
+minetest.register_node("ethereal:paper_wall", {
+	drawtype = "nodebox",
+        description = ("Paper Wall"),
+        tiles = {"paper_wall.png",},
+        paramtype = "light",
+        is_ground_content = true,
+        groups = {snappy=3},
+        sounds = default.node_sound_wood_defaults(),
+	walkable = true,
+	paramtype2 = "facedir",
+        selection_box = {
+                type = "fixed",
+                fixed = { -0.5, -0.5, 5/11, 0.5, 0.5, 8/16 }
+        },
+        node_box = {
+                type = "fixed",
+		fixed = {
+			{ -0.5, -0.5, 5/11, 0.5, 0.5, 8/16 }
+		}
+        },
+})
+
+minetest.register_craft({
+	output = 'ethereal:paper_wall',
+	recipe = {
+		{'default:stick', 'default:paper', 'default:stick'},
+		{'default:stick', 'default:paper', 'default:stick'},
+		{'default:stick', 'default:paper', 'default:stick'},
+	}
+})
+
 -- Glostone and Recipe (A little bit of light decoration)
 minetest.register_node("ethereal:glostone", {
 	description = "Glo Stone",
