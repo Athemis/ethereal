@@ -5,8 +5,8 @@ A mod for Minetest that creates a fantasy world.
 
 Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=136409
 
-Following people made this available:
-------------------------------------
+##Following people made this available:
+
 - Chinchow (a.k.a. Master Amazing God O' Mod ;)
 - paramat
 - Sokomine
@@ -16,8 +16,28 @@ Following people made this available:
 
 *Note: I only **update** this repo!*
 
-Changes:
---------
+###Changes:
+
+*1.01*
+
+    Quicksand generates throughout world near sandy water
+
+    Bamboo as well as Papyrus now grow on dirt near water
+
+    Fixed Coral textures and light
+
+*1.00*
+
+    Seaweed now spawns in deep water and can grow up to 10 high
+    
+    Coral also spawns in deep water and glows slightly (orange, pink and blue)
+    
+    Above items can be crafted into dye, also Seaweed is edible
+        
+    So long as sand isn't disturbed under the ocean, sealife will re-generate
+    
+    Fixed Leaves inventory images and Mushroom selection box (thanks Wuzzy)
+    
 *0.0.9p*
 
     Willow Trees now spawn in grey biome instead of tiny grey trees (model by Phiwari123)

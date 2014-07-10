@@ -113,6 +113,28 @@ minetest.register_node("ethereal:obsidian_brick", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+
+-- Quicksand
+
+minetest.register_node("ethereal:quicksand", {
+	description = "Quicksand",
+	tiles = {"default_sand.png"},
+--	tiles = {"default_wood.png"},
+	drop = "default:sand",
+	liquid_viscosity = 15,
+	liquidtype = "source",
+	liquid_alternative_flowing = "ethereal:quicksand",
+	liquid_alternative_source = "ethereal:quicksand",
+	liquid_renewable = false,
+	liquid_range = 0,
+	drowning = 1,
+	walkable = false,
+	climbable = false,
+	post_effect_color = { r=230, g=210, b=160, a=245 },
+	groups = {crumbly=3, falling_node=1, sand=1, liquid=3, disable_jump=1},
+	sounds = default.node_sound_sand_defaults(),
+})
+
 -- Illuminated Cave Shrooms (Red, Green and Blue)
 
 minetest.register_node("ethereal:illumishroom", {

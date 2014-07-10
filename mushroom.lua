@@ -43,7 +43,7 @@ minetest.add_node(pt.above, {name=plantname})
 	return itemstack
 end
 
-
+-- Mushroom Spores
 minetest.register_craftitem("ethereal:mushroom_craftingitem", {
 	description = "Mushroom Spores",
 	groups = {not_in_creative_inventory=1},
@@ -53,6 +53,24 @@ minetest.register_craftitem("ethereal:mushroom_craftingitem", {
 	end,
 })
 
+-- Mushroom Plant (Must be farmed to become edible)
+minetest.register_node("ethereal:mushroom_plant", {
+	description = "Mushroom (edible)",
+	drawtype = "plantlike",
+	tiles = {"mushroom.png"},
+	inventory_image = "mushroom.png",
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+	},
+	drop = 'ethereal:mushroom_craftingitem',
+	wield_image = "mushroom.png",
+	paramtype = "light",
+	walkable = false,
+	groups = {snappy=2,dig_immediate=3,flammable=2},
+	sounds = default.node_sound_defaults(),
+	on_use = minetest.item_eat(1),
+})
 
 for i=1,4 do
 	local drop = {

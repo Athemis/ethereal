@@ -183,6 +183,20 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
+        name = "quicksand",
+        node_top = "ethereal:quicksand",
+        depth_top = 3,
+        node_filler = "default:gravel",
+        depth_filler = 1,
+--        node_water = "default:water_source",
+--        node_dust_water= "default:water_source",
+        height_min = -5,
+        height_max = 2,
+        heat_point = 50,
+        humidity_point = 38,
+})
+
+minetest.register_biome({
         name = "lake",
         node_top = "default:sand",
         depth_top = 1,

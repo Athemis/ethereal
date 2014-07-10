@@ -195,21 +195,6 @@ minetest.register_craftitem("ethereal:banana_bread", {
 	on_use = minetest.item_eat(6),
 })
 
--- Mushroom Plant (Must be farmed to become edible)
-minetest.register_node("ethereal:mushroom_plant", {
-	description = "Mushroom (edible)",
-	drawtype = "plantlike",
-	tiles = {"mushroom.png"},
-	inventory_image = "mushroom.png",
-	drop = 'ethereal:mushroom_craftingitem',
-	wield_image = "mushroom.png",
-	paramtype = "light",
-	walkable = false,
-	groups = {snappy=2,dig_immediate=3,flammable=2},
-	sounds = default.node_sound_defaults(),
-	on_use = minetest.item_eat(1),
-})
-
 -- Coconut (Gives 4 coconut slices, each heal 1/2 heart)
 minetest.register_node("ethereal:coconut", {
 	drawtype = "plantlike",
