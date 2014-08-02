@@ -17,7 +17,7 @@ minetest.register_node("ethereal:willow_twig", {
 	tiles = {"willow_twig.png"},
 	inventory_image = "willow_twig.png",
 	paramtype = "light",
-	walkable = true,
+	walkable = false,
 	visual_scale = 1.2,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
@@ -42,6 +42,7 @@ minetest.register_node("ethereal:redwood_leaves", {
 	tiles = {"redwood_leaves.png"},
 	inventory_image = "redwood_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -65,6 +66,7 @@ minetest.register_node(":default:leaves", {
 	tiles = {"default_leaves.png"},
 	inventory_image = "default_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -88,6 +90,7 @@ minetest.register_node(":default:jungleleaves", {
 	tiles = {"default_jungleleaves.png"},
 	inventory_image = "default_jungleleaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -111,6 +114,7 @@ minetest.register_node("ethereal:bananaleaves", {
 	tiles = {"banana_leaf.png"},
 	inventory_image = "banana_leaf.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -134,6 +138,7 @@ minetest.register_node("ethereal:yellowleaves", {
 	tiles = {"yellow_leaves.png"},
 	inventory_image = "yellow_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -160,6 +165,7 @@ minetest.register_node("ethereal:palmleaves", {
 	tiles = {"moretrees_palm_leaves.png"},
 	inventory_image = "moretrees_palm_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -183,6 +189,7 @@ minetest.register_node("ethereal:pineleaves", {
 	tiles = {"pine_leaves.png"},
 	inventory_image = "pine_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, leaves=1},
 	drop = {
@@ -209,6 +216,7 @@ minetest.register_node("ethereal:frost_leaves", {
 	tiles = {"ethereal_frost_leaves.png"},
 	inventory_image = "ethereal_frost_leaves.png",
 	paramtype = "light",
+	walkable = false,
 	waving = 1,
 	groups = {snappy=3, leafdecay=3, puts_out_fire=1},
 	drop = {

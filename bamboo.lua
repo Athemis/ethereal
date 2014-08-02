@@ -20,6 +20,7 @@ minetest.register_node("ethereal:bamboo", {
 	inventory_image = "bamboo.png",
 	wield_image = "bamboo.png",
 	paramtype = "light",
+	sunlight_propagates = true,
 	is_ground_content = true,
 	walkable = true,
 	selection_box = {

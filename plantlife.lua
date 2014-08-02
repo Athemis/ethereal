@@ -239,28 +239,6 @@ minetest.register_node("ethereal:golden_apple", {
 	end,
 })
 
--- Wild Onion
-minetest.register_craftitem("ethereal:wild_onion_plant", {
-	description = "Wild Onion",
-	inventory_image = "wild_onion.png",
-	wield_image = "wild_onion.png",
-	sounds = default.node_sound_defaults(),
-})
-
--- Mushroom Soup (Heals 1 heart)
-minetest.register_craftitem("ethereal:mushroom_soup", {
-	description = "Mushroom Soup",
-	inventory_image = "mushroom_soup.png",
-	on_use = minetest.item_eat(2, "ethereal:bowl"),
-})
-
--- Cooked Mushroom Soup (Heals 1 and half heart)
-minetest.register_craftitem("ethereal:mushroom_soup_cooked", {
-	description = "Mushroom Soup Cooked",
-	inventory_image = "mushroom_soup_cooked.png",
-	on_use = minetest.item_eat(3, "ethereal:bowl"),
-})
-
 --= Crafting Recipes
 
 -- Wooden Bowl (for Mushroom Soup)
@@ -317,24 +295,6 @@ minetest.register_craft({
 	cooktime = 10,
 	output = "ethereal:hearty_stew_cooked",
 	recipe = "ethereal:hearty_stew"
-})
-
--- Mushroom Soup
-minetest.register_craft({
-	output = 'ethereal:mushroom_soup',
-	recipe = {
-		{'ethereal:mushroom_plant', ''},
-		{'ethereal:mushroom_plant', ''},
-		{'ethereal:bowl', ''},
-	}
-})
-
--- Cooked Mushroom Soup
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "ethereal:mushroom_soup_cooked",
-	recipe = "ethereal:mushroom_soup"
 })
 
 -- Mushroom Tops give 4x Mushrooms for Planting

@@ -18,8 +18,8 @@ minetest.register_node("ethereal:fence_scorched", {
 minetest.register_craft({
 	output = "ethereal:fence_scorched 4",
 	recipe = {
-		{"ethereal:scorched_tree", "", "ethereal:scorched_tree"},
-		{"ethereal:scorched_tree", "", "ethereal:scorched_tree"},
+		{"ethereal:scorched_tree", "ethereal:scorched_tree", "ethereal:scorched_tree"},
+		{"ethereal:scorched_tree", "", ""},
 	}
 })
 
@@ -42,8 +42,8 @@ minetest.register_node("ethereal:fence_junglewood", {
 minetest.register_craft({
 	output = "ethereal:fence_junglewood 4",
 	recipe = {
-		{"default:junglewood", "", "default:junglewood"},
-		{"default:junglewood", "", "default:junglewood"},
+		{"default:junglewood", "default:junglewood", "default:junglewood"},
+		{"default:junglewood", "", ""},
 	}
 })
 
@@ -66,8 +66,8 @@ minetest.register_node("ethereal:fence_frostwood", {
 minetest.register_craft({
 	output = "ethereal:fence_frostwood 4",
 	recipe = {
-		{"ethereal:frost_wood", "", "ethereal:frost_wood"},
-		{"ethereal:frost_wood", "", "ethereal:frost_wood"},
+		{"ethereal:frost_wood", "ethereal:frost_wood", "ethereal:frost_wood"},
+		{"ethereal:frost_wood", "", ""},
 	}
 })
 
@@ -90,8 +90,9 @@ minetest.register_node("ethereal:fence_redwood", {
 minetest.register_craft({
 	output = "ethereal:fence_redwood 4",
 	recipe = {
-		{"ethereal:redwood_wood", "", "ethereal:redwood_wood"},
-		{"ethereal:redwood_wood", "", "ethereal:redwood_wood"},
+		{"ethereal:redwood_wood", "ethereal:redwood_wood", "ethereal:redwood_wood"},
+		{"ethereal:redwood_wood", "", ""},
+		{"","",""},
 	}
 })
 
@@ -114,8 +115,8 @@ minetest.register_node("ethereal:fence_willowwood", {
 minetest.register_craft({
 	output = "ethereal:fence_willowwood 4",
 	recipe = {
-		{"ethereal:willow_wood", "", "ethereal:willow_wood"},
-		{"ethereal:willow_wood", "", "ethereal:willow_wood"},
+		{"ethereal:willow_wood", "ethereal:willow_wood", "ethereal:willow_wood"},
+		{"ethereal:willow_wood", "", ""},
 	}
 })
 
@@ -138,8 +139,8 @@ minetest.register_node("ethereal:fence_yellowwood", {
 minetest.register_craft({
 	output = "ethereal:fence_yellowwood 4",
 	recipe = {
-		{"ethereal:yellow_wood", "", "ethereal:yellow_wood"},
-		{"ethereal:yellow_wood", "", "ethereal:yellow_wood"},
+		{"ethereal:yellow_wood", "ethereal:yellow_wood", "ethereal:yellow_wood"},
+		{"ethereal:yellow_wood", "", ""},
 	}
 })
 
@@ -162,8 +163,8 @@ minetest.register_node("ethereal:fence_palmwood", {
 minetest.register_craft({
 	output = "ethereal:fence_palmwood 4",
 	recipe = {
-		{"ethereal:palm_wood", "", "ethereal:palm_wood"},
-		{"ethereal:palm_wood", "", "ethereal:palm_wood"},
+		{"ethereal:palm_wood", "ethereal:palm_wood", "ethereal:palm_wood"},
+		{"ethereal:palm_wood", "", ""},
 	}
 })
 
@@ -186,8 +187,8 @@ minetest.register_node("ethereal:fence_bananawood", {
 minetest.register_craft({
 	output = "ethereal:fence_bananawood 4",
 	recipe = {
-		{"ethereal:banana_wood", "", "ethereal:banana_wood"},
-		{"ethereal:banana_wood", "", "ethereal:banana_wood"},
+		{"ethereal:banana_wood", "ethereal:banana_wood", "ethereal:banana_wood"},
+		{"ethereal:banana_wood", "", ""},
 	}
 })
 
@@ -211,7 +212,7 @@ minetest.register_node("ethereal:fence_mushroom", {
 minetest.register_craft({
 	output = "ethereal:fence_mushroom 4",
 	recipe = {
-		{"ethereal:mushroom_trunk", "", "ethereal:mushroom_trunk"},
-		{"ethereal:mushroom_trunk", "", "ethereal:mushroom_trunk"},
+		{"ethereal:mushroom_trunk", "ethereal:mushroom_trunk", "ethereal:mushroom_trunk"},
+		{"ethereal:mushroom_trunk", "", ""},
 	}
 })

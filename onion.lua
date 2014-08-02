@@ -1,88 +1,110 @@
---= This section deals with farming of Wild Onions
 
-local function place_seed(itemstack, placer, pointed_thing, plantname)
-	local pt = pointed_thing
-	-- check if pointing at a node
-	if not pt then
-		return
-	end
-	if pt.type ~= "node" then
-		return
-	end
-	
-	local under = minetest.get_node(pt.under)
-	local above = minetest.get_node(pt.above)
-	
-	-- return if any of the nodes is not registered
-	if not minetest.registered_nodes[under.name] then
-		return
-	end
-	if not minetest.registered_nodes[above.name] then
-		return
-	end
-	
-	-- check if pointing at the top of the node
-	if pt.above.y ~= pt.under.y+1 then
-		return
-	end
-	
-	-- check if you can replace the node above the pointed node
-	if not minetest.registered_nodes[above.name].buildable_to then
-		return
-	end
+-- Wild Onion Plant
 
--- check if pointing at soil
-	if minetest.get_item_group(under.name, "soil") <= 1 then
-		return
-	end
-
-minetest.add_node(pt.above, {name=plantname})
-	if not minetest.setting_getbool("creative_mode") then
-		itemstack:take_item()
-	end
-	return itemstack
-end
-
-
-minetest.register_craftitem("ethereal:wild_onion_craftingitem", {
+minetest.register_craftitem("ethereal:wild_onion_plant", {
 	description = "Wild Onion",
 	groups = {not_in_creative_inventory=1},
 	inventory_image = "wild_onion.png",
 	on_use = minetest.item_eat(2),
 	on_place = function(itemstack, placer, pointed_thing)
-		return place_seed(itemstack, placer, pointed_thing, "ethereal:wild_onion_1")
-end
+		return farming.place_seed(itemstack, placer, pointed_thing, "ethereal:wild_onion_1")
+	end
 })
 
+minetest.register_alias("ethereal:wild_onion_craftingitem", "ethereal:wild_onion_plant")
 
-for i=1,5 do
-	local drop = {
+
+-- Define Onion growth stages
+
+minetest.register_node("ethereal:wild_onion_1", {
+	drawtype = "plantlike",
+	tiles = {"ethereal_wild_onion_1.png"},
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	drop = {
 		items = {
-			{items = {'ethereal:wild_onion_craftingitem 4'},rarity=10-i*2},
-			{items = {'ethereal:wild_onion_craftingitem 8'},rarity=18-i*2},
-					}
-	}
-minetest.register_node("ethereal:wild_onion_"..i, {
-		drawtype = "plantlike",
-		tiles = {"ethereal_wild_onion_"..i..".png"},
-		paramtype = "light",
-		walkable = false,
-		drop = drop,
-		buildable_to = true,
-		is_ground_content = true,
-		drop = drop,
-		selection_box = {
-			type = "fixed",
-			fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-		},
-		groups = {snappy=3,flammable=2,plant=1,onion=i,attached_node=1},
-		sounds = default.node_sound_leaves_defaults(),
-	})
-end
+			{items = {'ethereal:wild_onion_plant 1'},rarity=1},
+			}
+	},
+	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("ethereal:wild_onion_2", {
+	drawtype = "plantlike",
+	tiles = {"ethereal_wild_onion_2.png"},
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	drop = {
+		items = {
+			{items = {'ethereal:wild_onion_plant 1'},rarity=1},
+		}
+	},
+	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=2},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("ethereal:wild_onion_3", {
+	drawtype = "plantlike",
+	tiles = {"ethereal_wild_onion_3.png"},
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	is_ground_content = true,
+	drop = {
+		items = {
+			{items = {'ethereal:wild_onion_plant 1'},rarity=1},
+			{items = {'ethereal:wild_onion_plant 2'},rarity=3},
+			}
+	},
+	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=3},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("ethereal:wild_onion_4", {
+	drawtype = "plantlike",
+	tiles = {"ethereal_wild_onion_4.png"},
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	drop = {
+		items = {
+			{items = {'ethereal:wild_onion_plant 1'},rarity=1},
+			{items = {'ethereal:wild_onion_plant 3'},rarity=3},
+			}
+	},
+	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=4},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+minetest.register_node("ethereal:wild_onion_5", {
+	drawtype = "plantlike",
+	tiles = {"ethereal_wild_onion_5.png"},
+	paramtype = "light",
+	walkable = false,
+	buildable_to = true,
+	drop = {
+		items = {
+			{items = {'ethereal:wild_onion_plant 2'},rarity=1},
+			{items = {'ethereal:wild_onion_plant 3'},rarity=2},
+			}
+	},
+	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=5},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Abm for growing Wild Onion
 
 minetest.register_abm({
 	nodenames = {"group:onion"},
-	neighbors = {"group:soil"},
+	neighbors = {"farming:soil_wet"},
 	interval = 50,
 	chance = 3,
 	action = function(pos, node)
@@ -112,4 +134,3 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="ethereal:wild_onion_"..height})
 	end
 })
-

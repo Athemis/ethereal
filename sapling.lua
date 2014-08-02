@@ -14,7 +14,7 @@ ethereal.register_sapling = function( sapling_node_name, sapling_descr, sapling_
 			wield_image = sapling_texture,
 			paramtype = "light",
 			walkable = false,
-			groups = {snappy=2,dig_immediate=3,flammable=2,ethereal_sapling=1},
+			groups = {snappy=2,dig_immediate=3,flammable=2,ethereal_sapling=1,attached_node=1},
 			sounds = default.node_sound_defaults(),
 		})
 	end

@@ -458,7 +458,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.030,
 	biomes = {"grassy", "grassy", "grassytwo"},
-	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
+	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_7"},
 })
 
 minetest.register_decoration({
@@ -467,7 +467,7 @@ minetest.register_decoration({
 	sidelen = 16,
 	fill_ratio = 0.050,
 	biomes = {"prairie"},
-	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_bush"},
+	decoration = {"flowers:dandelion_white", "flowers:dandelion_yellow", "flowers:geranium", "flowers:rose", "flowers:tulip", "flowers:viola", "ethereal:strawberry_7"},
 })
 
 -- Crystal Spikes & Grass

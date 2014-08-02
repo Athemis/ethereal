@@ -3,7 +3,7 @@
 
 minetest.register_abm({
 	nodenames = {"group:flora"},
-	neighbors = {"ethereal:green_dirt_top", "ethereal:prairie_dirt"},
+	neighbors = {"group:soil"},
 	interval = 40,
 	chance = 20,
 	action = function(pos, node)
@@ -23,7 +23,7 @@ minetest.register_abm({
 			return
 		end
 		
-		local seedling = minetest.find_nodes_in_area(pos0, pos1, {"ethereal:green_dirt_top", "ethereal:prairie_dirt"})
+		local seedling = minetest.find_nodes_in_area(pos0, pos1, {"group:soil"})
 		if #seedling > 0 then
 			seedling = seedling[math.random(#seedling)]
 			seedling.y = seedling.y + 1
@@ -37,3 +37,4 @@ minetest.register_abm({
 		end
 	end,
 })
+

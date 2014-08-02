@@ -17,7 +17,16 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 *Note: I only **update** this repo!*
 
 ###Changes:
+*1.04*
 
+    Farming of Mushrooms, Wild Onions and Strawberries now use minetest 0.4.10 functions
+    
+    Strawberries can be grown by using actual fruit, seeds no longer needed
+    
+    Tree leaves are no longer walkable, player can go through them
+    
+    Saplings now fall if block underneath disturbed
+    
 *1.03*
 
     Changed Fence recipe's so it doesn't interfere with 3d armor's wooden boots
