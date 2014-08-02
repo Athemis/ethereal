@@ -18,6 +18,14 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 
 ###Changes:
 
+*1.03*
+
+    Changed Fence recipe's so it doesn't interfere with 3d armor's wooden boots
+
+    Tweaked textures to bring down file sizes
+
+    Flowers, Sprouts and Ferns now spread over ALL grassland
+    
 *1.02*
 
     Fences added for each type of wood in Ethereal
