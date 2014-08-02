@@ -18,6 +18,12 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 
 ###Changes:
 
+*1.02*
+
+    Fences added for each type of wood in Ethereal
+    
+    Changes to biome settings, less artifacts
+    
 *1.01*
 
     Quicksand generates throughout world near sandy water

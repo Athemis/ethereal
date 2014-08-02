@@ -251,14 +251,14 @@ minetest.register_craftitem("ethereal:wild_onion_plant", {
 minetest.register_craftitem("ethereal:mushroom_soup", {
 	description = "Mushroom Soup",
 	inventory_image = "mushroom_soup.png",
-	on_use = minetest.item_eat(2),
+	on_use = minetest.item_eat(2, "ethereal:bowl"),
 })
 
 -- Cooked Mushroom Soup (Heals 1 and half heart)
 minetest.register_craftitem("ethereal:mushroom_soup_cooked", {
 	description = "Mushroom Soup Cooked",
 	inventory_image = "mushroom_soup_cooked.png",
-	on_use = minetest.item_eat(3),
+	on_use = minetest.item_eat(3, "ethereal:bowl"),
 })
 
 --= Crafting Recipes
@@ -282,14 +282,14 @@ minetest.register_craft({
 minetest.register_craftitem("ethereal:hearty_stew", {
 	description = "Hearty Stew",
 	inventory_image = "hearty_stew.png",
-	on_use = minetest.item_eat(8),
+	on_use = minetest.item_eat(8, "ethereal:bowl"),
 })
 
 -- Cooked Hearty Stew (Heals 5 hearts)
 minetest.register_craftitem("ethereal:hearty_stew_cooked", {
 	description = "Hearty Stew Cooked",
 	inventory_image = "hearty_stew_cooked.png",
-	on_use = minetest.item_eat(10),
+	on_use = minetest.item_eat(10, "ethereal:bowl"),
 })
 
 -- Hearty Stew
