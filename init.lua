@@ -1,6 +1,6 @@
 --[[
 
-	Minetest Ethereal Mod 1.04
+	Minetest Ethereal Mod 1.05
 
 	Created by ChinChow
 
@@ -27,3 +27,4 @@ dofile(minetest.get_modpath("ethereal").."/extra.lua")
 dofile(minetest.get_modpath("ethereal").."/mesa.lua")
 dofile(minetest.get_modpath("ethereal").."/sealife.lua")
 dofile(minetest.get_modpath("ethereal").."/fences.lua")
+dofile(minetest.get_modpath("ethereal").."/gates.lua")

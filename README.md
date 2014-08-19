@@ -17,6 +17,12 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 *Note: I only **update** this repo!*
 
 ###Changes:
+*1.05*
+
+    Added Gates for each of the fence types (thanks to Blockmen for gate model)
+    
+    Players can no longer jump over fences unless they wear crystal boots
+    
 *1.04*
 
     Farming of Mushrooms, Wild Onions and Strawberries now use minetest 0.4.10 functions
