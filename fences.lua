@@ -11,10 +11,6 @@ minetest.register_node("ethereal:fence_scorched", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-	},
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),
 })
@@ -38,10 +34,6 @@ minetest.register_node("ethereal:fence_junglewood", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	},
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),
@@ -67,10 +59,6 @@ minetest.register_node("ethereal:fence_frostwood", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-	},
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 1, put_out_fire = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
@@ -94,10 +82,6 @@ minetest.register_node("ethereal:fence_redwood", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),
@@ -123,10 +107,6 @@ minetest.register_node("ethereal:fence_willowwood", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),
 })
@@ -150,10 +130,6 @@ minetest.register_node("ethereal:fence_yellowwood", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, put_out_fire = 1},
 	sounds = default.node_sound_dirt_defaults(),
@@ -179,10 +155,6 @@ minetest.register_node("ethereal:fence_palmwood", {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_dirt_defaults(),
 })
@@ -206,10 +178,6 @@ minetest.register_node("ethereal:fence_bananawood", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_dirt_defaults(),
@@ -235,10 +203,6 @@ minetest.register_node("ethereal:fence_mushroom", {
 	selection_box = {
 		type = "fixed",
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
-	},
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	},
 	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),

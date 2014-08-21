@@ -126,10 +126,11 @@ minetest.register_craft({
 })
 
 end
-
+--[[ changing fences so players cannot jump over upsets games falling nodes
 minetest.override_item("default:fence_wood", {
 	node_box = {
 		type = "fixed",
 		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
 	}
 })
+]]

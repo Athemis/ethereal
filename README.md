@@ -17,6 +17,17 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 *Note: I only **update** this repo!*
 
 ###Changes:
+*1.06*
+
+    Added support for Farming Redo mod, all plants spawn on newly generated areas 
+    https://forum.minetest.net/viewtopic.php?id=9019
+
+*1.05b*
+
+    Added Gates for each of the fence types (thanks to Blockmen for gate model)
+    
+    Players can no longer jump over fences unless they wear crystal boots < REMOVED
+    
 *1.05*
 
     Added Gates for each of the fence types (thanks to Blockmen for gate model)

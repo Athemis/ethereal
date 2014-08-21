@@ -1,6 +1,6 @@
 --[[
 
-	Minetest Ethereal Mod 1.05
+	Minetest Ethereal Mod 1.06
 
 	Created by ChinChow
 

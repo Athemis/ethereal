@@ -601,3 +601,38 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		end
 	end
 end)
+
+-- Farming Redo Plants
+
+if minetest.get_modpath("farming") and farming.mod == "redo" then
+
+minetest.register_decoration({					-- Potato
+	deco_type = "simple",
+	place_on = {"ethereal:jungle_dirt"},
+	sidelen = 16,
+	fill_ratio = 0.045,
+	biomes = {"junglee"},
+	decoration = "farming:potato_3",
+})
+
+minetest.register_decoration({					-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee
+	deco_type = "simple",
+	place_on = {"ethereal:green_dirt_top", "ethereal:prairie_dirt"},
+	sidelen = 16,
+	fill_ratio = 0.05,
+	biomes = {"grassy", "grassytwo", "prairie", "jumble"},
+	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5"},
+})
+
+minetest.register_decoration({					-- Melon, Pumpkin
+	deco_type = "simple",
+	place_on = {"default:green_dirt_top", "ethereal:jungle_dirt"},
+	sidelen = 16,
+	fill_ratio = 0.015,
+	biomes = {"grassy", "grassytwo", "junglee", "jumble"},
+	decoration = {"farming:melon_8", "farming:pumpkin_8"},
+	spawn_by = "default:water_source",
+	num_spawn_by = 1,
+})
+
+end
