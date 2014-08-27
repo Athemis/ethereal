@@ -1,6 +1,4 @@
-
 -- Strawberry (can also be planted as seed)
-
 minetest.register_craftitem("ethereal:strawberry", {
 	description = "Strawberry",
 	inventory_image = "strawberry.png",
@@ -11,7 +9,6 @@ minetest.register_craftitem("ethereal:strawberry", {
 })
 
 -- Define Strawberry Bush growth stages
-
 minetest.register_node("ethereal:strawberry_1", {
 	drawtype = "plantlike",
 	tiles = {"strawberry_1.png"},
@@ -21,7 +18,7 @@ minetest.register_node("ethereal:strawberry_1", {
 	buildable_to = true,
 	drop = 	"",
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=1},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=1,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -34,7 +31,7 @@ minetest.register_node("ethereal:strawberry_2", {
 	buildable_to = true,
 	drop = 	"",
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=2},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=2,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -47,7 +44,7 @@ minetest.register_node("ethereal:strawberry_3", {
 	buildable_to = true,
 	drop = 	"",
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=3},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=3,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -60,7 +57,7 @@ minetest.register_node("ethereal:strawberry_4", {
 	buildable_to = true,
 	drop = 	"",
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=4},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=4,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -73,7 +70,7 @@ minetest.register_node("ethereal:strawberry_5", {
 	buildable_to = true,
 	drop = 	"",
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=5},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=5,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -86,17 +83,16 @@ minetest.register_node("ethereal:strawberry_6", {
 	buildable_to = true,
 	drop = 	{
 		items = {
-			{items = {'ethereal:strawberry 1'},rarity=2},
-			{items = {'ethereal:strawberry 2'},rarity=3},
+			{items = {"ethereal:strawberry 1"},rarity=2},
+			{items = {"ethereal:strawberry 2"},rarity=3},
 		}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=6},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=6,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
--- Mapgen places this stage on map so will use is_ground_content=1
-
+-- Mapgen places this stage on map so will use is_ground_content=true
 minetest.register_node("ethereal:strawberry_7", {
 	drawtype = "plantlike",
 	tiles = {"strawberry_7.png"},
@@ -107,12 +103,12 @@ minetest.register_node("ethereal:strawberry_7", {
 	is_ground_content = true,
 	drop = 	{
 		items = {
-			{items = {'ethereal:strawberry 1'},rarity=1},
-			{items = {'ethereal:strawberry 2'},rarity=3},
+			{items = {"ethereal:strawberry 1"},rarity=1},
+			{items = {"ethereal:strawberry 2"},rarity=3},
 		}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=7},
+	groups = {snappy=3,flammable=2,plant=1,not_in_creative_inventory=1,attached_node=1,strawberry=7,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -125,8 +121,8 @@ minetest.register_node("ethereal:strawberry_8", {
 	buildable_to = true,
 	drop = 	{
 		items = {
-			{items = {'ethereal:strawberry 2'},rarity=1},
-			{items = {'ethereal:strawberry 3'},rarity=3},
+			{items = {"ethereal:strawberry 2"},rarity=1},
+			{items = {"ethereal:strawberry 3"},rarity=3},
 		}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
@@ -135,11 +131,11 @@ minetest.register_node("ethereal:strawberry_8", {
 })
 
 -- Register Alias for backward compatibility with already generated Ethereal worlds
-
 minetest.register_alias("ethereal:strawberry_bush", "ethereal:strawberry_7")
 minetest.register_alias("ethereal:seed_strawberry", "ethereal:strawberry")
 
 -- Amb for growing Strawberry Bush
+if farming.mod ~= "redo" then
 
 minetest.register_abm({
 	nodenames = {"group:strawberry"},
@@ -173,3 +169,5 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="ethereal:strawberry_"..height})
 	end
 })
+
+end

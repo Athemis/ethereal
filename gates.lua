@@ -1,6 +1,4 @@
-
 -- Node Box coords
-
 local nb_gap = 	{
 		{-1, 0.1875, -0.0625, -0.5, 0.3125, 0.0625},
 		{-1, -0.1875, -0.0625, -0.5, -0.3125, 0.0625},
@@ -16,10 +14,9 @@ local nb_pil = 	{
 		}
 
 -- Open/Close Gates
-
 function gate_rightclick(pos, node)
 	local data = nil
-	data = string.split(node.name, '_', 2)
+	data = string.split(node.name, "_", 2)
 	local gate = data[1].."_"
 	local open = data[2]
 	
@@ -41,7 +38,7 @@ gate.type = {
 	{"frostwood",	"Frost Wood",	"frost_wood.png",			"ethereal:frost_wood"},
 	{"redwood",		"Redwood",		"redwood_wood.png",			"ethereal:redwood_wood"},
 	{"willow",		"Willow",		"willow_wood.png",			"ethereal:willow_wood"},
-	{"healing",		"Healing Wood",	"yellow_wood.png",			"ethereal:yellow_wood"},
+	{"yellowwood",	"Healing Wood",	"yellow_wood.png",			"ethereal:yellow_wood"},
 	{"palm",		"Palm Wood",	"moretrees_palm_wood.png",	"ethereal:palm_wood"},
 	{"banana",		"Banana Wood",	"banana_wood.png",			"ethereal:banana_wood"},
 	{"mushroom",	"Mushroom",		"mushroom_trunk.png",		"ethereal:mushroom_trunk"},
@@ -116,21 +113,12 @@ minetest.register_node("ethereal:"..name.."gate_closed", {
 })
 
 -- Fencegate Recipe
-
 minetest.register_craft({
 	output = "ethereal:"..name.."gate_closed",
 	recipe = {
-		 {'default:stick', nod, 'default:stick'},
-		 {'default:stick', nod, 'default:stick'},
+		 {"default:stick", nod, "default:stick"},
+		 {"default:stick", nod, "default:stick"},
 	}
 })
 
 end
---[[ changing fences so players cannot jump over upsets games falling nodes
-minetest.override_item("default:fence_wood", {
-	node_box = {
-		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
-	}
-})
-]]

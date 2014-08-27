@@ -1,6 +1,3 @@
-
---= Define Fern & Shrubs
-
 -- Fern (boston)
 minetest.register_node("ethereal:fern", {
         description = "Fern",
@@ -17,8 +14,8 @@ minetest.register_node("ethereal:fern", {
 	drop = {
 		max_items = 1,
 		items = {
-			{items = {'ethereal:fern_tubers'},rarity = 6},
-			{items = {'ethereal:fern'}},
+			{items = {"ethereal:fern_tubers"},rarity = 6},
+			{items = {"ethereal:fern"}},
 		}
 	},
         groups = {snappy=3,flora=1,attached_node=1},
@@ -99,44 +96,27 @@ minetest.register_node("ethereal:crystalgrass", {
         },
 })
 
---= Define Moss Types (Has grass textures on all sides)
-
+-- Define Moss Types (Has grass textures on all sides)
 function ethereal.add_moss(typ, descr, texture, receipe_item)
-	minetest.register_node('ethereal:'..typ..'_moss', {
-		description = descr..' Moss',
+	minetest.register_node("ethereal:"..typ.."_moss", {
+		description = descr.." Moss",
 		tiles = { texture },
-		is_ground_content = true,
+		is_ground_content = false,
 		groups = {crumbly=3 },
 		sounds = default.node_sound_dirt_defaults
 	})
 
 	minetest.register_craft({
-		output = 'ethereal:'..typ..'_moss',
-		recipe = {{'default:dirt', receipe_item }} 
-	});
+		output = "ethereal:"..typ.."_moss",
+		recipe = {{"default:dirt", receipe_item }} 
+	})
 end
 
-ethereal.add_moss( 'crystal',  'Crystal',  'ethereal_frost_grass.png',  'ethereal:frost_leaves');
-ethereal.add_moss( 'mushroom', 'Mushroom', 'mushroom_dirt_top.png',     'ethereal:mushroom' );
-ethereal.add_moss( 'fiery',    'Fiery',    'ethereal_fiery_grass.png',  'ethereal:dry_shrub' ); 
-ethereal.add_moss( 'gray',     'Gray',     'ethereal_gray_grass.png',   'ethereal:snowygrass' );
-ethereal.add_moss( 'green',    'Green',    'default_grass.png',         'default:jungleleaves' );
-
---= Saplings and Leaves Can Be Used as Fuel
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "ethereal:frost_leaves",
-	burntime = 1.5,
-})
-
-minetest.register_craft({
-	type = "fuel",
-	recipe = "ethereal:frost_tree_sapling",
-	burntime = 12.5,
-})
-
---= Define Food Items
+ethereal.add_moss( "crystal",  "Crystal",  "ethereal_grass_crystal_top.png",  "ethereal:frost_leaves")
+ethereal.add_moss( "mushroom", "Mushroom", "ethereal_grass_mushroom_top.png",     "ethereal:mushroom")
+ethereal.add_moss( "fiery",    "Fiery",    "ethereal_grass_fiery_top.png",  "ethereal:dry_shrub")
+ethereal.add_moss( "gray",     "Gray",     "ethereal_grass_gray_top.png",   "ethereal:snowygrass")
+ethereal.add_moss( "green",    "Green",    "default_grass.png",         "default:jungleleaves")
 
 -- Banana (Heals one heart when eaten)
 minetest.register_node("ethereal:banana", {
@@ -204,7 +184,7 @@ minetest.register_node("ethereal:coconut", {
 	tiles = {"moretrees_coconut.png"},
 	is_ground_content = true,
 	groups = {cracky=2,snappy=2,choppy=2,flammable=1,leafdecay=3,leafdecay_drop=1},
-	drop = 'ethereal:coconut_slice 4',
+	drop = "ethereal:coconut_slice 4",
 	sounds = default.node_sound_wood_defaults(),
 })
 
@@ -239,7 +219,44 @@ minetest.register_node("ethereal:golden_apple", {
 	end,
 })
 
---= Crafting Recipes
+-- Bamboo (thanks to Nelo-slay on DeviantArt for the free Bamboo base image)
+minetest.register_node("ethereal:bamboo", {
+	description = "bamboo",
+	drawtype = "plantlike",
+	tiles = {"bamboo.png"},
+	inventory_image = "bamboo.png",
+	wield_image = "bamboo.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = true,
+	walkable = true,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}
+	},
+	groups = {choppy=3, oddly_breakable_by_hand=1, flammable=2, attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
+-- Bamboo Sprout
+minetest.register_node("ethereal:bamboo_sprout", {
+        description = "Bamboo Sprout",
+        drawtype = "plantlike",
+        tiles = {"bamboo_sprout.png"},
+        inventory_image = "bamboo_sprout.png",
+        wield_image = "bamboo_sprout.png",
+        paramtype = "light",
+        walkable = false,
+        is_ground_content = true,
+        buildable_to = true,
+        groups = {snappy=3,flora=1,attached_node=1},
+        sounds = default.node_sound_leaves_defaults(),
+        selection_box = {
+                type = "fixed",
+                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+        },
+	-- sprouts are edible if cooked in stew
+})
 
 -- Wooden Bowl (for Mushroom Soup)
 minetest.register_craftitem("ethereal:bowl", {
@@ -248,11 +265,11 @@ minetest.register_craftitem("ethereal:bowl", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:bowl',
+	output = "ethereal:bowl",
 	recipe = {
-		{'group:wood', '', 'group:wood'},
-		{'', 'group:wood', ''},
-		{'', '', ''},
+		{"group:wood", "", "group:wood"},
+		{"", "group:wood", ""},
+		{"", "", ""},
 	}
 })
 
@@ -272,20 +289,20 @@ minetest.register_craftitem("ethereal:hearty_stew_cooked", {
 
 -- Hearty Stew
 minetest.register_craft({
-	output = 'ethereal:hearty_stew',
+	output = "ethereal:hearty_stew",
 	recipe = {
-		{'ethereal:wild_onion_plant','ethereal:mushroom_plant', 'ethereal:bamboo_sprout'},
-		{'','ethereal:mushroom_plant', ''},
-		{'','ethereal:bowl', ''},
+		{"ethereal:wild_onion_plant","ethereal:mushroom_plant", "ethereal:bamboo_sprout"},
+		{"","ethereal:mushroom_plant", ""},
+		{"","ethereal:bowl", ""},
 	}
 })
 
 minetest.register_craft({
-	output = 'ethereal:hearty_stew',
+	output = "ethereal:hearty_stew",
 	recipe = {
-		{'ethereal:wild_onion_plant','ethereal:mushroom_plant', 'ethereal:fern_tubers'},
-		{'','ethereal:mushroom_plant', ''},
-		{'','ethereal:bowl', ''},
+		{"ethereal:wild_onion_plant","ethereal:mushroom_plant", "ethereal:fern_tubers"},
+		{"","ethereal:mushroom_plant", ""},
+		{"","ethereal:bowl", ""},
 	}
 })
 
@@ -299,34 +316,69 @@ minetest.register_craft({
 
 -- Mushroom Tops give 4x Mushrooms for Planting
 minetest.register_craft({
-	output = 'ethereal:mushroom_craftingitem 4',
+	output = "ethereal:mushroom_craftingitem 4",
 	type = shapeless,
 	recipe = {
-		{'ethereal:mushroom', ''},
-		{'', ''},
-		{'', ''},
+		{"ethereal:mushroom", ""},
+		{"", ""},
+		{"", ""},
 	}
 })
 
---= Additional Crafting Recipes
+-- Bamboo Flooring
+minetest.register_node("ethereal:bamboo_floor", {
+	description = ("Bamboo Floor"),
+	drawtype = "signlike",
+	tiles = { "bamboo_floor.png" },
+	wield_image = "bamboo_floor.png",
+	inventory_image = "bamboo_floor.png",
+	sunlight_propagates = true,
+	paramtype = "light",
+	paramtype2 = "wallmounted",
+	is_ground_content = true,
+	walkable = false,
+	groups = { snappy = 3, choppy = 3 },
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {type = "wallmounted",},
+})
+
+-- Craft Bamboo into Bamboo Flooring
+minetest.register_craft({
+	output = "ethereal:bamboo_floor 2",
+	recipe = {
+		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"},
+		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"},
+		{"ethereal:bamboo", "ethereal:bamboo", "ethereal:bamboo"},
+	}
+})
+
+-- Craft Bamboo into Paper
+minetest.register_craft({
+	output = "default:paper 6",
+	recipe = {
+		{"ethereal:bamboo", "ethereal:bamboo"},
+		{"ethereal:bamboo", "ethereal:bamboo"},
+		{"ethereal:bamboo", "ethereal:bamboo"},
+	}
+})
 
 -- Gravel (5x cobble in X pattern gives 5 gravel)
 minetest.register_craft({
-	output = 'default:gravel 5',
+	output = "default:gravel 5",
 	recipe = {
-		{'default:cobble', '', 'default:cobble'},
-		{'', 'default:cobble', ''},
-		{'default:cobble', '', 'default:cobble'},
+		{"default:cobble", "", "default:cobble"},
+		{"", "default:cobble", ""},
+		{"default:cobble", "", "default:cobble"},
 	}
 })
 
 -- Paper (2x3 string = 4 paper)
 minetest.register_craft({
-	output = 'default:paper 4',
+	output = "default:paper 4",
 	recipe = {
-		{'farming:string', 'farming:string', ''},
-		{'farming:string', 'farming:string', ''},
-		{'farming:string', 'farming:string', ''},
+		{"farming:string", "farming:string", ""},
+		{"farming:string", "farming:string", ""},
+		{"farming:string", "farming:string", ""},
 	}
 })
 
@@ -342,7 +394,7 @@ minetest.register_craft({
 	output = "ethereal:bucket_cactus",
 	type = shapeless,
 	recipe = {
-		{'bucket:bucket_empty','default:cactus'},
+		{"bucket:bucket_empty","default:cactus"},
 	}
 })
 
@@ -360,15 +412,6 @@ minetest.register_craft({
 })
 
 -- Candle from Wax and String
-minetest.register_craft({
-	output = "ethereal:candle 6",
-	recipe = {
-		{'','farming:string'},
-		{'','ethereal:palm_wax'},
-		{'','ethereal:palm_wax'},
-	}
-})
-
 minetest.register_node("ethereal:candle", {
 	description = "Candle",
 	drawtype = "plantlike",
@@ -386,4 +429,13 @@ minetest.register_node("ethereal:candle", {
 			type = "fixed",
 			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
+})
+
+minetest.register_craft({
+	output = "ethereal:candle 6",
+	recipe = {
+		{"","farming:string"},
+		{"","ethereal:palm_wax"},
+		{"","ethereal:palm_wax"},
+	}
 })

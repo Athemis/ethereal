@@ -1,5 +1,12 @@
-
---= Define Dirt Types
+-- Green Dirt
+minetest.register_node("ethereal:green_dirt", {
+	description = "Green Dirt",
+	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
+	is_ground_content = false,
+	groups = {crumbly=3,soil=1,ethereal_grass=1},
+	drop = "default:dirt",
+	sounds = default.node_sound_dirt_defaults()
+})
 
 -- Dry Dirt
 minetest.register_node("ethereal:dry_dirt", {
@@ -7,7 +14,7 @@ minetest.register_node("ethereal:dry_dirt", {
 	tiles = {"ethereal_dry_dirt.png"},
 	is_ground_content = false,
 	groups = {crumbly=3},
-	drop = 'ethereal:dry_dirt',
+	drop = "ethereal:dry_dirt",
 	sounds = default.node_sound_dirt_defaults()
 })
 
@@ -18,142 +25,59 @@ minetest.register_craft({
 	cooktime = 3,
 })
 
--- Dirt with Snow
-minetest.register_node(":default:dirt_with_snow", {
-	description = "Dirt with Snow",
-	tiles = {"default_snow.png", "default_dirt.png", "default_dirt.png^default_snow_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults({
-		footstep = {name="default_snow_footstep", gain=0.25},
-	}),
-})
+local dirt = {}
+dirt.type = {
+	{"Bamboo"}, {"Jungle"}, {"Grove"}, {"Prairie"}, {"Cold"}, {"Crystal"}, {"Mushroom"}, {"Fiery"}, {"Gray"},
+}
 
--- Jungle Dirt
-minetest.register_node("ethereal:jungle_dirt", {
-	description = "Jungle Dirt",
-	tiles = {"ethereal_grass_jungle_top.png",
-	"default_dirt.png","default_dirt.png^ethereal_grass_jungle_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
+for _, row in ipairs(dirt.type) do
 
--- Grove Dirt
-minetest.register_node("ethereal:grove_dirt", {
-	description = "Grove Dirt",
-	tiles = {"ethereal_grass_grove_top.png",
-	"default_dirt.png","default_dirt.png^ethereal_grass_grove_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
+	local desc = row[1]
+	local name = desc:lower()
 
--- Prairie Dirt
-minetest.register_node("ethereal:prairie_dirt", {
-	description = "Prairie Dirt",
-	tiles = {"ethereal_grass_prairie_top.png",
-	"default_dirt.png","default_dirt.png^ethereal_grass_prairie_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
+	minetest.register_node("ethereal:"..name.."_dirt", {
+		description = desc.." Dirt",
+		tiles = {"ethereal_grass_"..name.."_top.png", "default_dirt.png",
+				"default_dirt.png^ethereal_grass_"..name.."_side.png"},
+		is_ground_content = false,
+		groups = {crumbly=3,soil=1,ethereal_grass=1},
+		drop = "default:dirt",
+		sounds = default.node_sound_dirt_defaults()
+	})
 
--- Cold Dirt
-minetest.register_node("ethereal:cold_dirt", {
-	description = "Cold Dirt",
-	tiles = {"ethereal_grass_snowy_top.png",
-	"default_dirt.png","default_dirt.png^ethereal_grass_snowy_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
+end
 
--- Blue Crystal Dirt
-minetest.register_node("ethereal:crystal_topped_dirt", {
-	description = "Crystal Dirt",
-	tiles = {"ethereal_frost_grass.png",
-	"default_dirt.png","default_dirt.png^ethereal_frost_dirt_with_grass.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
+-- Compatibility with old maps
+minetest.register_alias("ethereal:crystal_topped_dirt", "ethereal:crystal_dirt")
+minetest.register_alias("ethereal:fiery_dirt_top", "ethereal:fiery_dirt")
+minetest.register_alias("ethereal:gray_dirt_top", "ethereal:gray_dirt")
+minetest.register_alias("ethereal:green_dirt_top", "ethereal:green_dirt")
 
--- Purple Mushroom Dirt
-minetest.register_node("ethereal:mushroom_dirt", {
-	description = "Mushroom Dirt",
-	tiles = {"mushroom_dirt_top.png^mushroom_dirt_top.png",
-	"default_dirt.png","default_dirt.png^mushroom_dirt_with_grass.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
-
--- Red Fiery Dirt
-minetest.register_node("ethereal:fiery_dirt_top", {
-	description = "Fiery Dirt",
-	tiles = {"ethereal_fiery_grass.png", "default_dirt.png",
-	"default_dirt.png^ethereal_fiery_dirt_with_grass.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
-
--- Gr[a|e]y Dirt
-minetest.register_node("ethereal:gray_dirt_top", {
-	description = "Gray Dirt",
-	tiles = {"ethereal_gray_grass.png", "default_dirt.png",
-	"default_dirt.png^ethereal_gray_dirt_with_grass.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
-
--- Green Dirt
-minetest.register_node("ethereal:green_dirt_top", {
-	description = "Green Dirt",
-	tiles = {"default_grass.png", "default_dirt.png", "default_dirt.png^default_grass_side.png"},
-	is_ground_content = false,
-	groups = {crumbly=3, soil=1,ethereal_grass=1},
-	drop = 'default:dirt',
-	sounds = default.node_sound_dirt_defaults()
-})
-
---= Check surrounding Coloured Grass and Change Dirt to Same Colour
-
+-- Check surrounding grass and change dirt to Same colour (by Sokomine)
 minetest.register_abm({
 	nodenames = {"default:dirt_with_grass"},
 	interval = 5,
 	chance = 5,
 	action = function(pos, node)
-		local count_grasses = {};
-		local curr_max  = 0;
+		local count_grasses = {}
+		local curr_max  = 0
 		local curr_type = "ethereal:green_dirt_top"; -- Fallback Colour
 		local positions = minetest.find_nodes_in_area( {x=(pos.x-2), y=(pos.y-2), z=(pos.z-2)},
 							       {x=(pos.x+2), y=(pos.y+2), z=(pos.z+2)},
-								"group:ethereal_grass" );
+								"group:ethereal_grass" )
 		for _,p in ipairs(positions) do
 			-- count the new grass node
-			local n = minetest.get_node( p );
+			local n = minetest.get_node( p )
 			if( n and n.name ) then
 				if( not( count_grasses[ n.name ] )) then
-					count_grasses[ n.name ] = 1;
+					count_grasses[ n.name ] = 1
 				else
-					count_grasses[ n.name ] = count_grasses[ n.name ] + 1;	
+					count_grasses[ n.name ] = count_grasses[ n.name ] + 1
 				end
-				-- we found a grass type of which there's more than the current max
+				-- we found a grass type of which there"s more than the current max
 				if( count_grasses[ n.name ] > curr_max ) then
-					curr_max  = count_grasses[ n.name ];
-					curr_type = n.name;
+					curr_max  = count_grasses[ n.name ]
+					curr_type = n.name
 				end
 			end
 		end
@@ -161,12 +85,11 @@ minetest.register_abm({
         end
 })
 
---= If Grass Devoid of Light, Change to Dirt
-
+-- If Grass Devoid of Light, Change to Dirt
 minetest.register_abm({
 	nodenames = {"group:ethereal_grass"},
 	interval = 5,
-	chance = 5,
+	chance = 20,
 	action = function(pos, node)
 		local name = minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name
 		local nodedef = minetest.registered_nodes[name]
@@ -177,3 +100,24 @@ minetest.register_abm({
 		end
 	end
 })
+
+-- If Baked Clay mod not active, make Red and Orange nodes
+if not minetest.get_modpath("bakedclay") then
+
+	minetest.register_node(":bakedclay:red", {
+		description = "Red Baked Clay",
+		tiles = {"baked_clay_red.png"},
+		groups = {cracky=3},
+		is_ground_content = false,
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+	minetest.register_node(":bakedclay:orange", {
+		description = "Orange Baked Clay",
+		tiles = {"baked_clay_orange.png"},
+		groups = {cracky=3},
+		is_ground_content = false,
+		sounds = default.node_sound_stone_defaults(),
+	})
+
+end

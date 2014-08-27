@@ -1,5 +1,3 @@
---= Register Crystal Items
-
 -- Crystal Spike (Hurts if you touch it - thanks to ZonerDarkRevention for his DokuCraft DeviantArt crystal texture)
 minetest.register_node("ethereal:crystal_spike", {
 	description = "Crystal Spike",
@@ -19,22 +17,22 @@ minetest.register_node("ethereal:crystal_spike", {
 	},
 })
 
--- Crystal Ingot and Recipe
+-- Crystal Ingot
 minetest.register_craftitem("ethereal:crystal_ingot", {
 	description = "Crystal Ingot",
 	inventory_image = "crystal_ingot.png",
 })
 
 minetest.register_craft({
-	output = 'ethereal:crystal_ingot',
+	output = "ethereal:crystal_ingot",
 	recipe = {
-		{'default:mese_crystal', 'ethereal:crystal_spike', ''},
-		{'', '', ''},
-		{'', '', ''},
+		{"default:mese_crystal", "ethereal:crystal_spike", ""},
+		{"", "", ""},
+		{"", "", ""},
 	}
 })
 
--- Crystal Sword and Recipe (Powerful wee beastie)
+-- Crystal Sword (Powerful wee beastie)
 minetest.register_tool("ethereal:sword_crystal", {
 	description = "Crystal Sword",
 	inventory_image = "crystal_sword.png",
@@ -49,15 +47,38 @@ minetest.register_tool("ethereal:sword_crystal", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:sword_crystal',
+	output = "ethereal:sword_crystal",
 	recipe = {
-		{'', 'ethereal:crystal_ingot', ''},
-		{'', 'ethereal:crystal_ingot', ''},
-		{'', 'default:steel_ingot', ''},
+		{"", "ethereal:crystal_ingot", ""},
+		{"", "ethereal:crystal_ingot", ""},
+		{"", "default:steel_ingot", ""},
 	}
 })
 
--- Crystal Pick and Recipe (This will last a while)
+-- Crystal Axe
+minetest.register_tool("ethereal:axe_crystal", {
+	description = "Crystal Axe",
+	inventory_image = "crystal_axe.png",
+	tool_capabilities = {
+		full_punch_interval = 0.8,
+		max_drop_level=1,
+		groupcaps={
+			choppy={times={[1]=2.00, [2]=0.80, [3]=0.40}, uses=30, maxlevel=2},
+		},
+		damage_groups = {fleshy=7},
+	},
+})
+
+minetest.register_craft({
+	output = 'ethereal:axe_crystal',
+	recipe = {
+		{'ethereal:crystal_ingot', 'ethereal:crystal_ingot'},
+		{'ethereal:crystal_ingot', 'default:steel_ingot'},
+		{'', 'default:steel_ingot'},
+	}
+})
+
+-- Crystal Pick (This will last a while)
 minetest.register_tool("ethereal:pick_crystal", {
 	description = "Crystal Pickaxe",
 	inventory_image = "crystal_pick.png",
@@ -72,15 +93,15 @@ minetest.register_tool("ethereal:pick_crystal", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:pick_crystal',
+	output = "ethereal:pick_crystal",
 	recipe = {
-		{'ethereal:crystal_ingot', 'ethereal:crystal_ingot', 'ethereal:crystal_ingot'},
-		{'', 'default:steel_ingot', ''},
-		{'', 'default:steel_ingot', ''},
+		{"ethereal:crystal_ingot", "ethereal:crystal_ingot", "ethereal:crystal_ingot"},
+		{"", "default:steel_ingot", ""},
+		{"", "default:steel_ingot", ""},
 	}
 })
 
--- Crystal Shovel (with Soft Touch, can dig up dirt with grass intact)
+-- Crystal Shovel (with Soft Touch so player can dig up dirt with grass intact)
 minetest.register_tool("ethereal:shovel_crystal", {
 	description = "Crystal (soft touch) Shovel",
 	inventory_image = "crystal_shovel.png",
@@ -118,16 +139,15 @@ minetest.register_tool("ethereal:shovel_crystal", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:shovel_crystal',
+	output = "ethereal:shovel_crystal",
 	recipe = {
-		{'', 'ethereal:crystal_ingot', ''},
-		{'', 'default:steel_ingot', ''},
-		{'', 'default:steel_ingot', ''},
+		{"", "ethereal:crystal_ingot", ""},
+		{"", "default:steel_ingot", ""},
+		{"", "default:steel_ingot", ""},
 	}
 })
 
--- Crystal Gilly Staff and Recipe (When used it replenishes your air supply while underwater)
-
+-- Crystal Gilly Staff (replenishes air supply when used, great for exploring underwater)
 minetest.register_tool("ethereal:crystal_gilly_staff", {
 	description = "Crystal Gilly Staff",
 	inventory_image = "crystal_gilly_staff.png",
@@ -143,10 +163,10 @@ minetest.register_tool("ethereal:crystal_gilly_staff", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:crystal_gilly_staff',
+	output = "ethereal:crystal_gilly_staff",
 	recipe = {
-		{'ethereal:green_moss', 'ethereal:gray_moss', 'ethereal:fiery_moss'},
-		{'ethereal:crystal_moss', 'ethereal:crystal_ingot', 'ethereal:mushroom_moss'},
-		{'', 'ethereal:crystal_ingot', ''},
+		{"ethereal:green_moss", "ethereal:gray_moss", "ethereal:fiery_moss"},
+		{"ethereal:crystal_moss", "ethereal:crystal_ingot", "ethereal:mushroom_moss"},
+		{"", "ethereal:crystal_ingot", ""},
 	}
 })

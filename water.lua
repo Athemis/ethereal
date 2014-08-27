@@ -1,6 +1,3 @@
-
---= Landscape Functions
-
 -- Over time Cobble placed in water changes to Mossy Cobble
 minetest.register_abm({
 	nodenames = {"default:cobble"},
@@ -12,9 +9,9 @@ minetest.register_abm({
 	end
 })
 
--- If Crystal Spike, Crystal Dirt or Snow near Water, change Water to Ice
+-- If Crystal Spike, Crystal Dirt, Snow near Water, change Water to Ice
 minetest.register_abm({
-	nodenames = {"ethereal:crystal_spike", "ethereal:crystal_topped_dirt", "default:snow", "default:snowblock"},
+	nodenames = {"ethereal:crystal_spike", "ethereal:crystal_dirt", "default:snow", "default:snowblock"},
 	neighbors = {"default:water_source"},
 	interval = 15,
 	chance = 2,

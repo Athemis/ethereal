@@ -1,8 +1,4 @@
-
---= Additional Items
-
---= Paper Wall
-
+-- Paper Wall
 minetest.register_node("ethereal:paper_wall", {
 	drawtype = "nodebox",
         description = ("Paper Wall"),
@@ -26,51 +22,51 @@ minetest.register_node("ethereal:paper_wall", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:paper_wall',
+	output = "ethereal:paper_wall",
 	recipe = {
-		{'default:stick', 'default:paper', 'default:stick'},
-		{'default:stick', 'default:paper', 'default:stick'},
-		{'default:stick', 'default:paper', 'default:stick'},
+		{"default:stick", "default:paper", "default:stick"},
+		{"default:stick", "default:paper", "default:stick"},
+		{"default:stick", "default:paper", "default:stick"},
 	}
 })
 
--- Glostone and Recipe (A little bit of light decoration)
+-- Glostone (A little bit of light decoration)
 minetest.register_node("ethereal:glostone", {
 	description = "Glo Stone",
 	tiles = {"glostone.png"},
 	is_ground_content = true,
 	groups = {cracky=3, stone=1},
 	light_source = LIGHT_MAX - 1,
-	drop = 'ethereal:glostone',
+	drop = "ethereal:glostone",
 	sounds = default.node_sound_stone_defaults(),
 })
 
 minetest.register_craft({
-	output = 'ethereal:glostone',
+	output = "ethereal:glostone",
 	recipe = {
-		{'default:torch', 'default:stone', 'dye:yellow'},
-		{'', '', ''},
-		{'', '', ''},
+		{"default:torch", "default:stone", "dye:yellow"},
+		{"", "", ""},
+		{"", "", ""},
 	}
 })
 
 -- Ladder (Changes default recipe to give 2x ladders instead of only 1)
 minetest.register_craft({
-	output = 'default:ladder 2',
+	output = "default:ladder 2",
 	recipe = {
-		{'group:stick', '', 'group:stick'},
-		{'group:stick', 'group:stick', 'group:stick'},
-		{'group:stick', '', 'group:stick'},
+		{"group:stick", "", "group:stick"},
+		{"group:stick", "group:stick", "group:stick"},
+		{"group:stick", "", "group:stick"},
 	}
 })
 
 -- Signs (Changes default recipe to give 4x signs instead of only 1)
 minetest.register_craft({
-	output = 'default:sign_wall 4',
+	output = "default:sign_wall 4",
 	recipe = {
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'group:wood', 'group:wood', 'group:wood'},
-		{'', 'group:stick', ''},
+		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "group:wood", "group:wood"},
+		{"", "group:stick", ""},
 	}
 })
 
@@ -81,9 +77,9 @@ minetest.register_craftitem("ethereal:charcoal_lump", {
 })
 
 minetest.register_craft({
-	output = 'ethereal:charcoal_lump 2',
+	output = "ethereal:charcoal_lump 2",
 	recipe = {
-		{'ethereal:scorched_tree'}
+		{"ethereal:scorched_tree"}
 	}
 })
 
@@ -95,15 +91,14 @@ minetest.register_craft({
 
 -- Make Torch from Charcoal Lump
 minetest.register_craft({
-	output = 'default:torch 4',
+	output = "default:torch 4",
 	recipe = {
-		{'ethereal:charcoal_lump'},
-		{'default:stick'},
+		{"ethereal:charcoal_lump"},
+		{"default:stick"},
 	}
 })
 
 -- Obsidian Brick
-
 minetest.register_node("ethereal:obsidian_brick", {
 	description = "Obsidian Brick",
 	inventory_image = minetest.inventorycube("obsidian_brick.png"),
@@ -115,11 +110,9 @@ minetest.register_node("ethereal:obsidian_brick", {
 
 
 -- Quicksand
-
 minetest.register_node("ethereal:quicksand", {
 	description = "Quicksand",
 	tiles = {"default_sand.png"},
---	tiles = {"default_wood.png"},
 	drop = "default:sand",
 	liquid_viscosity = 15,
 	liquidtype = "source",
@@ -136,7 +129,6 @@ minetest.register_node("ethereal:quicksand", {
 })
 
 -- Illuminated Cave Shrooms (Red, Green and Blue)
-
 minetest.register_node("ethereal:illumishroom", {
 	description = "Red Illumishroom",
 	drawtype = "plantlike",

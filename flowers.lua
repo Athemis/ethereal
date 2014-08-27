@@ -1,6 +1,4 @@
-
---= Flowers spread over green dirt and prairie dirt
-
+-- Flowers spread over all types of soil
 minetest.register_abm({
 	nodenames = {"group:flora"},
 	neighbors = {"group:soil"},
@@ -8,7 +6,7 @@ minetest.register_abm({
 	chance = 20,
 	action = function(pos, node)
 		local light = minetest.get_node_light(pos)
-		if not light or light < 12 then -- was 13
+		if not light or light < 13 then
 			return
 		end
 		
@@ -37,4 +35,3 @@ minetest.register_abm({
 		end
 	end,
 })
-

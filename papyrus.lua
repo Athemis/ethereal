@@ -1,6 +1,4 @@
-
---= Re-register Papyrus (dug papyrus makes any above fall)
-
+-- Re-register Papyrus (dug papyrus makes any above fall)
 minetest.register_node(":default:papyrus", {
 	description = "Papyrus",
 	drawtype = "plantlike",
@@ -19,23 +17,7 @@ minetest.register_node(":default:papyrus", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
---= Place Papyrus on Dirt next to Water
-
-minetest.register_decoration({
-	deco_type = "simple",
-	place_on = {"ethereal:green_dirt_top", "ethereal:jungle_dirt"},
-	sidelen = 16,
-	fill_ratio = 0.1, -- 0.055
-	biomes = {"grassy", "grassytwo", "junglee", "jumble"},
-	decoration = "default:papyrus",
---	height = 4,
-	height_max = 4,
-	spawn_by = "default:water_source",
-	num_spawn_by = 1,
-})
-
---= Have Papyrus grow up to 4 high and Bamboo grow up to 5 in height (shared abm)
-
+-- Have Papyrus grow up to 4 high and Bamboo grow up to 5 in height (shared abm)
 minetest.register_abm({
 	nodenames = {"default:papyrus", "ethereal:bamboo"},
 	neighbors = {"group:soil"},

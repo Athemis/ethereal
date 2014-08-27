@@ -1,6 +1,4 @@
-
 -- Mushroom Spores
-
 minetest.register_craftitem("ethereal:mushroom_craftingitem", {
 	description = "Mushroom Spores",
 	groups = {not_in_creative_inventory=1},
@@ -11,14 +9,13 @@ minetest.register_craftitem("ethereal:mushroom_craftingitem", {
 })
 
 -- Mushroom Plant (Must be farmed to become edible)
-
 minetest.register_node("ethereal:mushroom_plant", {
 	description = "Mushroom (edible)",
 	drawtype = "plantlike",
 	tiles = {"mushroom.png"},
 	inventory_image = "mushroom.png",
 	selection_box = {type = "fixed",fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}},
-	drop = 'ethereal:mushroom_craftingitem',
+	drop = "ethereal:mushroom_craftingitem",
 	wield_image = "mushroom.png",
 	paramtype = "light",
 	walkable = false,
@@ -28,25 +25,22 @@ minetest.register_node("ethereal:mushroom_plant", {
 })
 
 -- Mushroom Soup (Heals 1 heart)
-
 minetest.register_craftitem("ethereal:mushroom_soup", {
 	description = "Mushroom Soup",
 	inventory_image = "mushroom_soup.png",
 	on_use = minetest.item_eat(2, "ethereal:bowl"),
 })
 
--- Mushroom Soup
 minetest.register_craft({
-	output = 'ethereal:mushroom_soup',
+	output = "ethereal:mushroom_soup",
 	recipe = {
-		{'ethereal:mushroom_plant', ''},
-		{'ethereal:mushroom_plant', ''},
-		{'ethereal:bowl', ''},
+		{"ethereal:mushroom_plant", ""},
+		{"ethereal:mushroom_plant", ""},
+		{"ethereal:bowl", ""},
 	}
 })
 
 -- Cooked Mushroom Soup (Heals 1 and half heart)
-
 minetest.register_craftitem("ethereal:mushroom_soup_cooked", {
 	description = "Mushroom Soup Cooked",
 	inventory_image = "mushroom_soup_cooked.png",
@@ -61,8 +55,7 @@ minetest.register_craft({
 })
 
 -- Define Mushroom growth stages
-
-minetest.register_node("ethereal:mushroom_garden_1", {
+minetest.register_node("ethereal:mushroom_1", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_1.png"},
 	paramtype = "light",
@@ -70,50 +63,53 @@ minetest.register_node("ethereal:mushroom_garden_1", {
 	buildable_to = true,
 	drop = {
 		items = {
-			{items = {'ethereal:mushroom_craftingitem 1'},rarity=1},
-			{items = {'ethereal:mushroom_plant 1'},rarity=14},
+			{items = {"ethereal:mushroom_craftingitem 1"},rarity=1},
+			{items = {"ethereal:mushroom_plant 1"},rarity=14},
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=1,attached_node=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=1,attached_node=1,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
+minetest.register_alias("ethereal:mushroom_garden_1", "ethereal:mushroom_1")
 
-minetest.register_node("ethereal:mushroom_garden_2", {
+minetest.register_node("ethereal:mushroom_2", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_2.png"},
 	paramtype = "light",
 	walkable = false,
 	drop = {
 		items = {
-			{items = {'ethereal:mushroom_craftingitem 1'},rarity=1},
-			{items = {'ethereal:mushroom_plant 1'},rarity=7},
+			{items = {"ethereal:mushroom_craftingitem 1"},rarity=1},
+			{items = {"ethereal:mushroom_plant 1"},rarity=7},
 			}
 	},
 	buildable_to = true,
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=2,attached_node=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=2,attached_node=1,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
+minetest.register_alias("ethereal:mushroom_garden_2", "ethereal:mushroom_2")
 
-minetest.register_node("ethereal:mushroom_garden_3", {
+minetest.register_node("ethereal:mushroom_3", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_3.png"},
 	paramtype = "light",
 	walkable = false,
 	drop = {
 		items = {
-			{items = {'ethereal:mushroom_craftingitem 1'},rarity=1},
-			{items = {'ethereal:mushroom_plant 3'},rarity=3},
+			{items = {"ethereal:mushroom_craftingitem 1"},rarity=1},
+			{items = {"ethereal:mushroom_plant 3"},rarity=3},
 			}
 	},
 	buildable_to = true,
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=3,attached_node=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=3,attached_node=1,growing=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-		
-minetest.register_node("ethereal:mushroom_garden_4", {
+minetest.register_alias("ethereal:mushroom_garden_3", "ethereal:mushroom_3")
+
+minetest.register_node("ethereal:mushroom_4", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_4.png"},
 	paramtype = "light",
@@ -121,17 +117,19 @@ minetest.register_node("ethereal:mushroom_garden_4", {
 	buildable_to = true,
 	drop = {
 		items = {
-			{items = {'ethereal:mushroom_craftingitem 1'},rarity=1},
-			{items = {'ethereal:mushroom_plant 3'},rarity=1},
-			{items = {'ethereal:mushroom_plant 3'},rarity=7},
+			{items = {"ethereal:mushroom_craftingitem 1"},rarity=1},
+			{items = {"ethereal:mushroom_plant 3"},rarity=1},
+			{items = {"ethereal:mushroom_plant 3"},rarity=7},
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
 	groups = {snappy=3,flammable=2,plant=1,mushroom=4,attached_node=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
+minetest.register_alias("ethereal:mushroom_garden_4", "ethereal:mushroom_4")
 
 -- Abm for growing Mushroom
+if farming.mod ~= "redo" then
 
 minetest.register_abm({
 	nodenames = {"group:mushroom"},
@@ -165,3 +163,11 @@ minetest.register_abm({
 		minetest.set_node(pos, {name="ethereal:mushroom_garden_"..height})
 	end
 })
+
+else
+	print ("[MOD] Ethereal - Detected and using Farming Redo mod")
+end
+
+-- Temporary compatibility lines for Xanadu server
+minetest.register_alias("ethereal:mushroom_7", "ethereal:mushroom_3")
+minetest.register_alias("ethereal:mushroom_8", "ethereal:mushroom_4")

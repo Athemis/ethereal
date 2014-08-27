@@ -1,8 +1,5 @@
--- Change j to 1 for 3D style leaves, otherwise 0 is 2D
-
-local j = 0
-
-if j == 0 then
+-- Leaf style (set in init.lua file)
+if ethereal.leaftype == 0 then
 	leaftype = "plantlike"
 else
 	leaftype = "allfaces_optional"
@@ -24,11 +21,8 @@ minetest.register_node("ethereal:willow_twig", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:willow_sapling'},
-				rarity = 50,
-			},
-			{	items = {'ethereal:willow_twig'},
-			}
+			{	items = {"ethereal:willow_sapling"}, rarity = 50},
+			{	items = {"ethereal:willow_twig"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -48,11 +42,8 @@ minetest.register_node("ethereal:redwood_leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:redwood_sapling'},
-				rarity = 50,
-			},
-			{	items = {'ethereal:redwood_leaves'},
-			}
+			{	items = {"ethereal:redwood_sapling"}, rarity = 50},
+			{	items = {"ethereal:redwood_leaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -72,11 +63,8 @@ minetest.register_node(":default:leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:tree_sapling'},
-				rarity = 20,
-			},
-			{	items = {'default:leaves'},
-			}
+			{	items = {"ethereal:tree_sapling"}, rarity = 20},
+			{	items = {"default:leaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -96,11 +84,8 @@ minetest.register_node(":default:jungleleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:jungle_tree_sapling'},
-				rarity = 20,
-			},
-			{	items = {'default:jungleleaves'},
-			}
+			{	items = {"ethereal:jungle_tree_sapling"}, rarity = 20},
+			{	items = {"default:jungleleaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -120,11 +105,8 @@ minetest.register_node("ethereal:bananaleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:banana_tree_sapling'},
-				rarity = 20,
-			},
-			{	items = {'ethereal:bananaleaves'},
-			}
+			{	items = {"ethereal:banana_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:bananaleaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -144,11 +126,8 @@ minetest.register_node("ethereal:yellowleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:yellow_tree_sapling'},
-				rarity = 50,
-			},
-			{	items = {'ethereal:yellowleaves'},
-			}
+			{	items = {"ethereal:yellow_tree_sapling"}, rarity = 50},
+			{	items = {"ethereal:yellowleaves"}}
 		}
 	},
 	-- Leaves are edible, heal half a heart
@@ -171,11 +150,8 @@ minetest.register_node("ethereal:palmleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:palm_sapling'},
-				rarity = 20,
-			},
-			{	items = {'ethereal:palmleaves'},
-			}
+			{	items = {"ethereal:palm_sapling"}, rarity = 20},
+			{	items = {"ethereal:palmleaves"}}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -195,14 +171,9 @@ minetest.register_node("ethereal:pineleaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:pine_tree_sapling'},
-				rarity = 20,
-			},
-			{	items = {'ethereal:pine_nuts'},
-				rarity = 5,
-			},
-			{	items = {'ethereal:pineleaves'},
-			}
+			{	items = {"ethereal:pine_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:pine_nuts"}, rarity = 5},
+			{	items = {"ethereal:pineleaves"},}
 		}
 	},
 	sounds = default.node_sound_leaves_defaults(),
@@ -222,11 +193,8 @@ minetest.register_node("ethereal:frost_leaves", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:frost_tree_sapling'},
-				rarity = 20,
-			},
-			{	items = {'ethereal:frost_leaves'},
-			}
+			{	items = {"ethereal:frost_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:frost_leaves"}}
 		}
 	},
 	light_source = 9,
@@ -241,11 +209,8 @@ minetest.register_node("ethereal:mushroom", {
 	drop = {
 		max_items = 1,
 		items = {
-			{	items = {'ethereal:mushroom_sapling'},
-				rarity = 20,
-			},
-			{	items = {'ethereal:mushroom'},
-			}
+			{	items = {"ethereal:mushroom_sapling"}, rarity = 20},
+			{	items = {"ethereal:mushroom"}}
 		}
 	},
 	sounds = default.node_sound_wood_defaults(),
@@ -254,7 +219,7 @@ minetest.register_node("ethereal:mushroom", {
 -- Mushroom Pore (Spongelike block inside mushrooms that has special properties)
 minetest.register_node("ethereal:mushroom_pore", {
 	description = "Mushroom Pore",
-	tiles = {"mushroom_block2.png"},
+	tiles = {"mushroom_pore.png"},
 	groups = {snappy=3,cracky=3,choppy=3,oddly_breakable_by_hand=3,disable_jump=1, fall_damage_add_percent=-100},
 	sounds = default.node_sound_dirt_defaults(),
 })
