@@ -17,9 +17,18 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 *Note: I only **update** this repo!*
 
 ###Changes:
+*1.07*
+
+    If Farming Redo mod detected then it's growing routines will be used for Ethereal plantlife instead of default
+    
+    Leaftype and Mapstyle settings can be changed within init.lua file, new layered style maps are being tested
+    
+    Changed crafting recipe for Fences, they tie in with Gates a little better
+
 *1.06*
 
     Added support for Farming Redo mod, all plants spawn on newly generated areas 
+    
     https://forum.minetest.net/viewtopic.php?id=9019
 
 *1.05b*
