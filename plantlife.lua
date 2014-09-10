@@ -1,16 +1,17 @@
 -- Fern (boston)
 minetest.register_node("ethereal:fern", {
-        description = "Fern",
-        drawtype = "plantlike",
-        visual_scale = 1.2,
-        tiles = {"fern.png"},
-        inventory_image = "fern.png",
-        wield_image = "fern.png",
-        paramtype = "light",
-        waving = 1,
-        walkable = false,
-        is_ground_content = true,
-        buildable_to = true,
+	description = "Fern",
+	drawtype = "plantlike",
+	visual_scale = 1.2,
+	tiles = {"fern.png"},
+	inventory_image = "fern.png",
+	wield_image = "fern.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	waving = 1,
+	walkable = false,
+	is_ground_content = true,
+	buildable_to = true,
 	drop = {
 		max_items = 1,
 		items = {
@@ -18,12 +19,12 @@ minetest.register_node("ethereal:fern", {
 			{items = {"ethereal:fern"}},
 		}
 	},
-        groups = {snappy=3,flora=1,attached_node=1},
-        sounds = default.node_sound_leaves_defaults(),
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-        },
+	groups = {snappy=3,flora=1,attached_node=1,flammable=2},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 })
 
 -- Boston Ferns sometimes drop edible Tubers (heals 1/2 heart when eaten)
@@ -35,65 +36,68 @@ minetest.register_craftitem("ethereal:fern_tubers", {
 
 -- Red Shrub (not flammable)
 minetest.register_node("ethereal:dry_shrub", {
-        description = "Fiery Dry Shrub",
-        drawtype = "plantlike",
-        visual_scale = 1.0,
-        tiles = {"ethereal_dry_shrub.png"},
-        inventory_image = "ethereal_dry_shrub.png",
-        wield_image = "ethereal_dry_shrub.png",
-        paramtype = "light",
-        waving = 1,
-        walkable = false,
-        is_ground_content = true,
-        buildable_to = true,
-        groups = {snappy=3,flora=1,attached_node=1},
-        sounds = default.node_sound_leaves_defaults(),
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-        },
+	description = "Fiery Dry Shrub",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"ethereal_dry_shrub.png"},
+	inventory_image = "ethereal_dry_shrub.png",
+	wield_image = "ethereal_dry_shrub.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	waving = 1,
+	walkable = false,
+	is_ground_content = true,
+	buildable_to = true,
+	groups = {snappy=3,flora=1,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 })
 
 -- Grey Shrub (not Flammable - too cold to burn)
 minetest.register_node("ethereal:snowygrass", {
-        description = "Snowy Grass",
-        drawtype = "plantlike",
-        visual_scale = 0.9,
-        tiles = {"ethereal_snowygrass.png"},
-        inventory_image = "ethereal_snowygrass.png",
-        wield_image = "ethereal_snowygrass.png",
-        paramtype = "light",
+	description = "Snowy Grass",
+	drawtype = "plantlike",
+	visual_scale = 0.9,
+	tiles = {"ethereal_snowygrass.png"},
+	inventory_image = "ethereal_snowygrass.png",
+	wield_image = "ethereal_snowygrass.png",
+	paramtype = "light",
+	sunlight_propagates = true,
 	waving = 1,
-        walkable = false,
-        buildable_to = true,
-        is_ground_content = true,
-        groups = {snappy=3,flora=1,attached_node=1},
-        sounds = default.node_sound_leaves_defaults(),
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-        },
+	walkable = false,
+	buildable_to = true,
+	is_ground_content = true,
+	groups = {snappy=3,flora=1,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 })
 
 -- Crystal Shrub (not Flammable - too cold to burn)
 minetest.register_node("ethereal:crystalgrass", {
-        description = "Crystal Grass",
-        drawtype = "plantlike",
-        visual_scale = 0.9,
-        tiles = {"ethereal_crystalgrass.png"},
-        inventory_image = "ethereal_crystalgrass.png",
-        wield_image = "ethereal_crystalgrass.png",
-        paramtype = "light",
+	description = "Crystal Grass",
+	drawtype = "plantlike",
+	visual_scale = 0.9,
+	tiles = {"ethereal_crystalgrass.png"},
+	inventory_image = "ethereal_crystalgrass.png",
+	wield_image = "ethereal_crystalgrass.png",
+	paramtype = "light",
+	sunlight_propagates = true,
 	waving = 1,
-        walkable = false,
-        buildable_to = true,
-        is_ground_content = true,
-        groups = {snappy=3,flora=1,attached_node=1},
-        sounds = default.node_sound_leaves_defaults(),
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-        },
+	walkable = false,
+	buildable_to = true,
+	is_ground_content = true,
+	groups = {snappy=3,flora=1,attached_node=1},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 })
 
 -- Define Moss Types (Has grass textures on all sides)
@@ -101,7 +105,6 @@ function ethereal.add_moss(typ, descr, texture, receipe_item)
 	minetest.register_node("ethereal:"..typ.."_moss", {
 		description = descr.." Moss",
 		tiles = { texture },
-		is_ground_content = false,
 		groups = {crumbly=3 },
 		sounds = default.node_sound_dirt_defaults
 	})
@@ -112,27 +115,27 @@ function ethereal.add_moss(typ, descr, texture, receipe_item)
 	})
 end
 
-ethereal.add_moss( "crystal",  "Crystal",  "ethereal_grass_crystal_top.png",  "ethereal:frost_leaves")
-ethereal.add_moss( "mushroom", "Mushroom", "ethereal_grass_mushroom_top.png",     "ethereal:mushroom")
-ethereal.add_moss( "fiery",    "Fiery",    "ethereal_grass_fiery_top.png",  "ethereal:dry_shrub")
-ethereal.add_moss( "gray",     "Gray",     "ethereal_grass_gray_top.png",   "ethereal:snowygrass")
-ethereal.add_moss( "green",    "Green",    "default_grass.png",         "default:jungleleaves")
+ethereal.add_moss( "crystal",	"Crystal",	"ethereal_grass_crystal_top.png",	"ethereal:frost_leaves")
+ethereal.add_moss( "mushroom",	"Mushroom",	"ethereal_grass_mushroom_top.png",	"ethereal:mushroom")
+ethereal.add_moss( "fiery",		"Fiery",	"ethereal_grass_fiery_top.png",		"ethereal:dry_shrub")
+ethereal.add_moss( "gray",		"Gray",		"ethereal_grass_gray_top.png",		"ethereal:snowygrass")
+ethereal.add_moss( "green",		"Green",	"default_grass.png",				"default:jungleleaves")
 
 -- Banana (Heals one heart when eaten)
 minetest.register_node("ethereal:banana", {
 	description = "Banana",
-	drawtype = "torchlike", -- was plantlike
+	drawtype = "torchlike",
 	visual_scale = 1.0,
 	tiles = {"banana_single.png"},
 	inventory_image = "banana_single.png",
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.2, -0.5, -0.2, 0.2, 0.2, 0.2}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=1,leafdecay_drop=1},
 	on_use = minetest.item_eat(2),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -161,6 +164,30 @@ minetest.register_craft({
 	recipe = "ethereal:banana_dough"
 })
 
+-- Orange (Heals 2 hearts when eaten)
+minetest.register_node("ethereal:orange", {
+	description = "Orange",
+	drawtype = "plantlike",
+	visual_scale = 1.0,
+	tiles = {"farming_orange.png"},
+	inventory_image = "farming_orange.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.2, -0.3, -0.2, 0.2, 0.2, 0.2}
+	},
+	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=1,leafdecay_drop=1},
+	on_use = minetest.item_eat(4),
+	sounds = default.node_sound_leaves_defaults(),
+	after_place_node = function(pos, placer, itemstack)
+		if placer:is_player() then
+			minetest.set_node(pos, {name="ethereal:orange", param2=1})
+		end
+	end,
+})
+
 -- Pine Nuts (Heals 1/2 heart when eaten)
 minetest.register_craftitem("ethereal:pine_nuts", {
 	description = "Pine Nuts",
@@ -182,7 +209,6 @@ minetest.register_node("ethereal:coconut", {
 	paramtype = "light",
 	description = "Coconut",
 	tiles = {"moretrees_coconut.png"},
-	is_ground_content = true,
 	groups = {cracky=2,snappy=2,choppy=2,flammable=1,leafdecay=3,leafdecay_drop=1},
 	drop = "ethereal:coconut_slice 4",
 	sounds = default.node_sound_wood_defaults(),
@@ -203,13 +229,13 @@ minetest.register_node("ethereal:golden_apple", {
 	tiles = {"default_apple_gold.png"},
 	inventory_image = "default_apple_gold.png",
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
-	is_ground_content = true,
 	selection_box = {
 		type = "fixed",
-		fixed = {-0.2, -0.5, -0.2, 0.2, 0, 0.2}
+		fixed = {-0.2, -0.3, -0.2, 0.2, 0.2, 0.2}
 	},
-	groups = {fleshy=3,dig_immediate=3,flammable=2,leafdecay=3,leafdecay_drop=1},
+	groups = {fleshy=3,dig_immediate=3,leafdecay=3,leafdecay_drop=1},
 	on_use = minetest.item_eat(20),
 	sounds = default.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer, itemstack)
@@ -240,21 +266,22 @@ minetest.register_node("ethereal:bamboo", {
 
 -- Bamboo Sprout
 minetest.register_node("ethereal:bamboo_sprout", {
-        description = "Bamboo Sprout",
-        drawtype = "plantlike",
-        tiles = {"bamboo_sprout.png"},
-        inventory_image = "bamboo_sprout.png",
-        wield_image = "bamboo_sprout.png",
-        paramtype = "light",
-        walkable = false,
-        is_ground_content = true,
-        buildable_to = true,
-        groups = {snappy=3,flora=1,attached_node=1},
-        sounds = default.node_sound_leaves_defaults(),
-        selection_box = {
-                type = "fixed",
-                fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
-        },
+	description = "Bamboo Sprout",
+	drawtype = "plantlike",
+	tiles = {"bamboo_sprout.png"},
+	inventory_image = "bamboo_sprout.png",
+	wield_image = "bamboo_sprout.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	is_ground_content = true,
+	buildable_to = true,
+	groups = {snappy=3,flora=1,attached_node=1,flammable=2},
+	sounds = default.node_sound_leaves_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},
+	},
 	-- sprouts are edible if cooked in stew
 })
 
@@ -328,18 +355,22 @@ minetest.register_craft({
 -- Bamboo Flooring
 minetest.register_node("ethereal:bamboo_floor", {
 	description = ("Bamboo Floor"),
-	drawtype = "signlike",
+	drawtype = 'nodebox',
 	tiles = { "bamboo_floor.png" },
 	wield_image = "bamboo_floor.png",
 	inventory_image = "bamboo_floor.png",
-	sunlight_propagates = true,
 	paramtype = "light",
 	paramtype2 = "wallmounted",
-	is_ground_content = true,
-	walkable = false,
-	groups = { snappy = 3, choppy = 3 },
+	walkable = true,
+	node_box = {
+		type = "wallmounted",
+		wall_top    = {-0.5, 0.4375, -0.5, 0.5, 0.5, 0.5},
+		wall_bottom = {-0.5, -0.5, -0.5, 0.5, -0.4375, 0.5},
+		wall_side   = {-0.5, -0.5, -0.5, -0.4375, 0.5, 0.5},
+	},
+	selection_box = {type = "wallmounted"},
+	groups = { snappy = 3, choppy = 3 , flammable=2},
 	sounds = default.node_sound_wood_defaults(),
-	selection_box = {type = "wallmounted",},
 })
 
 -- Craft Bamboo into Bamboo Flooring
@@ -411,14 +442,14 @@ minetest.register_craft({
 	recipe = "ethereal:palmleaves"
 })
 
--- Candle from Wax and String
+-- Candle from Wax and String/Cotton
 minetest.register_node("ethereal:candle", {
 	description = "Candle",
 	drawtype = "plantlike",
 	inventory_image = "candle_static.png",
 	tiles = {
-			{name="candle.png", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1.0}},
-		},	
+		{name="candle.png", animation={type="vertical_frames", aspect_w=32, aspect_h=32, length=1.0}},
+	},	
 	paramtype = "light",
 	light_source = LIGHT_MAX-3,
 	sunlight_propagates = true,
@@ -426,15 +457,15 @@ minetest.register_node("ethereal:candle", {
 	groups = {dig_immediate=3, attached_node=1},
 	sounds = default.node_sound_defaults(),
 	selection_box = {
-			type = "fixed",
-			fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
+		type = "fixed",
+		fixed = { -0.15, -0.5, -0.15, 0.15, 0.2, 0.15 },
 	},
 })
 
 minetest.register_craft({
 	output = "ethereal:candle 6",
 	recipe = {
-		{"","farming:string"},
+		{"","farming:cotton"},
 		{"","ethereal:palm_wax"},
 		{"","ethereal:palm_wax"},
 	}

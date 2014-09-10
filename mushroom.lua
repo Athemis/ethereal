@@ -18,6 +18,7 @@ minetest.register_node("ethereal:mushroom_plant", {
 	drop = "ethereal:mushroom_craftingitem",
 	wield_image = "mushroom.png",
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	groups = {snappy=2,dig_immediate=3,flammable=2},
 	sounds = default.node_sound_defaults(),
@@ -59,6 +60,7 @@ minetest.register_node("ethereal:mushroom_1", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_1.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -68,7 +70,7 @@ minetest.register_node("ethereal:mushroom_1", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=1,attached_node=1,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=1,attached_node=1,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:mushroom_garden_1", "ethereal:mushroom_1")
@@ -77,6 +79,7 @@ minetest.register_node("ethereal:mushroom_2", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_2.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	drop = {
 		items = {
@@ -86,7 +89,7 @@ minetest.register_node("ethereal:mushroom_2", {
 	},
 	buildable_to = true,
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=2,attached_node=1,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=2,attached_node=1,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:mushroom_garden_2", "ethereal:mushroom_2")
@@ -95,6 +98,7 @@ minetest.register_node("ethereal:mushroom_3", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_3.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	drop = {
 		items = {
@@ -104,7 +108,7 @@ minetest.register_node("ethereal:mushroom_3", {
 	},
 	buildable_to = true,
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=3,attached_node=1,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=3,attached_node=1,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:mushroom_garden_3", "ethereal:mushroom_3")
@@ -113,6 +117,7 @@ minetest.register_node("ethereal:mushroom_4", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_mushroom_garden_4.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -123,7 +128,7 @@ minetest.register_node("ethereal:mushroom_4", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,mushroom=4,attached_node=1},
+	groups = {snappy=3,flammable=2,plant=1,mushroom=4,attached_node=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:mushroom_garden_4", "ethereal:mushroom_4")

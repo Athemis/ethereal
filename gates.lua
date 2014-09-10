@@ -116,8 +116,8 @@ minetest.register_node("ethereal:"..name.."gate_closed", {
 minetest.register_craft({
 	output = "ethereal:"..name.."gate_closed",
 	recipe = {
-		 {"default:stick", nod, "default:stick"},
-		 {"default:stick", nod, "default:stick"},
+		 {"group:stick", nod, "group:stick"},
+		 {"group:stick", nod, "group:stick"},
 	}
 })
 

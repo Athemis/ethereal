@@ -9,15 +9,14 @@ minetest.register_craftitem("ethereal:fish_raw", {
 minetest.register_craftitem("ethereal:fish_cooked", {
 	description = "Cooked Fish",
 	inventory_image = "fish_cooked.png",
-	on_use = minetest.item_eat(4),
+	on_use = minetest.item_eat(5),
 })
 
 -- Sashimi (Thanks to Natalia Grosner for letting me use the sashimi image)
-
 minetest.register_craftitem("ethereal:sashimi", {
 	description = "Sashimi",
 	inventory_image = "sashimi.png",
-	on_use = minetest.item_eat(2),
+	on_use = minetest.item_eat(4),
 })
 
 minetest.register_craft({

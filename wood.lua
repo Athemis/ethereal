@@ -10,7 +10,6 @@ minetest.register_node("ethereal:willow_trunk", {		-- Willow Trunk
 minetest.register_node("ethereal:willow_wood", {		-- Willow Wood
 	description = "Willow Wood",
 	tiles = {"willow_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -31,7 +30,6 @@ minetest.register_node("ethereal:redwood_trunk", {		-- Redwood Trunk
 minetest.register_node("ethereal:redwood_wood", {		-- Redwood Wood
 	description = "Redwood Wood",
 	tiles = {"redwood_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -52,7 +50,6 @@ minetest.register_node("ethereal:frost_tree", {			-- Frost Trunk
 minetest.register_node("ethereal:frost_wood", {			-- Frost Wood
 	description = "Frost Wood",
 	tiles = {"frost_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -73,7 +70,6 @@ minetest.register_node("ethereal:yellow_trunk", {		-- Healing Trunk
 minetest.register_node("ethereal:yellow_wood", {		-- Healing Wood
 	description = "Healing Tree Wood",
 	tiles = {"yellow_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,put_out_fire=1},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -94,7 +90,6 @@ minetest.register_node("ethereal:palm_trunk", {			-- Palm Trunk
 minetest.register_node("ethereal:palm_wood", {			-- Palm Wood
 	description = "Palm Wood",
 	tiles = {"moretrees_palm_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -116,7 +111,6 @@ minetest.register_node("ethereal:banana_trunk", {		-- Banana Tree Trunk
 minetest.register_node("ethereal:banana_wood", {		-- Banana Tree Wood
 	description = "Banana Wood",
 	tiles = {"banana_wood.png"},
-	is_ground_content = true,
 	groups = {wood=1,choppy=2,oddly_breakable_by_hand=1,flammable=3},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -129,7 +123,7 @@ minetest.register_craft({
 minetest.register_node("ethereal:scorched_tree", {		-- Scorched Trunk
 	description = "Scorched Tree",
 	tiles = {"scorched_tree_top.png", "scorched_tree_top.png", "scorched_tree.png"},
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1,flammable=1},
+	groups = {choppy=2,oddly_breakable_by_hand=1,flammable=1},
 	sounds = default.node_sound_wood_defaults(),
 	paramtype2 = "facedir",
 })

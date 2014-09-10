@@ -17,6 +17,14 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 *Note: I only **update** this repo!*
 
 ###Changes:
+*1.08*
+
+    Saplings produce better placed tree's when grown, routines have been redone
+    
+    Orange tree's now spawn in prairie biomes
+    
+    The usual code tidy and few bug fixes along the way
+    
 *1.07*
 
     If Farming Redo mod detected then it's growing routines will be used for Ethereal plantlife instead of default

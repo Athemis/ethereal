@@ -29,7 +29,7 @@ minetest.register_abm({
 -- If Heat Source near Ice, melt into Water Source
 minetest.register_abm({
 	nodenames = {"default:ice"},
-	neighbors = {"default:lava_source", "default:lava_flowing", "default:torch", "default:furnace_active"},
+	neighbors = {"group:hot"},
 	interval = 10,
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)

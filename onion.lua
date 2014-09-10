@@ -15,6 +15,7 @@ minetest.register_node("ethereal:onion_1", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_1.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -23,7 +24,7 @@ minetest.register_node("ethereal:onion_1", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=1,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=1,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:wild_onion_1", "ethereal:onion_1")
@@ -32,6 +33,7 @@ minetest.register_node("ethereal:onion_2", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_2.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -40,7 +42,7 @@ minetest.register_node("ethereal:onion_2", {
 		}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=2,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=2,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:wild_onion_2", "ethereal:onion_2")
@@ -49,6 +51,7 @@ minetest.register_node("ethereal:onion_3", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_3.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	is_ground_content = true,
@@ -59,7 +62,7 @@ minetest.register_node("ethereal:onion_3", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=3,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=3,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:wild_onion_3", "ethereal:onion_3")
@@ -68,6 +71,7 @@ minetest.register_node("ethereal:onion_4", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_4.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -77,7 +81,7 @@ minetest.register_node("ethereal:onion_4", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=4,growing=1},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=4,growing=1,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:wild_onion_4", "ethereal:onion_4")
@@ -86,6 +90,7 @@ minetest.register_node("ethereal:onion_5", {
 	drawtype = "plantlike",
 	tiles = {"ethereal_wild_onion_5.png"},
 	paramtype = "light",
+	sunlight_propagates = true,
 	walkable = false,
 	buildable_to = true,
 	drop = {
@@ -95,7 +100,7 @@ minetest.register_node("ethereal:onion_5", {
 			}
 	},
 	selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
-	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=5},
+	groups = {snappy=3,flammable=2,plant=1,attached_node=1,onion=5,not_in_creative_inventory=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 minetest.register_alias("ethereal:wild_onion_5", "ethereal:onion_5")
@@ -141,3 +146,5 @@ end
 -- Temporary compatibility lines for Xanadu server
 minetest.register_alias("ethereal:onion_7", "ethereal:onion_4")
 minetest.register_alias("ethereal:onion_8", "ethereal:onion_5")
+minetest.register_alias("ethereal:wild_onion_7", "ethereal:onion_4")
+minetest.register_alias("ethereal:wild_onion_8", "ethereal:onion_5")

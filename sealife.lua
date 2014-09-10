@@ -9,7 +9,6 @@ minetest.register_node("ethereal:seaweed", {
 	walkable = false,
 	climbable = true,
 	drowning = 1,
-	is_ground_content = true,
 	selection_box = {type = "fixed", fixed = {-0.3, -0.5, -0.3, 0.3, 0.5, 0.3}},
 	post_effect_color = {a=64, r=100, g=100, b=200},
 	groups = {snappy=3},
@@ -18,9 +17,9 @@ minetest.register_node("ethereal:seaweed", {
 })
 
 minetest.register_craft( {
-       type = "shapeless",
-       output = "dye:dark_green 3",
-       recipe = {"ethereal:seaweed",},
+	type = "shapeless",
+	output = "dye:dark_green 3",
+	recipe = {"ethereal:seaweed",},
 })
 
 -- Blue Coral
@@ -30,7 +29,6 @@ minetest.register_node("ethereal:coral2", {
 	tiles = {"coral2.png"},
 	inventory_image = "coral2.png",
 	paramtype = "light",
-	is_ground_content = true,
 	selection_box = {type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}},
 	light_source = 3,
 	groups = {snappy=3},
@@ -38,9 +36,9 @@ minetest.register_node("ethereal:coral2", {
 })
 
 minetest.register_craft( {
-       type = "shapeless",
-       output = "dye:cyan 3",
-       recipe = {"ethereal:coral2",},
+	type = "shapeless",
+	output = "dye:cyan 3",
+	recipe = {"ethereal:coral2",},
 })
 
 -- Orange Coral
@@ -50,7 +48,6 @@ minetest.register_node("ethereal:coral3", {
 	tiles = {"coral3.png"},
 	inventory_image = "coral3.png",
 	paramtype = "light",
-	is_ground_content = true,
 	selection_box = {type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}},
 	light_source = 3,
 	groups = {snappy=3},
@@ -58,9 +55,9 @@ minetest.register_node("ethereal:coral3", {
 })
 
 minetest.register_craft( {
-       type = "shapeless",
-       output = "dye:orange 3",
-       recipe = {"ethereal:coral3",},
+	type = "shapeless",
+	output = "dye:orange 3",
+	recipe = {"ethereal:coral3",},
 })
 
 -- Pink Coral
@@ -70,7 +67,6 @@ minetest.register_node("ethereal:coral4", {
 	tiles = {"coral4.png"},
 	inventory_image = "coral4.png",
 	paramtype = "light",
-	is_ground_content = true,
 	selection_box = {type = "fixed", fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5}},
 	light_source = 3,
 	groups = {snappy=3},
@@ -78,9 +74,9 @@ minetest.register_node("ethereal:coral4", {
 })
 
 minetest.register_craft( {
-       type = "shapeless",
-       output = "dye:pink 3",
-       recipe = {"ethereal:coral4",},
+	type = "shapeless",
+	output = "dye:pink 3",
+	recipe = {"ethereal:coral4",},
 })
 
 -- Undersea Sand
@@ -121,12 +117,12 @@ minetest.register_abm({
 
 			while minetest.get_node(pos).name == "ethereal:seaweed"
 			or minetest.get_node(pos).name == "ethereal:sandy"
-			and height < 10 do
-				height = height+1
-				pos.y = pos.y+1
+			and height < 14 do
+				height = height + 1
+				pos.y = pos.y + 1
 			end
 
-			if height < 10 and pos.y < 0 then
+			if height < 14 and pos.y < 0 then
 				if minetest.get_node(pos).name == "default:water_source" then
 					minetest.set_node(pos, {name="ethereal:seaweed"})
 --					print ("GOING UP")
@@ -136,6 +132,7 @@ minetest.register_abm({
 		else
 
 			pos.y = pos.y + 1
+
 			if minetest.get_node(pos).name == "default:water_source" then
 				minetest.set_node(pos, {name="ethereal:coral"..sel})
 --				print ("CORAL ", sel)

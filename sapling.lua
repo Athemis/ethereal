@@ -7,10 +7,11 @@ ethereal.register_sapling = function( sapling_node_name, sapling_descr, sapling_
 			description = sapling_descr,
 			drawtype = "plantlike",
 			visual_scale = 1.0,
-			tiles = { sapling_texture},
+			tiles = {sapling_texture},
 			inventory_image = sapling_texture,
 			wield_image = sapling_texture,
 			paramtype = "light",
+			sunlight_propagates = true,
 			walkable = false,
 			selection_box = {type = "fixed",fixed = {-0.5, -0.5, -0.5, 0.5, -5/16, 0.5},},
 			groups = {snappy=2,dig_immediate=3,flammable=2,ethereal_sapling=1,attached_node=1},
@@ -33,67 +34,52 @@ ethereal.register_sapling( "ethereal:gray_tree_sapling", "Gray Sapling", "ethere
 ethereal.register_sapling( "ethereal:mushroom_sapling", "Mushroom Sapling", "ethereal_mushroom_sapling.png" );
 ethereal.register_sapling( "ethereal:palm_sapling", "Palm Sapling", "moretrees_palm_sapling.png" );
 ethereal.register_sapling( "ethereal:redwood_sapling", "Redwood Sapling", "redwood_sapling.png" );
+ethereal.register_sapling( "ethereal:orange_tree_sapling", "Orange Tree Sapling", "orange_tree_sapling.png" );
 
--- Find centre position for Tree to grow
-ethereal.centre_place = function(pos, center_offset, schematic_size, schem_name)
-	-- Calculate Tree"s centre position (to grow where sapling was)
-	-- an offset depending on rotation; rotation thus can"t be "random"
-	local rotation = tostring( (math.random( 4 )-1) * 90);
-	local p = {x=pos.x, y=pos.y, z=pos.z};
-	if(     rotation=="0" ) then
-		p.x = pos.x - center_offset.x;
-		p.z = pos.z - center_offset.z;
-	elseif( rotation=="90" ) then
-		p.x = pos.x - center_offset.z;
-		p.z = pos.z - ( schematic_size.x - center_offset.x - 1);
-	elseif( rotation=="180" ) then
-		p.x = pos.x - ( schematic_size.x - center_offset.x - 1);
-		p.z = pos.z - ( schematic_size.z - center_offset.z - 1);
-	elseif( rotation=="270" ) then
-		p.x = pos.x - ( schematic_size.z - center_offset.z - 1);
-		p.z = pos.z - center_offset.x;
-	end
-
+ethereal.place_tree = function (pos, ofx, ofz, schem)
 	-- Remove Sapling and Place Tree Schematic
 	minetest.env:set_node(pos, {name="air"})
-	minetest.place_schematic(p, minetest.get_modpath("ethereal").."/schematics/"..schem_name..".mts", rotation, {}, false );
-
+	pos.x = pos.x - ofx
+	pos.z = pos.z - ofz
+	minetest.place_schematic(pos, minetest.get_modpath("ethereal").."/schematics/"..schem..".mts", "random", {}, false );
 end
 
 -- Grow saplings
 minetest.register_abm({
-	nodenames = { "group:ethereal_sapling" },
+	nodenames = {"group:ethereal_sapling"},
 	interval = 20,
 	chance = 25,
 	action = function(pos, node)
 
-		local node_under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
+		local under =  minetest.get_node({x=pos.x, y=pos.y-1, z=pos.z}).name;
 
 		-- Check if Sapling is growing on correct substrate
-		if (node.name == "ethereal:yellow_tree_sapling" and node_under == "default:dirt_with_snow") then
-			ethereal.centre_place ( pos, {x=4,y=0,z=4}, {x=9,y=19,z=9}, "yellowtree"); return
-		elseif (node.name == "ethereal:tree_sapling" and node_under == "ethereal:green_dirt") then
-			ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=5,y=7,z=5}, "tree"); return
-		elseif (node.name == "ethereal:jungle_tree_sapling" and node_under == "ethereal:jungle_dirt") then
-			ethereal.centre_place ( pos, {x=6,y=0,z=3}, {x=13,y=19,z=7}, "jungletree"); return
-		elseif (node.name == "ethereal:pine_tree_sapling" and node_under == "ethereal:cold_dirt") then
-			ethereal.centre_place ( pos, {x=3,y=1,z=3}, {x=7,y=8,z=7}, "pinetree"); return
-		elseif (node.name == "ethereal:big_tree_sapling" and node_under == "ethereal:green_dirt") then
-			ethereal.centre_place ( pos, {x=4,y=0,z=3}, {x=9,y=8,z=9}, "bigtree"); return
-		elseif (node.name == "ethereal:banana_tree_sapling" and node_under == "ethereal:grove_dirt") then
-			ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=7,y=8,z=7}, "bananatree"); return
-		elseif (node.name == "ethereal:frost_tree_sapling" and node_under == "ethereal:crystal_dirt") then
-			ethereal.centre_place ( pos, {x=3,y=0,z=3}, {x=8,y=20,z=8}, "frosttrees"); return
-		elseif (node.name == "ethereal:gray_tree_sapling" and node_under == "ethereal:gray_dirt") then
-			ethereal.centre_place ( pos, {x=2,y=0,z=2}, {x=5,y=8,z=5}, "graytrees"); return
-		elseif (node.name == "ethereal:mushroom_sapling" and node_under == "ethereal:mushroom_dirt") then
-			ethereal.centre_place ( pos, {x=3,y=0,z=3}, {x=8,y=12,z=9}, "mushroomone"); return
-		elseif (node.name == "ethereal:palm_sapling" and node_under == "default:sand") then
-			ethereal.centre_place ( pos, {x=3,y=0,z=4}, {x=7,y=10,z=7}, "palmtree"); return
-		elseif (node.name == "ethereal:willow_sapling" and node_under == "ethereal:gray_dirt") then
-			ethereal.centre_place ( pos, {x=5,y=0,z=5}, {x=11,y=14,z=11}, "willow"); return
-		elseif (node.name == "ethereal:redwood_sapling" and node_under == "bakedclay:red") then
-			ethereal.centre_place ( pos, {x=9,y=0,z=9}, {x=18,y=43,z=18}, "redwood"); return
+		if (node.name == "ethereal:yellow_tree_sapling" and under == "default:dirt_with_snow") then
+			ethereal.place_tree(pos, 4, 4, "yellowtree")
+		elseif (node.name == "ethereal:tree_sapling" and under == "ethereal:green_dirt") then
+			ethereal.place_tree(pos, 2, 2, "tree")
+		elseif (node.name == "ethereal:jungle_tree_sapling" and under == "ethereal:jungle_dirt") then
+			ethereal.place_tree(pos, 6, 6, "jungletree")
+		elseif (node.name == "ethereal:pine_tree_sapling" and under == "ethereal:cold_dirt") then
+			ethereal.place_tree(pos, 3, 3, "pinetree")
+		elseif (node.name == "ethereal:big_tree_sapling" and under == "ethereal:green_dirt") then
+			ethereal.place_tree(pos, 4, 4, "bigtree")
+		elseif (node.name == "ethereal:banana_tree_sapling" and under == "ethereal:grove_dirt") then
+			ethereal.place_tree(pos, 3, 3, "bananatree")
+		elseif (node.name == "ethereal:frost_tree_sapling" and under == "ethereal:crystal_dirt") then
+			ethereal.place_tree(pos, 4, 4, "frosttrees")
+		elseif (node.name == "ethereal:gray_tree_sapling" and under == "ethereal:gray_dirt") then
+			ethereal.place_tree(pos, 2, 2, "graytrees")
+		elseif (node.name == "ethereal:mushroom_sapling" and under == "ethereal:mushroom_dirt") then
+			ethereal.place_tree(pos, 4, 4, "mushroomone")
+		elseif (node.name == "ethereal:palm_sapling" and under == "default:sand") then
+			ethereal.place_tree(pos, 4, 4, "palmtree")
+		elseif (node.name == "ethereal:willow_sapling" and under == "ethereal:gray_dirt") then
+			ethereal.place_tree(pos, 5, 5, "willow")
+		elseif (node.name == "ethereal:redwood_sapling" and under == "bakedclay:red") then
+			ethereal.place_tree(pos, 9, 9, "redwood")
+		elseif (node.name == "ethereal:orange_tree_sapling" and under == "ethereal:prairie_dirt") then
+			ethereal.place_tree(pos, 1, 1, "orangetree")
 		end
 
 	end,

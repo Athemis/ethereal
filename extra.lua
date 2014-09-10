@@ -1,24 +1,23 @@
 -- Paper Wall
 minetest.register_node("ethereal:paper_wall", {
 	drawtype = "nodebox",
-        description = ("Paper Wall"),
-        tiles = {"paper_wall.png",},
-        paramtype = "light",
-        is_ground_content = true,
-        groups = {snappy=3},
-        sounds = default.node_sound_wood_defaults(),
+	description = ("Paper Wall"),
+	tiles = {"paper_wall.png",},
+	paramtype = "light",
+	groups = {snappy=3},
+	sounds = default.node_sound_wood_defaults(),
 	walkable = true,
 	paramtype2 = "facedir",
-        selection_box = {
-                type = "fixed",
-                fixed = { -0.5, -0.5, 5/11, 0.5, 0.5, 8/16 }
-        },
-        node_box = {
-                type = "fixed",
+	selection_box = {
+		type = "fixed",
+		fixed = { -0.5, -0.5, 5/11, 0.5, 0.5, 8/16 }
+	},
+	node_box = {
+		type = "fixed",
 		fixed = {
 			{ -0.5, -0.5, 5/11, 0.5, 0.5, 8/16 }
 		}
-        },
+	},
 })
 
 minetest.register_craft({
@@ -34,8 +33,7 @@ minetest.register_craft({
 minetest.register_node("ethereal:glostone", {
 	description = "Glo Stone",
 	tiles = {"glostone.png"},
-	is_ground_content = true,
-	groups = {cracky=3, stone=1},
+	groups = {cracky=3},
 	light_source = LIGHT_MAX - 1,
 	drop = "ethereal:glostone",
 	sounds = default.node_sound_stone_defaults(),
@@ -84,9 +82,16 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "ethereal:charcoal_lump 4",
+	type = "cooking",
+	recipe = "group:tree",
+	cooktime = 4
+})
+
+minetest.register_craft({
 	type = "fuel",
 	recipe = "ethereal:charcoal_lump",
-	burntime = 20,
+	burntime = 10,
 })
 
 -- Make Torch from Charcoal Lump
@@ -108,6 +113,13 @@ minetest.register_node("ethereal:obsidian_brick", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_craft({
+	output = 'ethereal:obsidian_brick 2',
+	recipe = {
+		{'default:obsidian', 'default:obsidian'},
+		{'default:obsidian', 'default:obsidian'},
+	}
+})
 
 -- Quicksand
 minetest.register_node("ethereal:quicksand", {

@@ -136,20 +136,20 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "quicksand",
-	node_top = "ethereal:quicksand",			depth_top = 3,
-	node_filler = "default:gravel",				depth_filler = 1,
-	height_min = 1,								height_max = 1,
-	heat_point = 50,							humidity_point = 38,
+	name			= "quicksand",
+	node_top		= "ethereal:quicksand",		depth_top = 3,
+	node_filler		= "default:gravel",			depth_filler = 1,
+	height_min		= 1,						height_max = 1,
+	heat_point		= 50,						humidity_point = 38,
 })
 
 minetest.register_biome({
-	name = "lake",
-	node_top = "default:sand",					depth_top = 2,
-	node_filler = "default:gravel",				depth_filler = 1,
-	node_water = "default:water_source",		node_dust_water= "default:water_source",
-	height_min = -31000,						height_max = 3,
-	heat_point = 50,							humidity_point = 40,
+	name			= "lake",
+	node_top		= "default:sand",			depth_top = 2,
+	node_filler		= "default:gravel",			depth_filler = 1,
+	node_water		= "default:water_source",	node_dust_water= "default:water_source",
+	height_min		= -31000,					height_max = 3,
+	heat_point		= 50,						humidity_point = 40,
 })
 
 minetest.register_biome({
@@ -310,11 +310,21 @@ minetest.register_decoration({							-- Apple Tree
 
 minetest.register_decoration({
 	deco_type = "schematic",
-	place_on = {"ethereal:prairie_dirt", "ethereal:green_dirt"},
+	place_on = {"ethereal:green_dirt"},
 	sidelen = 16,
 	fill_ratio = 0.005,
-	biomes = {"prairie", "grassytwo"},
+	biomes = {"grassytwo"},
 	schematic = path.."tree.mts",
+	flags = "place_center_x, place_center_z",
+})
+
+minetest.register_decoration({							-- Orange Tree
+	deco_type = "schematic",
+	place_on = {"ethereal:prairie_dirt"},
+	sidelen = 16,
+	fill_ratio = 0.005,
+	biomes = {"prairie"},
+	schematic = path.."orangetree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -415,21 +425,21 @@ minetest.register_decoration({							-- Crystal Spike & Crystal Grass
 })
 
 minetest.register_decoration({							-- Red Shrub
-        deco_type = "simple",
-        place_on = "ethereal:fiery_dirt", 
-        sidelen = 16,
-        fill_ratio = 0.20,
-        biomes = {"fiery", "fiery2"},
-        decoration = "ethereal:dry_shrub",
+	deco_type = "simple",
+	place_on = "ethereal:fiery_dirt", 
+	sidelen = 16,
+	fill_ratio = 0.20,
+	biomes = {"fiery", "fiery2"},
+	decoration = "ethereal:dry_shrub",
 })
 
 minetest.register_decoration({							-- Snowy Grass
-        deco_type = "simple",
-        place_on = {"ethereal:gray_dirt", "ethereal:cold_dirt"},
-        sidelen = 16,
-        fill_ratio = 0.05,
-        biomes = {"grayness", "snowy"},
-        decoration = "ethereal:snowygrass",
+	deco_type = "simple",
+	place_on = {"ethereal:gray_dirt", "ethereal:cold_dirt"},
+	sidelen = 16,
+	fill_ratio = 0.05,
+	biomes = {"grayness", "snowy"},
+	decoration = "ethereal:snowygrass",
 })
 
 minetest.register_decoration({							-- Cactus
@@ -547,13 +557,13 @@ minetest.register_decoration({						-- Potato
 	decoration = "farming:potato_3",
 })
 
-minetest.register_decoration({						-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee
+minetest.register_decoration({						-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee, Raspberry
 	deco_type = "simple",
 	place_on = {"ethereal:green_dirt", "ethereal:prairie_dirt"},
 	sidelen = 16,
 	fill_ratio = 0.05,
 	biomes = {"grassy", "grassytwo", "prairie", "jumble"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5"},
+	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5", "farming:raspberry_4"},
 })
 
 minetest.register_decoration({						-- Melon, Pumpkin

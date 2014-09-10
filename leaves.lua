@@ -17,7 +17,7 @@ minetest.register_node("ethereal:willow_twig", {
 	walkable = false,
 	visual_scale = 1.2,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -32,13 +32,13 @@ minetest.register_node("ethereal:willow_twig", {
 minetest.register_node("ethereal:redwood_leaves", {
 	description = "Redwood Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"redwood_leaves.png"},
 	inventory_image = "redwood_leaves.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -53,13 +53,13 @@ minetest.register_node("ethereal:redwood_leaves", {
 minetest.register_node(":default:leaves", {
 	description = "Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"default_leaves.png"},
 	inventory_image = "default_leaves.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -70,17 +70,38 @@ minetest.register_node(":default:leaves", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
+-- Default Orange Tree Leaves
+minetest.register_node("ethereal:orange_leaves", {
+	description = "Orange Leaves",
+	drawtype = leaftype,
+	visual_scale = 1.2,
+	tiles = {"orange_leaves.png"},
+	inventory_image = "orange_leaves.png",
+	paramtype = "light",
+	walkable = false,
+	waving = 1,
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
+	drop = {
+		max_items = 1,
+		items = {
+			{	items = {"ethereal:orange_tree_sapling"}, rarity = 20},
+			{	items = {"ethereal:orange_leaves"}}
+		}
+	},
+	sounds = default.node_sound_leaves_defaults(),
+})
+
 -- Default Jungle Tree Leaves
 minetest.register_node(":default:jungleleaves", {
 	description = "Jungle Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"default_jungleleaves.png"},
 	inventory_image = "default_jungleleaves.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -95,13 +116,13 @@ minetest.register_node(":default:jungleleaves", {
 minetest.register_node("ethereal:bananaleaves", {
 	description = "Banana Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"banana_leaf.png"},
 	inventory_image = "banana_leaf.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -116,7 +137,7 @@ minetest.register_node("ethereal:bananaleaves", {
 minetest.register_node("ethereal:yellowleaves", {
 	description = "Healing Tree Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"yellow_leaves.png"},
 	inventory_image = "yellow_leaves.png",
 	paramtype = "light",
@@ -140,13 +161,13 @@ minetest.register_node("ethereal:yellowleaves", {
 minetest.register_node("ethereal:palmleaves", {
 	description = "Palm Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"moretrees_palm_leaves.png"},
 	inventory_image = "moretrees_palm_leaves.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -161,13 +182,13 @@ minetest.register_node("ethereal:palmleaves", {
 minetest.register_node("ethereal:pineleaves", {
 	description = "Pine Needles",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"pine_leaves.png"},
 	inventory_image = "pine_leaves.png",
 	paramtype = "light",
 	walkable = false,
 	waving = 1,
-	groups = {snappy=3, leafdecay=3, leaves=1},
+	groups = {snappy=3, leafdecay=3, leaves=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {
@@ -183,7 +204,7 @@ minetest.register_node("ethereal:pineleaves", {
 minetest.register_node("ethereal:frost_leaves", {
 	description = "Frost Leaves",
 	drawtype = leaftype,
-	visual_scale = 1.1,
+	visual_scale = 1.2,
 	tiles = {"ethereal_frost_leaves.png"},
 	inventory_image = "ethereal_frost_leaves.png",
 	paramtype = "light",
@@ -205,7 +226,7 @@ minetest.register_node("ethereal:frost_leaves", {
 minetest.register_node("ethereal:mushroom", {
 	description = "Mushroom Cap",
 	tiles = {"mushroom_block.png"},
-	groups = {tree=1,choppy=2,oddly_breakable_by_hand=1},
+	groups = {choppy=2, oddly_breakable_by_hand=1, flammable=2},
 	drop = {
 		max_items = 1,
 		items = {

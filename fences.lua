@@ -30,7 +30,7 @@ minetest.register_node("ethereal:fence_"..name, {
 		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
 	},
 	groups = {snappy = 2, choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
-	sounds = default.node_sound_dirt_defaults(),
+	sounds = default.node_sound_wood_defaults(),
 })
 
 minetest.register_craft({

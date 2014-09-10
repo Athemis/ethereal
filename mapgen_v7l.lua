@@ -227,13 +227,13 @@ minetest.register_decoration({					-- Apple Tree
 	flags = "place_center_x, place_center_z",
 })
 
-minetest.register_decoration({					-- Apple Tree (prairie)
+minetest.register_decoration({					-- Orange Tree
 	deco_type = "schematic",
 	place_on = {"ethereal:prairie_dirt"},
 	sidelen = 80,
 	fill_ratio = 0.005,
 	biomes = {"prairie"},
-	schematic = path.."tree.mts",
+	schematic = path.."orangetree.mts",
 	flags = "place_center_x, place_center_z",
 })
 
@@ -527,13 +527,13 @@ minetest.register_decoration({					-- Potato
 	decoration = "farming:potato_3",
 })
 
-minetest.register_decoration({					-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee
+minetest.register_decoration({					-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee, Raspberry
 	deco_type = "simple",
 	place_on = {"ethereal:green_dirt", "ethereal:prairie_dirt"},
 	sidelen = 80,
 	fill_ratio = 0.05,
 	biomes = {"grass", "prairie"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5"},
+	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5", "farming:raspberry_4"},
 })
 
 minetest.register_decoration({					-- Melon, Pumpkin
