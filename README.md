@@ -14,9 +14,17 @@ Original thread can be found here: https://forum.minetest.net/viewtopic.php?pid=
 
 *Tell me if I forgot to mention someone.
 
-*Note: I only **update** this repo!*
+*Note: I only* **update** *this repo!*
 
 ###Changes:
+*1.09*
+
+    Fixed Quicksand bug where player see's only black when sinking instead of yellow effect, note this will only work on new maps or newly generated areas of map containing quicksand
+    
+    Hot nodes will melt ice and snow in a better way
+    
+    Few spelling errors sorted for sapling and wood names
+    
 *1.08*
 
     Saplings produce better placed tree's when grown, routines have been redone

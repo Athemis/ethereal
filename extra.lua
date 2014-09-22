@@ -121,15 +121,40 @@ minetest.register_craft({
 	}
 })
 
--- Quicksand
+-- Quicksand (old style, sinking inside shows black instead of yellow effect,
+-- works ok with noclip enabled though)
 minetest.register_node("ethereal:quicksand", {
 	description = "Quicksand",
 	tiles = {"default_sand.png"},
+	--drawtype = "glasslike",
+	--paramtype = "light",
 	drop = "default:sand",
 	liquid_viscosity = 15,
 	liquidtype = "source",
 	liquid_alternative_flowing = "ethereal:quicksand",
 	liquid_alternative_source = "ethereal:quicksand",
+	liquid_renewable = false,
+	liquid_range = 0,
+	drowning = 1,
+	walkable = false,
+	climbable = false,
+	post_effect_color = { r=230, g=210, b=160, a=245 },
+	groups = {crumbly=3, falling_node=1, sand=1, liquid=3, disable_jump=1},
+	sounds = default.node_sound_sand_defaults(),
+})
+
+-- Quicksand (new style, sinking inside shows yellow effect with or without noclip,
+-- but old quicksand is shown as black until block placed nearby to update light)
+minetest.register_node("ethereal:quicksand2", {
+	description = "Quicksand",
+	tiles = {"default_sand.png"},
+	drawtype = "glasslike",
+	paramtype = "light",
+	drop = "default:sand",
+	liquid_viscosity = 15,
+	liquidtype = "source",
+	liquid_alternative_flowing = "ethereal:quicksand2",
+	liquid_alternative_source = "ethereal:quicksand2",
 	liquid_renewable = false,
 	liquid_range = 0,
 	drowning = 1,

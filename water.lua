@@ -26,14 +26,20 @@ minetest.register_abm({
 	end,
 })
 
--- If Heat Source near Ice, melt into Water Source
+-- If Heat Source near Ice or Snow then melt
 minetest.register_abm({
-	nodenames = {"default:ice"},
+	nodenames = {"default:ice", "default:snowblock", "default:snow", "default:dirt_with_snow"},
 	neighbors = {"group:hot"},
 	interval = 10,
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		minetest.add_node(pos,{name="default:water_source"})
+		if node.name == "default:ice" or node.name == "default:snowblock" then
+			minetest.add_node(pos,{name="default:water_source"})
+		elseif node.name == "default:snow" then
+			minetest.add_node(pos,{name="default:water_flowing"})
+		elseif node.name == "default:dirt_with_snow" then
+			minetest.add_node(pos,{name="default:dirt_with_grass"})
+		end
 		nodeupdate(pos)
 	end,
 })

@@ -23,7 +23,7 @@ end
 
 -- Register Saplings
 ethereal.register_sapling( "ethereal:willow_sapling", "Willow Sapling", "willow_sapling.png" );
-ethereal.register_sapling( "ethereal:yellow_tree_sapling", "Yellow Tree Sapling", "yellow_tree_sapling.png" );
+ethereal.register_sapling( "ethereal:yellow_tree_sapling", "Healing Tree Sapling", "yellow_tree_sapling.png" );
 ethereal.register_sapling( "ethereal:tree_sapling", "Tree Sapling", "ethereal_tree_sapling.png" );
 ethereal.register_sapling( "ethereal:jungle_tree_sapling","Jungletree Sapling", "ethereal_jungle_tree_sapling.png" );
 ethereal.register_sapling( "ethereal:pine_tree_sapling", "Pine Sapling", "ethereal_pine_tree_sapling.png" );

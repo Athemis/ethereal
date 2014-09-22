@@ -137,7 +137,7 @@ minetest.register_biome({
 
 minetest.register_biome({
 	name			= "quicksand",
-	node_top		= "ethereal:quicksand",		depth_top = 3,
+	node_top		= "ethereal:quicksand2",		depth_top = 3,
 	node_filler		= "default:gravel",			depth_filler = 1,
 	height_min		= 1,						height_max = 1,
 	heat_point		= 50,						humidity_point = 38,
@@ -557,13 +557,13 @@ minetest.register_decoration({						-- Potato
 	decoration = "farming:potato_3",
 })
 
-minetest.register_decoration({						-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee, Raspberry
+minetest.register_decoration({						-- Carrot, Cucumber, Potato, Tomato, Corn, Coffee, Raspberry, Rhubarb
 	deco_type = "simple",
 	place_on = {"ethereal:green_dirt", "ethereal:prairie_dirt"},
 	sidelen = 16,
 	fill_ratio = 0.05,
 	biomes = {"grassy", "grassytwo", "prairie", "jumble"},
-	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5", "farming:raspberry_4"},
+	decoration = {"farming:carrot_7", "farming:cucumber_4", "farming:potato_3", "farming:tomato_7", "farming:corn_8", "farming:coffee_5", "farming:raspberry_4", "farming:rhubarb_3"},
 })
 
 minetest.register_decoration({						-- Melon, Pumpkin
