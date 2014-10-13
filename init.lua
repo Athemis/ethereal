@@ -9,8 +9,8 @@
 ]]
 
 ethereal = {}
-ethereal.mapstyle = 0 -- 0 for spread-style, 1 for layered-style
-ethereal.leaftype = 0 -- 0 for 2D plantlike, 1 for 3D allfaces
+ethereal.mapstyle = 1 -- 0 for spread-style, 1 for layered-style
+ethereal.leaftype = 1 -- 0 for 2D plantlike, 1 for 3D allfaces
 
 if ethereal.mapstyle == 0 then
 	dofile(minetest.get_modpath("ethereal").."/mapgen_v7s.lua")
@@ -35,6 +35,3 @@ dofile(minetest.get_modpath("ethereal").."/extra.lua")
 dofile(minetest.get_modpath("ethereal").."/sealife.lua")
 dofile(minetest.get_modpath("ethereal").."/fences.lua")
 dofile(minetest.get_modpath("ethereal").."/gates.lua")
-
--- Xanadu server Only
-dofile(minetest.get_modpath("ethereal").."/plantpack.lua")
